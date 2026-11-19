@@ -1,115 +1,224 @@
 ---
 ---
 
-@string{aps = {American Physical Society,}}
+% =============================================================================
+% Peer-reviewed publications of Geonmo Yang (양건모)
+% Source of truth: my Awesome-CV (포트폴리오/my-cv/cv/publication.tex), cross-checked
+% with the SPARO lab site data (_data/international_publications.yml).
+% Deliberately NOT listed: the IROS 2026 workshop abstract of PGSPN (I will add it
+% myself) and the DiTer paper (the lab site wrongly lists me as an author).
+% Conventions:
+%   - "*" after a last name = equal contribution (rendered as superscript)
+%   - selected = {true} -> shown under "Selected publications" on the home page
+%   - preview images live in assets/img/publication_preview/
+%   - website = official SPARO project page (not duplicated here)
+% Under-review papers -> under_review.bib, patents -> patents.bib
+% =============================================================================
 
-@book{einstein1920relativity,
-  title     = {Relativity: the Special and General Theory},
-  author    = {Einstein, Albert},
-  year      = {1920},
-  publisher = {Methuen & Co Ltd},
-  html      = {relativity.html}
-}
+% ----------------------------------------------------------------------------
+% 2026  (within a year, entries render in file order: my first-author work first)
+% ----------------------------------------------------------------------------
 
-@book{einstein1956investigations,
+@article{kim2026skidslam,
+  abbr        = {T-FR},
+  title       = {SKiD-SLAM: Resource-Aware Distributed Multi-Robot LiDAR SLAM for Planetary Missions with Field Deployments at Analog Sites},
+  author      = {Kim, Hogyun and Kim, Juwon and Cho, Dongjin and Choi, Jiwon and Yang, Geonmo and Jeong, Seokhwan and Lee, Jiyun and Park, Miryeong and Lim, Hyungtae and Cho, Younggun},
+  journal     = {IEEE Transactions on Field Robotics},
+  year        = {2026},
+  html        = {https://ieeexplore.ieee.org/document/11644760},
+  arxiv       = {2505.08230},
+  code        = {https://github.com/sparolab/SKiD-SLAM},
+  website     = {https://sparolab.github.io/research/skid_slam/},
+  preview     = {skid_slam_tfr.gif},
   bibtex_show = {true},
-  title       = {Investigations on the Theory of the Brownian Movement},
-  author      = {Einstein, Albert},
-  year        = {1956},
-  publisher   = {Courier Corporation},
-  preview     = {brownian-motion.gif}
+  selected    = {true}
 }
 
-@article{einstein1950meaning,
-  abbr        = {AJP},
+@article{kim2026commerge,
+  abbr        = {IJRR},
+  title       = {Commerge: Communication-Efficient, Robust, and Fast LiDAR Map Merging Framework for Multi-Robot Coordination in Resource-Constrained Scenarios},
+  author      = {Kim, Hogyun and Choi, Jiwon and Kim, Juwon and Yang, Geonmo and Jeong, Seokhwan and Lim, Hyungtae and Cho, Younggun},
+  journal     = {The International Journal of Robotics Research},
+  year        = {2026},
+  arxiv       = {2606.25386},
+  code        = {https://github.com/sparolab/Commerge},
+  website     = {https://sparolab.github.io/research/commerge/},
+  video       = {https://www.youtube-nocookie.com/embed/LV_8_jZbHV8},
+  preview     = {commerge.gif},
   bibtex_show = {true},
-  title       = {The meaning of relativity},
-  author      = {Einstein, Albert and Taub, AH},
-  journal     = {American Journal of Physics},
-  volume      = {18},
-  number      = {6},
-  pages       = {403--404},
-  year        = {1950},
-  publisher   = {American Association of Physics Teachers}
+  selected    = {true}
 }
 
-@article{PhysRev.47.777,
-  abbr              = {PhysRev},
-  title             = {Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
-  author            = {Einstein*†, A. and Podolsky*, B. and Rosen*, N.},
-  abstract          = {In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.},
-  journal           = {Phys. Rev.},
-  location          = {New Jersey},
-  volume            = {47},
-  issue             = {10},
-  pages             = {777--780},
-  numpages          = {0},
-  year              = {1935},
-  month             = {May},
-  publisher         = aps,
-  doi               = {10.1103/PhysRev.47.777},
-  url               = {https://link.aps.org/doi/10.1103/PhysRev.47.777},
-  html              = {https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777},
-  pdf               = {example_pdf.pdf},
-  altmetric         = {248277},
-  dimensions        = {true},
-  google_scholar_id = {qyhmnyLat1gC},
-  video             = {https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ},
-  additional_info   = {. *More Information* can be [found here](https://github.com/alshedivat/al-folio/)},
-  annotation        = {* Example use of superscripts<br>† Albert Einstein},
-  selected          = {true},
-  inspirehep_id     = {3255}
+@inproceedings{choi2026kissimu,
+  abbr        = {ICRA},
+  title       = {KISS-IMU: Self-supervised Inertial Odometry with Motion-balanced Learning and Uncertainty-aware Inference},
+  author      = {Choi, Jiwon and Kim, Hogyun and Yang, Geonmo and Lee, Juhui and Cho, Younggun},
+  booktitle   = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year        = {2026},
+  arxiv       = {2603.06205},
+  code        = {https://github.com/sparolab/KISS-IMU},
+  website     = {https://sparolab.github.io/research/kiss_imu/},
+  video       = {https://www.youtube-nocookie.com/embed/cjAFROi-jG0},
+  preview     = {kiss_imu.png},
+  award       = {**Award finalist** at ICRA 2026 — Outstanding WiRA Student Paper Award & Best Paper Award on Robot Perception.},
+  award_name  = {Award Finalist},
+  bibtex_show = {true}
 }
 
-@article{einstein1905molekularkinetischen,
-  title     = {{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
-  author    = {Einstein, A.},
-  journal   = {Annalen der physik},
-  volume    = {322},
-  number    = {8},
-  pages     = {549--560},
-  year      = {1905},
-  publisher = {Wiley Online Library}
+@inproceedings{cho2026gsat,
+  abbr        = {ICRA},
+  title       = {GSAT: Geometric Traversability Estimation using Self-supervised Learning with Anomaly Detection for Diverse Terrains},
+  author      = {Cho, Dongjin and Park, Miryeong and Lee, Juhui and Yang, Geonmo and Cho, Younggun},
+  booktitle   = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year        = {2026},
+  arxiv       = {2603.07480},
+  code        = {https://github.com/sparolab/GSAT_Traversability},
+  website     = {https://sparolab.github.io/research/gsat/},
+  video       = {https://www.youtube-nocookie.com/embed/1ULi2VL8g1o},
+  preview     = {gsat.png},
+  bibtex_show = {true}
 }
 
-@article{einstein1905movement,
-  abbr    = {Ann. Phys.},
-  title   = {Un the movement of small particles suspended in statiunary liquids required by the molecular-kinetic theory 0f heat},
-  author  = {Einstein, A.},
-  journal = {Ann. Phys.},
-  volume  = {17},
-  pages   = {549--560},
-  year    = {1905}
+% The "marine-snow" project: its earlier Geonmo-first draft ("Realistic Synthetic
+% Underwater Dataset Generation with Marine Snow ...") became this co-first paper.
+@article{yun2026underwatermonitoring,
+  abbr        = {JICROS},
+  title       = {Robust Image Processing Techniques for Construction Environment Monitoring Using Underwater Robots},
+  author      = {Yun*, Seunghee and Yang*, Geonmo and Lee, Juhui and Park, Changbeom and Choi, Jeahyung and Cho, Younggun},
+  journal     = {Journal of Institute of Control, Robotics and Systems},
+  year        = {2026},
+  note        = {In Korean: 수중 로봇 기반 건설환경 모니터링을 위한 강건한 영상처리 기법. Marine-snow-aware underwater image processing; industry collaboration with Hyundai E&C.},
+  annotation  = {* Equal contribution},
+  bibtex_show = {true}
 }
 
-@article{einstein1905electrodynamics,
-  title  = {On the electrodynamics of moving bodies},
-  author = {Einstein, A.},
-  year   = {1905}
-}
+% ----------------------------------------------------------------------------
+% 2025
+% ----------------------------------------------------------------------------
 
-@article{einstein1905photoelectriceffect,
+@article{lee2025staticnerf,
+  abbr        = {RA-L},
+  title       = {Freeze-Frame with StaticNeRF: Uncertainty-Guided NeRF Map Reconstruction in Dynamic Scenes},
+  author      = {Lee, Juhui and Yang, Geonmo and Ma, Seungjun and Cho, Younggun},
+  journal     = {IEEE Robotics and Automation Letters},
+  year        = {2025},
+  html        = {https://ieeexplore.ieee.org/document/11242041},
+  website     = {https://sparolab.github.io/research/staticnerf/},
+  video       = {https://www.youtube-nocookie.com/embed/Ri-er40QUoU},
+  preview     = {staticnerf.jpg},
   bibtex_show = {true},
-  abbr        = {Ann. Phys.},
-  title       = {{{\"U}ber einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt}},
-  author      = {Albert Einstein},
-  abstract    = {This is the abstract text.},
-  journal     = {Ann. Phys.},
-  volume      = {322},
-  number      = {6},
-  pages       = {132--148},
-  year        = {1905},
-  doi         = {10.1002/andp.19053220607},
-  award       = {Albert Einstein receveid the **Nobel Prize in Physics** 1921 *for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect*},
-  award_name  = {Nobel Prize}
+  selected    = {true}
 }
 
-@book{przibram1967letters,
+@inproceedings{kim2025rallo,
+  abbr        = {ICCAS},
+  title       = {RA-LLO: Robust Adaptive Legged-LiDAR Odometry with Gaussian Process Motion Prior over Error States},
+  author      = {Kim, Juwon and Lee, Jungwoo and Yang, Geonmo and Cho, Younggun},
+  booktitle   = {International Conference on Control, Automation and Systems (ICCAS)},
+  year        = {2025},
+  bibtex_show = {true}
+}
+
+@inproceedings{kim2025skidslam_ws,
+  abbr        = {ICRA-W},
+  title       = {SKiD-SLAM: Robust, Lightweight, and Distributed Multi-Robot LiDAR SLAM in Resource-Constrained Field Environments},
+  author      = {Kim, Hogyun and Choi, Jiwon and Kim, Juwon and Yang, Geonmo and Cho, Dongjin and Lim, Hyungtae and Cho, Younggun},
+  booktitle   = {IEEE ICRA Workshop on Field Robotics},
+  year        = {2025},
+  arxiv       = {2505.08230},
+  code        = {https://github.com/sparolab/SKiD-SLAM},
+  website     = {https://sparolab.github.io/research/skid_slam_w/},
+  preview     = {skid_slam_ws.gif},
+  note        = {Spotlight presentation.},
+  bibtex_show = {true}
+}
+
+@inproceedings{choi2025polaris,
+  abbr        = {ICRA},
+  title       = {PoLaRIS Dataset: A Maritime Object Detection and Tracking Dataset in Pohang Canal},
+  author      = {Choi*, Jiwon and Cho*, Dongjin and Lee, Gihyeon and Kim, Hogyun and Yang, Geonmo and Kim, Joowan and Cho, Younggun},
+  booktitle   = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year        = {2025},
+  html        = {https://ieeexplore.ieee.org/document/11128583},
+  arxiv       = {2412.06192},
+  code        = {https://github.com/sparolab/PoLaRIS},
+  website     = {https://sparolab.github.io/research/polaris/},
+  video       = {https://www.youtube-nocookie.com/embed/26BinQIRc78},
+  preview     = {polaris.gif},
+  annotation  = {* Equal contribution},
+  bibtex_show = {true}
+}
+
+@inproceedings{choi2025imlslam,
+  abbr        = {KITS},
+  title       = {IML-SLAM: A LiDAR-Inertial SLAM System Considering Vehicle Driving Motion},
+  author      = {Choi, Jiwon and Kim, Hogyun and Yang, Geonmo and Cho, Younggun},
+  booktitle   = {Spring Conference of the Korean Society of Intelligent Transport Systems (KITS)},
+  year        = {2025},
+  month       = {apr},
+  note        = {In Korean: IML-SLAM: 주행 차량 모션을 고려한 LiDAR-Inertial SLAM 시스템.},
+  award       = {**Excellent Research Award** (우수논문상), 2025 KITS Spring Conference.},
+  award_name  = {Excellent Research Award},
+  bibtex_show = {true}
+}
+
+% ----------------------------------------------------------------------------
+% 2024
+% ----------------------------------------------------------------------------
+
+@article{yang2024trident,
+  abbr        = {IEEE SJ},
+  title       = {TRIDENT: Efficient Triple-Task Learning of Dehazing, Depth, and Uncertainty Estimation for Underwater 3D Robot Visual Perception},
+  author      = {Yang, Geonmo and Cho, Younggun},
+  journal     = {IEEE Sensors Journal},
+  year        = {2024},
+  html        = {https://ieeexplore.ieee.org/document/10745206},
+  code        = {https://github.com/sparolab/TRIDENT},
+  website     = {https://sparolab.github.io/research/trident/},
+  video       = {https://www.youtube-nocookie.com/embed/EU_o8CCR71U},
+  preview     = {trident.gif},
   bibtex_show = {true},
-  title       = {Letters on wave mechanics},
-  author      = {Einstein, Albert and Schrödinger, Erwin and Planck, Max and Lorentz, Hendrik Antoon and Przibram, Karl},
-  year        = {1967},
-  publisher   = {Vision},
-  preview     = {wave-mechanics.gif},
-  abbr        = {Vision}
+  selected    = {true}
+}
+
+@inproceedings{lee2024staticnerf_ws,
+  abbr        = {ICRA-W},
+  title       = {StaticNeRF: Neural Implicit Static Mapping and Localization in Dynamic Environments},
+  author      = {Lee, Juhui and Ma, Seungjun and Yang, Geonmo and Cho, Younggun},
+  booktitle   = {IEEE ICRA Workshop},
+  year        = {2024},
+  note        = {Spotlight presentation.},
+  bibtex_show = {true}
+}
+
+% ----------------------------------------------------------------------------
+% 2023
+% ----------------------------------------------------------------------------
+
+@article{yang2023jointid,
+  abbr        = {IEEE SJ},
+  title       = {Joint-ID: Transformer-Based Joint Image Enhancement and Depth Estimation for Underwater Environments},
+  author      = {Yang, Geonmo and Kang, Gilhwan and Lee, Juhui and Cho, Younggun},
+  journal     = {IEEE Sensors Journal},
+  year        = {2023},
+  html        = {https://ieeexplore.ieee.org/document/10351035},
+  code        = {https://github.com/sparolab/Joint_ID},
+  website     = {https://sparolab.github.io/research/joint_id/},
+  video       = {https://www.youtube-nocookie.com/embed/1GOoHCSpNXE},
+  preview     = {joint_id.png},
+  bibtex_show = {true},
+  selected    = {true}
+}
+
+@article{yang2023sparsedepth,
+  abbr        = {Sensors},
+  title       = {Sparse Depth-Guided Image Enhancement Using Incremental GP with Informative Point Selection},
+  author      = {Yang*, Geonmo and Lee*, Juhui and Kim, Ayoung and Cho, Younggun},
+  journal     = {Sensors (MDPI)},
+  year        = {2023},
+  html        = {https://pmc.ncbi.nlm.nih.gov/articles/PMC9920918/},
+  preview     = {mdpi_sensors.jpg},
+  annotation  = {* Equal contribution},
+  bibtex_show = {true},
+  selected    = {true}
 }

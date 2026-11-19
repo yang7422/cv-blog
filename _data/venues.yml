@@ -1,9 +1,56 @@
-"AJP":
-  url: https://aapt.scitation.org/journal/ajp
-  color: "#00369f"
+# Venue badges shown to the left of each publication (matched by the `abbr` field).
+# Colors encode the venue type so the list can be scanned at a glance:
+#   journal #1e40af · conference #047857 · workshop #b45309
+#   domestic (Korea) #6d28d9 · under review #64748b · patent #9f1239
 
-"PhysRev":
-  url: https://journals.aps.org/
+# --- International journals ---
+"IJRR":
+  url: https://journals.sagepub.com/home/ijr
+  color: "#1e40af"
 
-"Vision":
-  color: "#009f36"
+"T-FR":
+  url: https://www.ieee-ras.org/publications/t-fr/
+  color: "#1e40af"
+
+"RA-L":
+  url: https://www.ieee-ras.org/publications/ra-l/
+  color: "#1e40af"
+
+"IEEE SJ":
+  url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=7361
+  color: "#1e40af"
+
+"Sensors":
+  url: https://www.mdpi.com/journal/sensors
+  color: "#1e40af"
+
+# --- International conferences ---
+"ICRA":
+  url: https://www.ieee-ras.org/conferences-workshops/fully-sponsored/icra
+  color: "#047857"
+
+"ICCAS":
+  url: http://www.iccas.org/
+  color: "#047857"
+
+# --- Workshops ---
+"ICRA-W":
+  color: "#b45309"
+
+"IROS-W":
+  color: "#b45309"
+
+# --- Domestic (Korea) ---
+"JICROS":
+  url: https://icros.org/main/
+  color: "#6d28d9"
+
+"KITS":
+  color: "#6d28d9"
+
+# --- Other ---
+"Under Review":
+  color: "#64748b"
+
+"KR Patent":
+  color: "#9f1239"

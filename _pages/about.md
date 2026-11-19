@@ -2,14 +2,14 @@
 layout: about
 title: about
 permalink: /
-subtitle: PhD Student · SPARO (Spatial AI &amp; Robotics Lab), Inha University · Underwater &amp; Surface Robotics + Computer Vision
+subtitle: Integrated M.S.–Ph.D. Student · SPARO Lab, Inha University · Robust Perception &amp; Robust State Estimation
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: geonmo_yang.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>SPARO — Spatial AI &amp; Robotics Lab</p>
+    <p>SPARO Lab (Spatial AI &amp; Robotics)</p>
     <p>Inha University</p>
     <p>Incheon, Republic of Korea</p>
 
@@ -19,16 +19,29 @@ social: true # includes social icons at the bottom of the page
 announcements:
   enabled: true # includes a list of news items
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+  limit: 6 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
-  enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+  enabled: false # re-enable once the blog has posts
+  scrollable: true
+  limit: 3
 ---
 
-Hi, I'm **Geonmo Yang**, a PhD student in **SPARO** (Spatial AI & Robotics Lab) at Inha University.
+Hi, I'm **Geonmo Yang** (양건모), an integrated M.S.–Ph.D. student at [SPARO Lab](https://sparolab.github.io/) (Spatial AI & Robotics Lab), Inha University, advised by Prof. Younggun Cho.
 
-My research centers on **robotics and computer vision for underwater and surface (marine) environments** — perception, spatial AI, and autonomy for vehicles that operate on and below the water. That said, I try not to limit myself to a single field; I'm broadly curious about robotics, perception, and machine learning, and I enjoy chasing interesting problems wherever they lead.
+I build **robust perception** and **robust state estimation** for robots that have to keep working when sensing conditions break down — turbid water, haze, marine snow, sparse or biased depth, and environments that keep changing over time.
 
-This site is where I collect my work, project notes, and the occasional bit of writing. Feel free to reach out through any of the links below.
+**Research focus**
+
+- **Robust perception** — underwater image enhancement, depth estimation and completion, and uncertainty estimation under scattering and sparse, spatially biased measurements. _(Joint-ID, TRIDENT, PGSPN)_
+- **Robust state estimation** — LiDAR SLAM, localization, and long-term map maintenance in changing environments, from industry R&D to multi-robot field deployments. _(Time-Integrated Occupancy, SKiD-SLAM, Commerge, KISS-IMU)_
+
+**Highlights**
+
+- 3 first-author journal papers (IEEE Sensors Journal ×2, MDPI Sensors) and co-authored papers in IJRR, IEEE T-FR, RA-L, and ICRA
+- 2 registered Korean patents — underwater image enhancement & depth estimation, and sensor-fusion image dehazing
+- 2nd place out of 131 teams, IMU Odometry Challenge @ IROS 2026
+- Silver Prize, 32nd Samsung HumanTech Paper Award (2026) · Grand Prize, Graduate Research Award, Inha University (2026)
+- Research internship at Riibotics (robust LiDAR SLAM & localization) · international collaboration with Stevens Institute of Technology · industry project with Hyundai E&C
+
+🇰🇷 [한국어 소개 페이지]({{ '/ko/' | relative_url }})

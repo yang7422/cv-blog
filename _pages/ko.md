@@ -1,0 +1,56 @@
+---
+layout: about
+title: 한국어
+permalink: /ko/
+nav: true
+nav_order: 9
+subtitle: 인하대학교 SPARO 연구실 석박사 통합과정 · 강건한 인지 &amp; 강건한 상태 추정
+
+profile:
+  align: right
+  image: geonmo_yang.jpg
+  image_circular: false
+  more_info: >
+    <p>SPARO 연구실 (Spatial AI &amp; Robotics)</p>
+    <p>인하대학교 전기컴퓨터공학과</p>
+    <p>인천, 대한민국</p>
+
+selected_papers: true
+social: true
+
+announcements:
+  enabled: true
+  scrollable: true
+  limit: 6
+
+latest_posts:
+  enabled: false
+---
+
+안녕하세요, 인하대학교 [SPARO 연구실](https://sparolab.github.io/)(지도교수: 조영근)에서 석박사 통합과정 중인 **양건모**입니다.
+
+물속의 탁도·산란·마린 스노우, 듬성듬성하고 한쪽으로 치우친 깊이 측정, 시간이 지나며 바뀌는 환경처럼 **센서 조건이 나빠지는 상황에서도 로봇이 제대로 보고(강건한 인지), 자기 위치를 잃지 않도록(강건한 상태 추정)** 하는 기술을 연구합니다.
+
+**연구 분야**
+
+- **강건한 인지 (Robust Perception)** — 수중 영상 개선, 깊이 추정 및 깊이 보완(depth completion), 불확실성 추정 _(Joint-ID, TRIDENT, PGSPN)_
+- **강건한 상태 추정 (Robust State Estimation)** — LiDAR SLAM, 위치 인식, 변화하는 환경에서의 장기 지도 유지 _(Time-Integrated Occupancy, SKiD-SLAM, Commerge, KISS-IMU)_
+
+**주요 성과**
+
+- **논문** — SCIE 1저자 3편(IEEE Sensors Journal 2편, MDPI Sensors 공동 1저자), 공저 IJRR · IEEE T-FR · RA-L · ICRA 등, 국내 학술지(제어로봇시스템학회 논문지) 공동 1저자 1편
+- **특허 (등록 2건)** — 수중 영상 강건화 및 거리 정보 추정 시스템(제10-2928592호), 센서 융합을 통한 영상 디헤이징 시스템(제10-2673404호)
+- **수상** — IROS 2026 IMU Odometry Challenge 2위(131팀 중), 제32회 삼성휴먼테크 논문대상 은상(2026), 인하대학교 대학원 연구상 대상(2026) · 연구발표상 장려상(2026) · 우수연구상(2024, 학술지 게재), 한국ITS학회 춘계학술대회 우수논문상(2025), 제20회 임베디드 소프트웨어 경진대회 산학 프로젝트 부문 우수상(2022, 한국정보처리학회)
+- **경력 · 협업** — Riibotics 연구 인턴(강건한 LiDAR SLAM · 위치 인식 연구), 미국 Stevens Institute of Technology 국제 공동연구, 현대건설 산학 과제
+
+**이력 요약**
+
+- **2022.03 – 현재** · 인하대학교 전기컴퓨터공학과 석박사 통합과정 (SPARO 연구실)
+- **2024.09 – 2025.02** · Riibotics(구 TIM Robotics) 기업부설연구소 연구 인턴 — 강건한 LiDAR SLAM 및 위치 인식 연구, 모바일 로봇 자율주행 소프트웨어 개발
+
+<!-- TODO: 학부 이력(펌웨어 · 회로설계) 자료를 받으면 위 목록에 추가 -->
+<!-- Note: a markdown table here pushes the whole text block below the profile photo (min-content too wide), so keep this a list. -->
+
+전체 논문은 [publications]({{ '/publications/' | relative_url }}), 상세 이력은 [CV]({{ '/cv/' | relative_url }})(영문)에서 볼 수 있습니다.
+
+🇺🇸 [English]({{ '/' | relative_url }})

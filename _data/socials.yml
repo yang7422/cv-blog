@@ -1,17 +1,10 @@
 # this file contains the social media links and usernames of the author
 # the socials will be displayed in the order they are defined here
 # for more information, please refer to the documentation of jekyll-socials plugin: https://github.com/george-gca/jekyll-socials
-cv_pdf: /assets/pdf/example_pdf.pdf # path to your CV PDF file (replace with your own later)
+# cv_pdf: /assets/pdf/geonmo_yang_cv.pdf # TODO: enable once the CV PDF is generated
 email: ygm7422@gmail.com # your email address
+scholar_userid: kiBTkqMAAAAJ # Google Scholar ID (same profile linked from the SPARO lab page)
+orcid_id: 0009-0009-1273-9631 # ORCID iD (as printed in my JICROS manuscript)
 github_username: yang7422 # your GitHub username
 linkedin_username: geonmoyang7422 # your LinkedIn vanity name -> linkedin.com/in/<this>
-rss_icon: true # comment this line to hide the RSS icon
-# --- examples kept for reference; uncomment and set your own when ready ---
-# scholar_userid: qc6CJjYAAAAJ # your Google Scholar ID
-# inspirehep_id: 1010907 # Inspire HEP author ID
-# wechat_qr: # filename of your wechat qr-code saved as an image (e.g., wechat-qr.png if saved to assets/img/wechat-qr.png)
-# whatsapp_number: # your WhatsApp number (full phone number in international format. Omit any zeroes, brackets, or dashes when adding the phone number in international format.)
-# custom_social: # can be any name here other than the ones already defined in the jekyll-socials plugin
-#   logo: https://www.alberteinstein.com/wp-content/uploads/2024/03/cropped-favicon-192x192.png # can be png, svg, jpg
-#   title: Custom Social
-#   url: https://www.alberteinstein.com/
+# rss_icon: true # re-enable once the blog has posts

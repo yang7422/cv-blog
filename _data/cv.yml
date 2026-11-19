@@ -1,189 +1,217 @@
+# CV data (RenderCV-style YAML, rendered by al_folio_cv on /cv/).
+# Notes for future edits:
+#   - The web CV shows only the YEAR of dates, so months that matter are also in the text.
+#   - Experience is always rendered first; other sections follow the order below.
+#   - "Patents" is a generic section: entries use `bullet:`.
+#   - Source of truth: my Awesome-CV in 포트폴리오/my-cv/cv/*.tex — keep the two in sync.
+#   - Intentionally left out for now: the IROS 2026 workshop abstract of PGSPN (I will add it myself).
+#   - TODO: undergraduate education + IHLAB (firmware / circuit design) — I will send materials;
+#     my-cv/cv/education.tex and experience.tex already have the basics.
 cv:
-  name: Albert Einstein
-  label: Scientist
-  email: einstein@example.com
-  location: Princeton, NJ
-  image: ""
-  summary: A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time
+  name: Geonmo Yang (양건모)
+  label: Integrated M.S.–Ph.D. Student · Robust Perception & Robust State Estimation
+  email: ygm7422@gmail.com
+  location: Incheon, Republic of Korea
+  website: https://yang7422.github.io/cv-blog/
+  summary: >-
+    Robotics researcher building **robust perception** and **robust state estimation** for robots that must keep
+    working when sensing degrades — underwater scattering and marine snow, sparse or biased depth, and environments
+    that change over time. First author of three journal papers (IEEE Sensors Journal ×2, MDPI Sensors), co-author of
+    papers in IJRR, IEEE T-FR, RA-L, and ICRA, and co-inventor of two registered Korean patents.
 
   social_networks:
-    - network: X
-      username: AlbertEinstein
     - network: GitHub
-      username: example
+      username: yang7422
     - network: LinkedIn
-      username: example
-
-  address:
-    street: 2712 Broadway St
-    city: San Francisco
-    region: California
-    postalCode: CA 94115
-    countryCode: US
+      username: geonmoyang7422
+    - network: Google Scholar
+      username: kiBTkqMAAAAJ
+    - network: ORCID
+      username: 0009-0009-1273-9631
 
   sections:
-    Education:
-      - institution: University of Zurich
-        location: Zurich, Switzerland
-        url: https://www.uzh.ch/
-        area: Physics
-        studyType: PhD
-        start_date: 1900
-        end_date: 1905
-        score: ""
-        courses: "Theory of Relativity"
-        highlights:
-          - Description 1.
-          - Description 2.
-
-      - institution: Eidgenössische Technische Hochschule
-        location: Zurich, Switzerland
-        area: Physics
-        studyType: Federal teaching diploma
-        start_date: 1896
-        end_date: 1900
-        highlights:
-          - Description 1.
-          - Description 2.
-
     Experience:
-      - company: Institute for Advanced Study, Princeton University
-        position: Professor of Theoretical Physics
-        location: Princeton University, NJ
-        start_date: 1933
-        end_date: 1955
-        summary: Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.
+      - company: SPARO Lab (Spatial AI & Robotics), Inha University
+        position: Graduate Researcher
+        url: https://sparolab.github.io/
+        start_date: 2022-03
+        end_date: Present # must be explicit: an empty end date renders as "2022 -"
+        summary: Mar. 2022 – present · advisor Prof. Younggun Cho
         highlights:
-          - Relativity
-          - Description 2.
+          - "Robust perception: underwater image enhancement, depth estimation and completion, and uncertainty estimation (Joint-ID, TRIDENT, PGSPN)."
+          - "Robust state estimation: long-term LiDAR map maintenance in changing environments (Time-Integrated Occupancy); contributed to multi-robot LiDAR SLAM (SKiD-SLAM, Commerge) and learned inertial odometry (KISS-IMU)."
+          - "International collaboration with Stevens Institute of Technology (Prof. Brendan Englot) on sparsity-robust underwater depth completion (PGSPN)."
+          - "Industry project with Hyundai E&C on underwater-robot vision for construction-site monitoring (marine-snow-aware synthetic data, robust image processing)."
 
-      - company: California Institute of Technology
-        position: Visiting Professor
-        location: Pasadena, California, US
-        start_date: 1933
-        end_date: 1933
+      - company: Riibotics (formerly TIM Robotics Co., Ltd.), Corporate R&D Center
+        position: Robotics Software Engineer (Research Intern)
+        start_date: 2024-09
+        end_date: 2025-02
+        summary: Sep. 2024 – Feb. 2025
         highlights:
-          - Description 1.
-          - Description 2.
+          - Research on robust LiDAR SLAM and localization for mobile robots.
+          - Developed autonomous driving software for mobile robots (navigation, SLAM, ROS).
 
-      - company: Kaiser Wilhelm Institute for Physics
-        position: Director
-        location: Berlin, Germany
-        start_date: 1917
-        end_date: 1933
-
-      - company: Karl-Ferdinand University
-        position: Professor of Theoretical Physics
-        location: Prague, Czechoslovakia
-        start_date: 1911
-        end_date: 1917
-
-      - company: University of Zurich
-        position: Associate Professor of Theoretical Physics
-        location: Zurich, Switzerland
-        start_date: 1909
-        end_date: 1911
-
-    Volunteer:
-      - company: People's Climate March
-        position: Lead Organizer
-        location: Zurich, Switzerland
-        start_date: 2014-04-01
-        end_date: 2015-07-01
-        summary: Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.
+    Education:
+      - institution: Inha University
+        url: https://www.inha.ac.kr/
+        area: Electrical and Computer Engineering
+        studyType: Integrated M.S.–Ph.D.
+        start_date: 2022-03
+        end_date: Present
         highlights:
-          - "Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march."
-          - "Men of the year 2014 by Time magazine"
+          - "SPARO Lab, advisor: Prof. Younggun Cho"
+          - "Research: robust perception and robust state estimation for field and underwater robots"
 
-    Awards:
-      - title: Nobel Prize in Physics
-        authors:
-          - "Royal Swedish Academy of Sciences"
-        date: 1921-11-01
-        awarder: Royal Swedish Academy of Sciences
-        url: https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/
-        summary: The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'
-
-      - title: Max Planck Medal
-        authors:
-          - "German Physical Society"
-        date: 2029
-        awarder: German Physical Society
-        summary: Awarded for outstanding scientific achievement
+    Manuscripts Under Review:
+      # Generic section (bullets): publication entries without a date render an empty year badge.
+      - bullet: "**PGSPN: Physics-Guided Spatial Propagation Network for Sparsity-Robust Underwater Depth Completion** — **G. Yang**, J. Lee, J. Choi, J. Lee, I. Collado-Gonzalez, B. Englot, Y. Cho · _IEEE Journal of Oceanic Engineering_, under review"
+      - bullet: "**Not How Many, But How Long: Time-Integrated Occupancy for LiDAR-based Long-term Map Maintenance** — **G. Yang**, Y. Cho · _IEEE International Conference on Robotics and Automation (ICRA) 2027_, under review"
+      - bullet: "**Obcalizer: Learning-Free and Stereo Vision-based Robust 3-DoF Object Localization and Tracking for Maritime Environments** — H. Kim, **G. Yang**, J. Choi, Y. Cho · _IEEE Transactions on Intelligent Transportation Systems_, under review"
 
     Publications:
-      - title: Zur Elektrodynamik bewegter Körper
+      # Same order as _bibliography/papers.bib: my first-author work first within a year.
+      # The IROS 2026 workshop abstract of PGSPN is intentionally not listed (I will add it myself).
+      - title: "SKiD-SLAM: Resource-Aware Distributed Multi-Robot LiDAR SLAM for Planetary Missions with Field Deployments at Analog Sites"
         authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-06-30
-        url: https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies
-        summary: It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source.
+          [Hogyun Kim, Juwon Kim, Dongjin Cho, Jiwon Choi, "**Geonmo Yang**", Seokhwan Jeong, Jiyun Lee, Miryeong Park, Hyungtae Lim, Younggun Cho]
+        publisher: IEEE Transactions on Field Robotics (T-FR)
+        releaseDate: 2026
+        url: https://ieeexplore.ieee.org/document/11644760
+        summary: "H. Kim, J. Kim, D. Cho, J. Choi, **G. Yang**, S. Jeong, J. Lee, M. Park, H. Lim, Y. Cho"
 
-      - title: Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-03-18
-        url: https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt
-        summary: In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921.
+      - title: "Commerge: Communication-Efficient, Robust, and Fast LiDAR Map Merging Framework for Multi-Robot Coordination in Resource-Constrained Scenarios"
+        authors: [Hogyun Kim, Jiwon Choi, Juwon Kim, "**Geonmo Yang**", Seokhwan Jeong, Hyungtae Lim, Younggun Cho]
+        publisher: The International Journal of Robotics Research (IJRR)
+        releaseDate: 2026
+        url: https://arxiv.org/abs/2606.25386
+        summary: "H. Kim, J. Choi, J. Kim, **G. Yang**, S. Jeong, H. Lim, Y. Cho"
 
-      - title: Die Grundlage der allgemeinen Relativitätstheorie
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1916-03-20
-        url: https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie
-        summary: The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914).
+      - title: "KISS-IMU: Self-supervised Inertial Odometry with Motion-balanced Learning and Uncertainty-aware Inference"
+        authors: [Jiwon Choi, Hogyun Kim, "**Geonmo Yang**", Juhui Lee, Younggun Cho]
+        publisher: IEEE International Conference on Robotics and Automation (ICRA)
+        releaseDate: 2026
+        url: https://arxiv.org/abs/2603.06205
+        summary: "J. Choi, H. Kim, **G. Yang**, J. Lee, Y. Cho · award finalist (Outstanding WiRA Student Paper & Best Paper on Robot Perception)"
+
+      - title: "GSAT: Geometric Traversability Estimation using Self-supervised Learning with Anomaly Detection for Diverse Terrains"
+        authors: [Dongjin Cho, Miryeong Park, Juhui Lee, "**Geonmo Yang**", Younggun Cho]
+        publisher: IEEE International Conference on Robotics and Automation (ICRA)
+        releaseDate: 2026
+        url: https://arxiv.org/abs/2603.07480
+        summary: "D. Cho, M. Park, J. Lee, **G. Yang**, Y. Cho"
+
+      - title: "Robust Image Processing Techniques for Construction Environment Monitoring Using Underwater Robots"
+        authors: ["Seunghee Yun*", "**Geonmo Yang***", Juhui Lee, Changbeom Park, Jeahyung Choi, Younggun Cho]
+        publisher: Journal of Institute of Control, Robotics and Systems (JICROS, in Korean)
+        releaseDate: 2026
+        summary: "S. Yun\\*, **G. Yang**\\*, J. Lee, C. Park, J. Choi, Y. Cho (\\* equal contribution)"
+
+      - title: "Freeze-Frame with StaticNeRF: Uncertainty-Guided NeRF Map Reconstruction in Dynamic Scenes"
+        authors: [Juhui Lee, "**Geonmo Yang**", Seungjun Ma, Younggun Cho]
+        publisher: IEEE Robotics and Automation Letters (RA-L)
+        releaseDate: 2025
+        url: https://ieeexplore.ieee.org/document/11242041
+        summary: "J. Lee, **G. Yang**, S. Ma, Y. Cho"
+
+      - title: "RA-LLO: Robust Adaptive Legged-LiDAR Odometry with Gaussian Process Motion Prior over Error States"
+        authors: [Juwon Kim, Jungwoo Lee, "**Geonmo Yang**", Younggun Cho]
+        publisher: International Conference on Control, Automation and Systems (ICCAS)
+        releaseDate: 2025
+        summary: "J. Kim, J. Lee, **G. Yang**, Y. Cho"
+
+      - title: "SKiD-SLAM: Robust, Lightweight, and Distributed Multi-Robot LiDAR SLAM in Resource-Constrained Field Environments"
+        authors: [Hogyun Kim, Jiwon Choi, Juwon Kim, "**Geonmo Yang**", Dongjin Cho, Hyungtae Lim, Younggun Cho]
+        publisher: IEEE ICRA Workshop on Field Robotics
+        releaseDate: 2025
+        url: https://arxiv.org/abs/2505.08230
+        summary: "H. Kim, J. Choi, J. Kim, **G. Yang**, D. Cho, H. Lim, Y. Cho · Spotlight"
+
+      - title: "PoLaRIS Dataset: A Maritime Object Detection and Tracking Dataset in Pohang Canal"
+        authors: ["Jiwon Choi*", "Dongjin Cho*", Gihyeon Lee, Hogyun Kim, "**Geonmo Yang**", Joowan Kim, Younggun Cho]
+        publisher: IEEE International Conference on Robotics and Automation (ICRA)
+        releaseDate: 2025
+        url: https://ieeexplore.ieee.org/document/11128583
+        summary: "J. Choi\\*, D. Cho\\*, G. Lee, H. Kim, **G. Yang**, J. Kim, Y. Cho (\\* equal contribution)"
+
+      - title: "IML-SLAM: A LiDAR-Inertial SLAM System Considering Vehicle Driving Motion"
+        authors: [Jiwon Choi, Hogyun Kim, "**Geonmo Yang**", Younggun Cho]
+        publisher: KITS Spring Conference (in Korean)
+        releaseDate: 2025
+        summary: "J. Choi, H. Kim, **G. Yang**, Y. Cho · Excellent Research Award"
+
+      - title: "TRIDENT: Efficient Triple-Task Learning of Dehazing, Depth, and Uncertainty Estimation for Underwater 3D Robot Visual Perception"
+        authors: ["**Geonmo Yang**", Younggun Cho]
+        publisher: IEEE Sensors Journal
+        releaseDate: 2024
+        url: https://ieeexplore.ieee.org/document/10745206
+        summary: "**G. Yang**, Y. Cho"
+
+      - title: "StaticNeRF: Neural Implicit Static Mapping and Localization in Dynamic Environments"
+        authors: [Juhui Lee, Seungjun Ma, "**Geonmo Yang**", Younggun Cho]
+        publisher: IEEE ICRA Workshop
+        releaseDate: 2024
+        summary: "J. Lee, S. Ma, **G. Yang**, Y. Cho · Spotlight"
+
+      - title: "Joint-ID: Transformer-Based Joint Image Enhancement and Depth Estimation for Underwater Environments"
+        authors: ["**Geonmo Yang**", Gilhwan Kang, Juhui Lee, Younggun Cho]
+        publisher: IEEE Sensors Journal
+        releaseDate: 2023
+        url: https://ieeexplore.ieee.org/document/10351035
+        summary: "**G. Yang**, G. Kang, J. Lee, Y. Cho"
+
+      - title: "Sparse Depth-Guided Image Enhancement Using Incremental GP with Informative Point Selection"
+        authors: ["**Geonmo Yang***", "Juhui Lee*", Ayoung Kim, Younggun Cho]
+        publisher: Sensors (MDPI)
+        releaseDate: 2023
+        url: https://pmc.ncbi.nlm.nih.gov/articles/PMC9920918/
+        summary: "**G. Yang**\\*, J. Lee\\*, A. Kim, Y. Cho (\\* equal contribution)"
+
+    Patents:
+      - bullet: "**Underwater Image Enhancement and Depth Estimation System** (수중 영상 강건화 및 거리 정보 추정 시스템) — Y. Cho, **G. Yang**, G. Kang, J. Lee · KR Patent No. 10-2928592, registered Feb. 2026"
+      - bullet: "**Image Dehazing System through Sensor Fusion** (센서 융합을 통한 영상 디헤이징 시스템) — Y. Cho, **G. Yang**, J. Lee · KR Patent No. 10-2673404, registered Jun. 2024"
+
+    Honors and Awards:
+      # Mirrors my-cv/cv/honors.tex.
+      - title: 2nd Place (out of 131 teams), IMU Odometry Challenge
+        date: 2026-10
+        awarder: Beyond Exteroception Workshop, IEEE/RSJ IROS 2026
+
+      - title: Silver Prize, 32nd Samsung HumanTech Paper Award (Mechanical Engineering)
+        date: 2026-02
+        awarder: Samsung Electronics
+
+      - title: Grand Prize, Graduate Research Award
+        date: 2026-01
+        awarder: Inha University
+
+      - title: Honorable Mention, Graduate Research Presentation Award
+        date: 2026-01
+        awarder: Inha University
+
+      - title: Excellent Research Award (우수논문상)
+        date: 2025-04
+        awarder: Korean Society of Intelligent Transport Systems (KITS) Spring Conference
+
+      - title: Outstanding Research Award — Excellence of Journal Publication
+        date: 2024-02
+        awarder: Graduate School, Inha University
+
+      - title: Excellence Award (우수상), Industry–Academic Project Track
+        date: 2022-12
+        awarder: 20th Embedded Software Competition, Korea Information Processing Society (KIPS)
 
     Skills:
-      - name: Physics
-        level: Master
-        icon: fa-solid fa-hashtag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
-
-    Languages:
-      - name: German
-        summary: "Native speaker"
-
-      - name: English
-        summary: "Fluent"
-
-    Interests:
-      - name: Physics
-        icon: fa-solid fa-tag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
-
-    Certificates:
-      - name: Machine Learning
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-location-dot
-
-      - name: Quantum Computing
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-tag
-
-      - name: Quantum Information
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-envelope
-
-    Projects:
-      - name: Quantum Computing
-        summary: Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.
-        highlights:
-          - Quantum Teleportation
-          - Quantum Cryptography
-        start_date: 2018-01-01
-        end_date: 2018-01-01
-
-    References:
-      - name: Professor John Doe
-        icon: fa-solid fa-laptop
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
-
-      - name: Professor Jane Smith
-        icon: fa-solid fa-thumbtack
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
+      # Mirrors my-cv/cv/skills.tex (PCB design is held back with the undergraduate material).
+      - name: Programming
+        icon: fa-solid fa-code
+        keywords: "C/C++, Python, MATLAB"
+      - name: Robotics & ML
+        icon: fa-solid fa-robot
+        keywords: "ROS 1/2, PyTorch, LiDAR SLAM & localization, depth estimation & completion, image enhancement"
+      - name: DevOps
+        icon: fa-solid fa-screwdriver-wrench
+        keywords: "Linux, Docker, Git"
+      - name: Languages
+        icon: fa-solid fa-language
+        keywords: "Korean, English"

@@ -7,16 +7,15 @@ first_name: Geonmo
 middle_name:
 last_name: Yang
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+  Email is the best way to reach me. 이메일로 편하게 연락 주세요.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Personal site of Geonmo Yang — PhD student at SPARO (Spatial AI & Robotics Lab), Inha University, researching underwater & surface robotics and computer vision.
+  Geonmo Yang (양건모) — integrated M.S.–Ph.D. student at SPARO Lab, Inha University, working on robust perception and robust state estimation for robots.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
-keywords: Geonmo Yang, robotics, computer vision, underwater robotics, marine robotics, spatial AI, Inha University, SPARO # add your own keywords or leave empty
+keywords: Geonmo Yang, 양건모, robust perception, robust state estimation, SLAM, LiDAR, localization, underwater robotics, depth estimation, image enhancement, robotics, Inha University, SPARO # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+icon: 🧭 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
 url: https://yang7422.github.io # the base hostname & protocol for your site
 baseurl: /cv-blog # the subpath of your site, e.g. /blog/. Leave blank for root
@@ -159,17 +158,11 @@ disqus_shortname: al-folio # put your disqus shortname
 # If you have blog posts published on medium.com or other external sources,
 # you can display them in your blog by adding a link to the RSS feed.
 # Optional: Set default categories and tags for posts from each source.
+# Left empty on purpose: the al-folio example feeds (Medium, Google Blog) showed up
+# as posts on /blog/. Add my own sources here, e.g.:
+#   - name: medium.com
+#     rss_url: https://medium.com/@<me>/feed
 external_sources:
-  - name: medium.com
-    rss_url: https://medium.com/@al-folio/feed
-    categories: [external-posts]
-    tags: [medium]
-  - name: Google Blog
-    posts:
-      - url: https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/
-        published_date: 2024-05-14
-    categories: [external-posts]
-    tags: [google]
 
 # -----------------------------------------------------------------------------
 # Newsletter
@@ -216,6 +209,10 @@ kramdown:
 # Includes & excludes
 include: ["_pages"]
 exclude:
+  - AGENTS.md # agent/dev files below were being published to the public site
+  - CLAUDE.md
+  - requirements.txt
+  - test/
   - al-folio-upgrade-report.md
   - bin/
   - CONTRIBUTING.md
@@ -232,7 +229,6 @@ exclude:
   - lighthouse_results/
   - package.json
   - package-lock.json
-  - _pages/about_einstein.md
   - purgecss.config.js
   - README.md
   - readme_preview/
@@ -333,16 +329,17 @@ jekyll-archives:
   books:
     enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
 
-display_tags: ["formatting", "images", "links", "math", "code", "blockquotes"] # these tags will be displayed on the front page of your blog
-display_categories: ["external-services"] # these categories will be displayed on the front page of your blog
+# Empty until I write posts (the al-folio example tags linked to pages that no longer exist).
+display_tags: [] # these tags will be displayed on the front page of your blog
+display_categories: [] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Yang]
+  first_name: [Geonmo, G.]
 
   style: apa
   locale: en
@@ -405,7 +402,7 @@ filtered_bibtex_keywords:
   ]
 
 # Maximum number of authors to be shown for each publication (more authors are visible on click)
-max_author_limit: 3 # leave blank to always show all authors
+max_author_limit: # leave blank to always show all authors (kept blank so my name is never hidden behind "more authors")
 more_authors_animation_delay: 10 # more authors are revealed on click using animation; smaller delay means faster animation
 
 # Enables publication thumbnails. If disabled, none of the publications will display thumbnails, even if specified in the bib entry.
@@ -468,7 +465,7 @@ enable_navbar_social: false # enables displaying social links in the navbar on t
 enable_project_categories: true # enables categorization of projects into multiple categories
 enable_medium_zoom: true # enables image zoom feature (as on medium.com)
 enable_progressbar: true # enables a horizontal progress bar linked to the vertical scroll position
-enable_video_embedding: false # enables video embedding for bibtex entries. If false, the button opens the video link in a new window.
+enable_video_embedding: true # enables video embedding for bibtex entries. If false, the button opens the video link in a new window.
 
 # -----------------------------------------------------------------------------
 # Library versions
