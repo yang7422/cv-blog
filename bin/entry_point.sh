@@ -40,11 +40,18 @@ start_jekyll() {
 start_jekyll
 
 while true; do
-    inotifywait -q -e modify,move,create,delete $CONFIG_FILE
-    if [ $? -eq 0 ]; then
+    # Watch the directory rather than the file: editors that save atomically replace
+    # _config.yml, which made `inotifywait <file>` exit non-zero and, under `set -e`,
+    # killed the whole container. `|| true` keeps the loop alive in any case.
+    changed=$(inotifywait -q -e close_write,moved_to,create --format '%f' . 2>/dev/null || true)
+    if [ "$changed" = "$CONFIG_FILE" ]; then
         echo "Change detected to $CONFIG_FILE, restarting Jekyll"
-        jekyll_pid=$(pgrep -f jekyll)
-        kill -KILL $jekyll_pid
+        # Match only the server process: a bare "jekyll" pattern also matches this
+        # script (/srv/jekyll/bin/entry_point.sh).
+        jekyll_pid=$(pgrep -f "jekyll serve" || true)
+        if [ -n "$jekyll_pid" ]; then
+            kill -KILL $jekyll_pid || true
+        fi
         start_jekyll
     fi
 done
