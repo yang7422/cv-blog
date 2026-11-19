@@ -63,7 +63,7 @@ permissions:
 jobs:
   deploy:
     # available images: https://github.com/actions/runner-images#available-images
-    runs-on: ubuntu-24.04 # last known-good image; the build failed on ubuntu-26.04 (ubuntu-latest since late 2026)
+    runs-on: ubuntu-24.04 # the image the June 2026 deploys ran on (ubuntu-latest is now 26.04)
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
@@ -93,7 +93,14 @@ jobs:
           value: ${{ github.repository }}
       - name: Install and Build 🔧
         run: |
-          sudo apt-get update && sudo apt-get install -y imagemagick
+          # Bounded retries/timeouts so one slow apt source cannot stall the job, and apt
+          # errors become annotations (readable from the run page without opening the log).
+          apt_opts="-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30"
+          sudo apt-get $apt_opts update 2>&1 | tee /tmp/apt.log || echo "::warning::apt-get update failed: $(grep -m3 '^E:' /tmp/apt.log | tr '\n' ' ')"
+          if ! sudo apt-get $apt_opts install -y imagemagick 2>&1 | tee -a /tmp/apt.log; then
+            echo "::error::apt-get install failed: $(grep -E '^(E|W):' /tmp/apt.log | tail -4 | tr '\n' ' ')"
+            exit 1
+          fi
           pip3 install --upgrade nbconvert
           export JEKYLL_ENV=production
           bundle exec jekyll build
