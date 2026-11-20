@@ -104,3 +104,292 @@ html[data-theme="dark"] {
     background-color: rgba(251, 191, 36, 0.12);
   }
 }
+
+// Project page: Robotics from the Ground Up -------------------------------------------
+// _projects/ground-up-robotics.md. Classes are prefixed gur- (ground-up robotics).
+// Colors come from the theme variables, so light and dark mode follow the site toggle.
+
+// Stat tiles: the number leads, the label explains it.
+.gur-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.gur-stat {
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.5rem;
+  padding: 0.7rem 0.9rem 0.75rem;
+}
+
+.gur-stat-value {
+  display: block;
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.gur-stat-label {
+  display: block;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  color: var(--global-text-color-light);
+}
+
+// "How I work" cards: one column on phones, 2 × 2 from 768px
+.gur-traits {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem 1.25rem;
+  margin: 1rem 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .gur-traits {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.gur-trait {
+  border-left: 3px solid var(--global-theme-color);
+  padding: 0.15rem 0 0.15rem 0.85rem;
+
+  strong {
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.92rem;
+  }
+}
+
+// Seminar timeline: one square per seminar, one column per week. Wide screens show the
+// annotated SVG; below 768px it would need scrolling, so a full-width bar strip and a short
+// list (phases, milestones) take its place.
+.gur-timeline {
+  margin: 0.5rem 0 0.25rem;
+
+  svg {
+    display: block;
+    width: 100%;
+    overflow: visible;
+  }
+
+  svg:focus-visible {
+    outline: 2px solid var(--global-theme-color);
+    outline-offset: 4px;
+  }
+}
+
+.gur-tl-wide {
+  height: auto;
+}
+
+// Two classes, to beat ".gur-timeline svg { display: block }" above.
+.gur-timeline .gur-tl-narrow,
+.gur-timeline .gur-tl-legend {
+  display: none;
+}
+
+.gur-tl-narrow {
+  height: 2.75rem;
+
+  .gur-cell.is-active {
+    vector-effect: non-scaling-stroke;
+  }
+}
+
+.gur-tl-legend {
+  margin: 0.6rem 0 0;
+  padding-left: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--global-text-color-light);
+
+  li {
+    margin-bottom: 0.25rem;
+    color: inherit;
+  }
+
+  strong {
+    color: var(--global-text-color);
+  }
+
+  span {
+    color: inherit; // al-folio colors every span; keep the dates gray
+  }
+}
+
+@media (max-width: 767.98px) {
+  .gur-timeline .gur-tl-wide {
+    display: none;
+  }
+
+  .gur-timeline .gur-tl-narrow,
+  .gur-timeline .gur-tl-legend {
+    display: block;
+  }
+}
+
+.gur-cell {
+  fill: var(--global-theme-color);
+}
+
+.gur-cell.is-active {
+  stroke: var(--global-text-color);
+  stroke-width: 1.5;
+}
+
+.gur-empty {
+  fill: var(--global-divider-color);
+}
+
+.gur-rule {
+  stroke: var(--global-text-color-light);
+  stroke-width: 1;
+  fill: none;
+}
+
+.gur-text {
+  fill: var(--global-text-color);
+  font-size: 12px;
+}
+
+.gur-text-muted {
+  fill: var(--global-text-color-light);
+  font-size: 11px;
+}
+
+.gur-tip {
+  position: fixed;
+  z-index: 1080;
+  max-width: 18rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.4rem;
+  background: var(--global-card-bg-color);
+  color: var(--global-text-color);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  font-size: 0.82rem;
+  line-height: 1.35;
+  pointer-events: none;
+}
+
+.gur-tip-date {
+  color: var(--global-text-color-light);
+  font-size: 0.75rem;
+}
+
+.gur-caption {
+  font-size: 0.85rem;
+  color: var(--global-text-color-light);
+}
+
+// al-folio gives every span the body text color; inside the gray captions and stat
+// labels, the .nobr spans should stay gray like the words around them.
+.gur-caption span,
+.gur-stat-label span,
+.gur-table-wrap span {
+  color: inherit;
+}
+
+// Media: a looping clip and zoomable slide images, two per row from 768px.
+.gur-media {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin: 0.75rem 0 1.25rem;
+
+  figure {
+    margin: 0;
+  }
+
+  img,
+  video {
+    width: 100%;
+    height: auto;
+    border-radius: 0.4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .gur-media.gur-media-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Debugging log table and the full seminar log
+.gur-table-wrap {
+  overflow-x: auto;
+  margin: 0.75rem 0 1.5rem;
+
+  table {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  th,
+  td {
+    vertical-align: top;
+    padding: 0.4rem 0.6rem;
+    border-top: 1px solid var(--global-divider-color);
+  }
+}
+
+// Debugging log: one card per row below 768px, each value under its column name.
+@media (max-width: 767.98px) {
+  .gur-debug {
+    thead {
+      display: none;
+    }
+
+    table,
+    tbody,
+    tr,
+    td {
+      display: block;
+      width: 100%;
+    }
+
+    tr {
+      padding: 0.6rem 0;
+      border-top: 1px solid var(--global-divider-color);
+    }
+
+    td {
+      padding: 0.15rem 0;
+      border-top: 0;
+    }
+
+    td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 0.75rem;
+      color: var(--global-text-color-light);
+    }
+
+    td:first-child {
+      font-weight: 500;
+    }
+  }
+}
+
+.gur-log {
+  summary {
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  td:first-child {
+    white-space: nowrap; // the date column
+  }
+}
+
+.gur-ko {
+  margin-top: 2rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: 0.5rem;
+  background: var(--global-code-bg-color);
+}

@@ -1,0 +1,193 @@
+# Weekly lab seminars behind _projects/ground-up-robotics.md, one entry per talk, in date order.
+# Source: the undergraduate seminar archive (IHLAB, Tech University of Korea), Dec. 2019 – Jul. 2021.
+#   date:      presentation date (from the deck's file name or title slide)
+#   phase:     1 = servo packets → legged robot, 2 = following unit, 3 = graduation project
+#   topic:     one line, shown in the timeline tooltip and the seminar log
+#   milestone: optional short label drawn above the timeline (keep to 3–4 in total)
+#   anchor:    text-anchor for the milestone label (start | middle | end), default middle
+- date: "2019-12-19"
+  phase: 1
+  topic: "ATmega128 recap (GPIO, timers and PWM, interrupts, LCD, USART) and a 10-week winter plan"
+- date: "2019-12-24"
+  phase: 1
+  topic: "Revised winter plan; GPIO and interrupt drills"
+- date: "2019-12-31"
+  phase: 1
+  topic: "DYNAMIXEL AX-12A: half-duplex wiring and hand-built instruction packets with checksum"
+- date: "2020-01-03"
+  phase: 1
+  topic: "ID space and broadcast ID, timer interrupts vs. delay(), status-packet format"
+- date: "2020-01-07"
+  phase: 1
+  topic: "Status packets checked on the oscilloscope; one servo mirrors another; Sync Write"
+- date: "2020-01-09"
+  phase: 1
+  topic: "Speed control, 2-D forward and inverse kinematics, resolving 3-DOF redundancy"
+- date: "2020-01-14"
+  phase: 1
+  topic: "3-axis arm moves to commanded coordinates"
+- date: "2020-01-28"
+  phase: 1
+  topic: "DH convention; legged-robot hardware (RX-64, EX-106+ on RS-485); a 15× timing fault appears"
+- date: "2020-01-30"
+  phase: 1
+  topic: "Timing fault traced: crystals measured, fuse bits checked, MCU swapped; the first leg moves"
+- date: "2020-02-04"
+  phase: 1
+  topic: "Status-return level fixed (reply latency measured at ≈700 µs); DH-based arm control; joint limits"
+- date: "2020-02-18"
+  phase: 1
+  topic: "Leg geometry checked on paper; board rebuilt after 14 V killed the MCU; RS-485 receive fixed with pull-up and termination"
+- date: "2020-02-21"
+  phase: 1
+  topic: "Faulty servo found from a status-packet offset; reverse-direction bug; switch to Cartesian interpolation"
+- date: "2020-02-25"
+  phase: 1
+  topic: "x/y/z logged over time and plotted, which exposed a wrong kinematics conversion"
+- date: "2020-03-05"
+  phase: 1
+  topic: "Stride and turning angle measured; plan for foot pressure sensing and sonar obstacle avoidance"
+- date: "2020-03-12"
+  phase: 1
+  topic: "Servo baud-rate drift; one jerky leg traced to a bad wire"
+- date: "2020-03-19"
+  phase: 1
+  topic: "Winter-project wrap-up: the legged robot walks and turns"
+  milestone: "legged robot walks"
+- date: "2020-03-26"
+  phase: 2
+  topic: "Plan for the following unit: one-way ultrasonic ranging; HC-SR04 echo checked on the scope"
+- date: "2020-04-02"
+  phase: 2
+  topic: "HC-SR04 accuracy at 5–50 cm (within ±1.1 %); SRF02 delay vs. range"
+- date: "2020-04-09"
+  phase: 2
+  topic: "SRF02 in microsecond mode (about 1 % error); one-way ranging with its listen-only commands; I²C registers"
+- date: "2020-04-16"
+  phase: 2
+  topic: "Error propagation: how ±1 cm of range error tilts the bearing at 50–150 cm"
+- date: "2020-04-23"
+  phase: 2
+  topic: "A constant 82 cm SRF02 offset traced to 2.29 ms of command overhead"
+- date: "2020-04-29"
+  phase: 2
+  topic: "Per-sensor calibration and three-sensor triangulation (within 1 cm and 1.6°); SRF02 dropped as too slow and too narrow"
+- date: "2020-05-06"
+  phase: 2
+  topic: "TS601 transducers: range error within 1.4 cm; 35 µs trigger jitter = 1.19 cm"
+- date: "2020-05-15"
+  phase: 2
+  topic: "HG-M40DB spikes during fast motion; an RC low-pass filter derived and coded"
+- date: "2020-05-22"
+  phase: 2
+  topic: "Spikes traced to reflections; drive voltage vs. acceptance angle"
+- date: "2020-05-29"
+  phase: 2
+  topic: "9 V drive chosen over 12 V; reception range mapped on a floor grid; range bias vs. distance"
+- date: "2020-06-05"
+  phase: 2
+  topic: "Receiver housing cut down and compared at 0–50°; smoothing filter removed once the spikes were gone"
+- date: "2020-07-03"
+  phase: 2
+  topic: "The lab's existing RF board analyzed; semester summary"
+- date: "2020-07-15"
+  phase: 2
+  topic: "nRF24L01+ datasheet study for the RF link"
+- date: "2020-07-22"
+  phase: 2
+  topic: "PCB design rules (trace width for current, footprints); STM32CubeMX setup"
+- date: "2020-07-29"
+  phase: 2
+  topic: "Vias sized for current; two board layouts finished"
+- date: "2020-08-05"
+  phase: 2
+  topic: "Board bring-up: a 2.8 V rail traced to LDO dropout, ST-LINK wiring fixed"
+  milestone: "first own board"
+- date: "2020-08-12"
+  phase: 2
+  topic: "STM32 (Cortex-M4) practice: power rail scoped capacitor by capacitor, EXTI and timers"
+- date: "2020-09-04"
+  phase: 2
+  topic: "Register-level nRF24L01+ driver on two ATmega128s; RF beats Bluetooth on latency (2–3 vs. 20–30 ms)"
+- date: "2020-09-09"
+  phase: 2
+  topic: "RF receiver debugging: status 0x4E, no data yet"
+- date: "2020-09-21"
+  phase: 2
+  topic: "RF latency pinned at 6.01 ms: slower SPI, a 2.73 ms status-register read found, constant offset applied"
+- date: "2020-10-12"
+  phase: 2
+  topic: "Port to STM32 (Keil, HAL): SPI fails at 21 Mbit/s and works slowed down; logic analyzer"
+- date: "2020-11-09"
+  phase: 2
+  topic: "End-to-end tuning: trigger skew 424 → 84 µs, update period 50 → 35 ms"
+- date: "2020-11-23"
+  phase: 2
+  topic: "A damaged MCU pin found on the built board; level shifter for a wide-beam transducer"
+- date: "2020-11-30"
+  phase: 2
+  topic: "12 V needed to reach 3 m; missing-echo handling; a 15° beam limit, so several receivers and the shortest range wins"
+- date: "2020-12-28"
+  phase: 3
+  topic: "Sonar directivity measured (no echo beyond 15° off-axis); revised graduation-project plan"
+- date: "2021-01-04"
+  phase: 3
+  topic: "One-way SRF02 ranging; a blind zone below 80 cm found and fixed"
+- date: "2021-01-11"
+  phase: 3
+  topic: "Use cases (finishing work, stairs); RF link works on my STM32F405 board but not on an F429 dev board"
+- date: "2021-01-14"
+  phase: 3
+  topic: "Team: scenarios, UWB rejected at ±15 cm, servo-tilted receivers, the tracked chassis"
+- date: "2021-01-18"
+  phase: 3
+  topic: "RF failure traced step by step to its cause: the CE pin was never raised"
+- date: "2021-01-21"
+  phase: 3
+  topic: "Team: follow and manual modes, remote design, infrared stair and obstacle logic"
+- date: "2021-01-25"
+  phase: 3
+  topic: "Receiver and transmitter elements swapped and compared on the scope; RF latency measured"
+- date: "2021-01-28"
+  phase: 3
+  topic: "Team: behavior on target loss; stair-end detection with a downward infrared sensor"
+- date: "2021-02-01"
+  phase: 3
+  topic: "RF failure handling: retransmit off, resend timeout, 70 cm jump filter; statistics over 519 exchanges"
+- date: "2021-02-04"
+  phase: 3
+  topic: "Team: role split and a week-by-week plan to July"
+- date: "2021-02-08"
+  phase: 3
+  topic: "Receivers re-mounted at an angle: within 3.6 cm and 2° up to 40° off-axis"
+- date: "2021-02-15"
+  phase: 3
+  topic: "2-D LiDAR interface and packet parsing"
+- date: "2021-02-18"
+  phase: 3
+  topic: "Team: revised roles and schedule"
+- date: "2021-02-21"
+  phase: 3
+  topic: "Infrared distance sensor calibrated (14 points, power-law fit); TI PGA460 ultrasonic front end studied"
+- date: "2021-02-25"
+  phase: 3
+  topic: "PGA460 reference circuit analyzed"
+- date: "2021-03-08"
+  phase: 3
+  topic: "System architecture; receivers tilted with DYNAMIXEL from IMU roll; first remote schematic"
+- date: "2021-03-22"
+  phase: 3
+  topic: "Formal project plan"
+- date: "2021-04-19"
+  phase: 3
+  topic: "Target position from four receivers; first following test"
+  milestone: "first following test"
+- date: "2021-05-10"
+  phase: 3
+  topic: "Localization tested on a grid board at 120 and 200 cm; a wide-angle receiver's failure analyzed"
+- date: "2021-05-25"
+  phase: 3
+  topic: "Amplitude-matching experiment: why mixing transducer types fails"
+- date: "2021-07-12"
+  phase: 3
+  topic: "Three PCB layouts, the following range, and the control packet"

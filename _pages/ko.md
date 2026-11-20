@@ -50,8 +50,8 @@ latest_posts:
 
 - **2022.03 – 현재** · 인하대학교 전기컴퓨터공학과 석박사 통합과정 (SPARO 연구실)
 - **2024.09 – 2025.02** · Riibotics(구 TIM Robotics) 기업부설연구소 연구 인턴 — 강건한 LiDAR SLAM 및 위치 인식 연구, 모바일 로봇 자율주행 소프트웨어 개발
+- **2019.03 – 2022.01** · 한국공학대학교 IHLAB 학부연구생 — 펌웨어(ATmega128 · STM32), 회로 설계, 사람 추종 로봇. 거의 매주 랩 세미나 {{ site.data.ground_up_seminars.size }}회 ([프로젝트 페이지]({{ '/projects/ground-up-robotics/' | relative_url }}))
 
-<!-- TODO: 학부 이력(펌웨어 · 회로설계) 자료를 받으면 위 목록에 추가 -->
 <!-- Note: a markdown table here pushes the whole text block below the profile photo (min-content too wide), so keep this a list. -->
 
 전체 논문은 [publications]({{ '/publications/' | relative_url }}), 상세 이력은 [CV]({{ '/cv/' | relative_url }})(영문)에서 볼 수 있습니다.

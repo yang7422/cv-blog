@@ -48,5 +48,6 @@ I build **robust perception** and **robust state estimation** for robots that ha
 - 2nd place out of 131 teams, IMU Odometry Challenge @ IROS 2026
 - Silver Prize, 32nd Samsung HumanTech Paper Award (2026) · Grand Prize, Graduate Research Award, Inha University (2026)
 - Research internship at Riibotics (robust LiDAR SLAM & localization) · international collaborations with Stevens Institute of Technology and MIT · industry project with Hyundai E&C
+- Undergraduate research at IHLAB, Tech University of Korea: {{ site.data.ground_up_seminars.size }} weekly lab seminars, from hand-built servo packets to a person-following robot ([project page]({{ '/projects/ground-up-robotics/' | relative_url }}))
 
 🇰🇷 [한국어 소개 페이지]({{ '/ko/' | relative_url }})
