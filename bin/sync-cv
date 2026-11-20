@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# Sync the web CV (/cv/) with my-cv, the Awesome-CV LaTeX CV that is the source of truth.
+#   1. Builds a public PDF of my-cv without the phone number -> assets/pdf/Geonmo_Yang_CV.pdf
+#      (the CV page links it). my-cv's own files are not modified.
+#   2. Regenerates _data/cv.yml from my-cv/cv/*.tex (bin/cv_tex_to_yaml.py).
+# Usage: bin/sync-cv [path/to/my-cv]        (default: ../my-cv next to this repo)
+# Needs: latexmk + xelatex, python3, pdftotext. Then review `git diff`, commit, push.
+set -euo pipefail
+
+repo="$(cd "$(dirname "$0")/.." && pwd)"
+mycv="$(cd "${1:-$repo/../my-cv}" && pwd)"
+out="$(mktemp -d)"
+trap 'rm -rf "$out"' EXIT
+
+echo "Building the public PDF from $mycv ..."
+# \mobile is set in the preamble; undefining \@mobile at \begin{document} makes
+# Awesome-CV's header skip the phone line. Keep -jobname different from root_cv:
+# my-cv's latexmkrc copies root_cv.pdf over its private GeonmoYang_CV.pdf.
+if ! (cd "$mycv" && latexmk -xelatex -interaction=nonstopmode -halt-on-error -outdir="$out" \
+  -jobname=Geonmo_Yang_CV \
+  -usepretex='\AtBeginDocument{\expandafter\let\csname @mobile\endcsname\undefined}' \
+  root_cv.tex >"$out/latexmk.out" 2>&1); then
+  cp "$out/latexmk.out" /tmp/sync-cv-latexmk.log
+  echo "LaTeX build failed; log: /tmp/sync-cv-latexmk.log" >&2
+  exit 1
+fi
+
+# Refuse to publish if the phone number still made it into the PDF.
+python3 "$repo/bin/cv_tex_to_yaml.py" --check-pdf "$out/Geonmo_Yang_CV.pdf" "$mycv/root_cv.tex"
+
+mkdir -p "$repo/assets/pdf"
+cp "$out/Geonmo_Yang_CV.pdf" "$repo/assets/pdf/Geonmo_Yang_CV.pdf"
+python3 "$repo/bin/cv_tex_to_yaml.py" "$mycv" >"$out/cv.yml"
+mv "$out/cv.yml" "$repo/_data/cv.yml"
+
+echo "Synced from my-cv: _data/cv.yml, assets/pdf/Geonmo_Yang_CV.pdf"
