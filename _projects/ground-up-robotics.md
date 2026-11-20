@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Robotics from the Ground Up
-description: "Weekly undergraduate lab seminars, Dec. 2019 – Jul. 2021: servo packets built by hand, a legged robot, and a robot that follows a person"
+description: "Weekly undergraduate lab seminars, Dec. 2019 –⁠ Jul. 2021: servo packets built by hand, a legged robot, and a robot that follows a person"
 img: assets/img/projects/ground-up-robotics/thumb.webp
 importance: 1
 ---
@@ -217,7 +217,7 @@ Some of the faults I tracked down, and how I found them.
 <tr><td data-label="When">Jan.&nbsp;2020</td><td data-label="Symptom">Delays ran about 15× too long on a new controller board</td><td data-label="How I found it"><span class="nobr">Back-calculated</span> the real clock (about 1&nbsp;MHz instead of 14.7456&nbsp;MHz). Measured both crystals on the scope and checked the fuse bits.</td><td data-label="Fix">Replaced the MCU: the first chip or its soldering was bad.</td></tr>
 <tr><td data-label="When">Feb.&nbsp;2020</td><td data-label="Symptom">Servo angles read back as garbage</td><td data-label="How I found it">Probed the <span class="nobr">RS-485</span> transceiver. The receive line floats whenever the driver is off.</td><td data-label="Fix">Added a 10&nbsp;kΩ <span class="nobr">pull-up</span> and a termination resistor, and confirmed with before and after captures.</td></tr>
 <tr><td data-label="When">May&nbsp;2020</td><td data-label="Symptom">Range spikes during fast motion that a <span class="nobr">low-pass</span> filter could not remove</td><td data-label="How I found it">Checked the received frequency, then traced the spikes to reflections. Swept drive voltage against acceptance angle.</td><td data-label="Fix">Drove the transmitter at 9&nbsp;V and removed the filter.</td></tr>
-<tr><td data-label="When">Sep.&nbsp;2020</td><td data-label="Symptom">Radio latency jittered between 9.5 and 10.5&nbsp;ms</td><td data-label="How I found it">Timed each step of the loop. Reading the status register alone took 2.73&nbsp;ms.</td><td data-label="Fix">Shortened the loop. Latency became <span class="nobr">6.00–6.02&nbsp;ms</span> and is now a constant offset.</td></tr>
+<tr><td data-label="When">Sep.&nbsp;2020</td><td data-label="Symptom">Radio latency jittered between <span class="nobr">9.5 and 10.5&nbsp;ms</span></td><td data-label="How I found it">Timed each step of the loop. Reading the status register alone took 2.73&nbsp;ms.</td><td data-label="Fix">Shortened the loop. Latency became <span class="nobr">6.00–6.02&nbsp;ms</span> and is now a constant offset.</td></tr>
 <tr><td data-label="When">Jan.&nbsp;2021</td><td data-label="Symptom">The radio worked on my own board but stayed silent on a dev board</td><td data-label="How I found it">Compared SPI traffic on a logic analyzer, matched the register writes, and checked every register against the datasheet, one change at a time.</td><td data-label="Fix">The datasheet's state diagram showed CE was never raised. Driving CE fixed it.</td></tr>
 <tr><td data-label="When">Feb.&nbsp;2021</td><td data-label="Symptom">A target standing still at 70&nbsp;cm sometimes read about 210&nbsp;cm</td><td data-label="How I found it">Timed the radio handshake on the scope. Each lost packet or acknowledgment delays the burst by <span class="nobr">2.5–3&nbsp;ms</span>.</td><td data-label="Fix">Turned off <span class="nobr">auto-retransmit</span> and added a resend timeout and a 70&nbsp;cm jump filter. Checked over 519 exchanges.</td></tr>
 <tr><td data-label="When">May&nbsp;2021</td><td data-label="Symptom">A 90° <span class="nobr">wide-angle</span> receiver gave erratic data</td><td data-label="How I found it">Measured both transmitters (57 vs. 3.8&nbsp;Vpp) and matched echo amplitudes by distance. It worked only at <span class="nobr">25–45&nbsp;cm</span>.</td><td data-label="Fix">Recorded it as a dead end and kept the original receivers.</td></tr>
@@ -254,7 +254,7 @@ Some of the faults I tracked down, and how I found them.
 
 <div class="gur-ko" lang="ko">
 <p><strong>한국어 요약</strong></p>
-<p>한국공학대학교 IHLAB 학부연구생 시절(<span class="nobr">2019.12–2021.07</span>)에 거의 매주 진행한 랩 세미나 {{ seminars.size }}회를 요약한 페이지입니다. ATmega128에서 다이나믹셀 패킷을 한 바이트씩 직접 만들고 오실로스코프로 확인하는 데서 시작해, 기구학으로 다리 로봇을 걷게 했습니다. 이어서 초음파와 RF 동기화로 사람의 위치를 재는 추종부를 직접 설계한 STM32 보드로 만들었고, 이 작업은 사람을 따라가는 공사장 자재 운반 로봇(졸업작품)으로 이어졌습니다.</p>
+<p>한국공학대학교 IHLAB 학부연구생 시절(<span class="nobr">2019.12–2021.07</span>)에 거의 매주 진행한 랩 세미나 {{ seminars.size }}회를 요약한 페이지입니다. ATmega128에서 다이나믹셀 패킷을 한 바이트씩 직접 만들고 오실로스코프로 확인하는 데서 시작해, 기구학으로 다리 로봇을 걷게 했습니다. 이어서 초음파와 RF 동기화로 사람의 위치를 재는 추종부를 직접 설계한 STM32 보드로 만들었고, 이 작업은 사람을 따라가는 공사장 자재 운반 로봇(졸업작품)으로&nbsp;이어졌습니다.</p>
 <p>모든 결과는 줄자·각도기·오실로스코프로 실측과 비교했습니다. 문제는 필터로 덮기보다 원인(반사파, 느린 레지스터 읽기, 올라가지 않은 CE 핀)을 찾아 고쳤고, 실패와 막다른 길까지 매주 기록했습니다.</p>
 </div>
 

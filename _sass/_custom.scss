@@ -109,6 +109,30 @@ html[data-theme="dark"] {
 // _projects/ground-up-robotics.md. Classes are prefixed gur- (ground-up robotics).
 // Colors come from the theme variables, so light and dark mode follow the site toggle.
 
+// No one-word last lines. "pretty" fixes the end of paragraphs, captions and table cells;
+// "balance" evens out short headings and labels. text-wrap-style leaves text-wrap-mode alone,
+// so .nobr and other nowrap rules still hold. Browsers without it keep the default wrapping.
+// The page layout has no page class, so :has() picks the post that holds the stat tiles.
+.post:has(.gur-stats) {
+  text-wrap-style: pretty;
+
+  h1,
+  h2,
+  h3,
+  .gur-stat-label {
+    text-wrap-style: balance;
+  }
+}
+
+// Project cards on /projects/, same rules ("Robotics from the Ground Up" left "Up" alone at 820px).
+.projects .card-body {
+  text-wrap-style: pretty;
+}
+
+.projects .card-title {
+  text-wrap-style: balance;
+}
+
 // Stat tiles: the number leads, the label explains it.
 .gur-stats {
   display: grid;
