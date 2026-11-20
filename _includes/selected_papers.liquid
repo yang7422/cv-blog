@@ -1,0 +1,12 @@
+{% comment %}
+  Local override of al_folio_core 1.0.11 _includes/selected_papers.liquid (tracked in .al-folio-overrides.yml).
+  Stock version: one list of selected={true} entries from papers.bib only, in file order.
+  Here my first-author papers come first, and under-review ones are included:
+    1. selected={true} + first_author={true}   (under_review.bib, then papers.bib)
+    2. the other selected={true} entries        (under_review.bib, then papers.bib)
+  Within each group, entries keep their file order.
+{% endcomment %}
+<div class="publications">
+  {% bibliography --file under_review --file papers --group_by none --query @*[selected=true,first_author=true]* %}
+  {% bibliography --file under_review --file papers --group_by none --query @*[selected=true,first_author!=true]* %}
+</div>

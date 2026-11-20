@@ -1,0 +1,10 @@
+---
+version: 1
+overrides:
+  _includes/selected_papers.liquid:
+    owner: al_folio_core
+    gem_version: 1.0.11
+    upstream_path: _includes/selected_papers.liquid
+    upstream_sha256: 2ea68b7784ce9638aa1f4f81c4fd2508f05c315bad0cf6c63223fe526de1e364
+    local_sha256: a7f7be1093d22fe43b740d4b2f84fef0bb14ddec69fa7042cb6e65896bb01b1e
+    acknowledged_at: '2026-11-20'

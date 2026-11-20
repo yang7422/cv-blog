@@ -386,6 +386,7 @@ filtered_bibtex_keywords:
     code,
     dimensions,
     eprint,
+    first_author,
     google_scholar_id,
     hal,
     html,
