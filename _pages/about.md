@@ -2,16 +2,21 @@
 layout: about
 title: about
 permalink: /
-subtitle: Integrated M.S.–Ph.D. Student · SPARO Lab, Inha University · Robust Perception &amp; Robust State Estimation
+# Line breaks: each <span class="nobr"> stays on one line (_sass/_custom.scss), so a
+# line can only break at a normal space between two spans. &nbsp; before "·" keeps
+# the dot from starting a line.
+subtitle: >-
+  <span class="nobr">Integrated M.S.–Ph.D. Student</span>&nbsp;· <span class="nobr">SPARO Lab, Inha University</span>&nbsp;·
+  <span class="nobr">Robust Perception &amp;</span> <span class="nobr">Robust State Estimation</span>
 
 profile:
   align: right
   image: geonmo_yang.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>SPARO Lab (Spatial AI &amp; Robotics)</p>
-    <p>Inha University</p>
-    <p>Incheon, Republic of Korea</p>
+    <p><span class="nobr">SPARO Lab</span> <span class="nobr">(Spatial AI &amp; Robotics)</span></p>
+    <p class="nobr">Inha University</p>
+    <p><span class="nobr">Incheon,</span> <span class="nobr">Republic of Korea</span></p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -42,6 +47,6 @@ I build **robust perception** and **robust state estimation** for robots that ha
 - 2 registered Korean patents — underwater image enhancement & depth estimation, and sensor-fusion image dehazing
 - 2nd place out of 131 teams, IMU Odometry Challenge @ IROS 2026
 - Silver Prize, 32nd Samsung HumanTech Paper Award (2026) · Grand Prize, Graduate Research Award, Inha University (2026)
-- Research internship at Riibotics (robust LiDAR SLAM & localization) · international collaboration with Stevens Institute of Technology · industry project with Hyundai E&C
+- Research internship at Riibotics (robust LiDAR SLAM & localization) · international collaborations with Stevens Institute of Technology and MIT · industry project with Hyundai E&C
 
 🇰🇷 [한국어 소개 페이지]({{ '/ko/' | relative_url }})

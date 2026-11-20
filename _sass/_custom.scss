@@ -1,0 +1,106 @@
+// Site-specific styles for cv-blog.
+// Loaded last by assets/css/main.scss (a local override of al_folio_core's file),
+// so these rules win over the stock ones they share a selector with.
+
+// Line breaking ----------------------------------------------------------------
+// Korean wraps between words (어절), never inside one: the browser default breaks
+// Hangul between any two syllables ("입 | 니다"). keep-all only changes CJK text,
+// so English wrapping is unchanged. overflow-wrap still lets a single token that
+// is wider than the line (a long URL) wrap instead of overflowing.
+body {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+// Keeps a phrase on one line: <span class="nobr">SPARO Lab</span>.
+// Put a normal space between two nobr spans where a line break is fine.
+.nobr {
+  white-space: nowrap;
+}
+
+// Profile photo and caption (about pages) ---------------------------------------
+// Stock al-folio: 30% of the column (270px on desktop) and full width on phones.
+// Here: 230px everywhere, centered on phones and floated beside the bio from 576px.
+.profile {
+  width: 230px;
+  float: none;
+  margin: 0 auto 1rem;
+
+  .more-info {
+    font-size: 0.85rem; // fits "Incheon, Republic of Korea" on one line in 230px
+
+    p {
+      display: block; // one item per line (stock inline-block runs items together on phones)
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .profile {
+    width: 230px;
+  }
+
+  .profile.float-right {
+    float: right;
+    margin: 0 0 1rem 1rem;
+  }
+
+  .profile.float-left {
+    float: left;
+    margin: 0 1rem 1rem 0;
+  }
+}
+
+// CV page ---------------------------------------------------------------------------
+// al_folio_cv keeps the location on one line (nowrap) in a 75px date column, so a long
+// one ("Bucheon, Incheon, South Korea") ran into the title. Let it wrap; the generated
+// cv.yml wraps each place in .nobr, so lines break only after a comma.
+.cv p.location {
+  white-space: normal;
+}
+
+// Publication highlight badges ------------------------------------------------------
+// Rendered by _includes/hook/bib.liquid from the collab / industry / spotlight bib
+// fields, on their own line under "Journal, Year".
+.pub-badges {
+  display: flex; // block-level, so the badges always start a new line
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.3rem 0 0.1rem;
+}
+
+.pub-badge {
+  display: inline-block;
+  padding: 0.05em 0.7em;
+  border-radius: 0.8em; // a pill on one line, a rounded box if it has to wrap
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.6;
+
+  i {
+    margin-right: 0.15em;
+  }
+}
+
+.pub-badge-collab {
+  color: #0e7490;
+  background-color: rgba(14, 116, 144, 0.1);
+}
+
+.pub-badge-spotlight {
+  color: #b45309;
+  background-color: rgba(180, 83, 9, 0.1);
+}
+
+html[data-theme="dark"] {
+  .pub-badge-collab {
+    color: #67e8f9;
+    background-color: rgba(103, 232, 249, 0.12);
+  }
+
+  .pub-badge-spotlight {
+    color: #fbbf24;
+    background-color: rgba(251, 191, 36, 0.12);
+  }
+}
