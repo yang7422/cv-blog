@@ -16,6 +16,9 @@
 %     go first in that list (_includes/selected_papers.liquid)
 %   - preview images live in assets/img/publication_preview/
 %   - website = official SPARO project page (not duplicated here)
+%   - highlight badges (_includes/hook/bib.liquid), shown on their own line:
+%     collab = {Partner, Country} (international collaboration),
+%     industry = {Company} (industry collaboration), spotlight = {true}
 % Under-review papers -> under_review.bib, patents -> patents.bib
 % =============================================================================
 
@@ -34,6 +37,7 @@
   code        = {https://github.com/sparolab/SKiD-SLAM},
   website     = {https://sparolab.github.io/research/skid_slam/},
   preview     = {skid_slam_tfr.gif},
+  collab      = {MIT, USA},
   bibtex_show = {true},
   selected    = {true}
 }
@@ -49,6 +53,7 @@
   website     = {https://sparolab.github.io/research/commerge/},
   video       = {https://www.youtube-nocookie.com/embed/LV_8_jZbHV8},
   preview     = {commerge.gif},
+  collab      = {MIT, USA},
   bibtex_show = {true},
   selected    = {true}
 }
@@ -91,7 +96,8 @@
   author      = {Yun*, Seunghee and Yang*, Geonmo and Lee, Juhui and Park, Changbeom and Choi, Jeahyung and Cho, Younggun},
   journal     = {Journal of Institute of Control, Robotics and Systems},
   year        = {2026},
-  note        = {In Korean: 수중 로봇 기반 건설환경 모니터링을 위한 강건한 영상처리 기법. Marine-snow-aware underwater image processing; industry collaboration with Hyundai E&C.},
+  note        = {In Korean: 수중 로봇 기반 건설환경 모니터링을 위한 강건한 영상처리 기법. Marine-snow-aware underwater image processing.},
+  industry    = {Hyundai E&C},
   annotation  = {* Equal contribution},
   bibtex_show = {true},
   selected    = {true},
@@ -125,6 +131,7 @@
   journal     = {IEEE Sensors Journal},
   year        = {2025},
   html        = {https://ieeexplore.ieee.org/document/10745206},
+  arxiv       = {2611.22224},
   code        = {https://github.com/sparolab/TRIDENT},
   website     = {https://sparolab.github.io/research/trident/},
   video       = {https://www.youtube-nocookie.com/embed/EU_o8CCR71U},
@@ -153,7 +160,8 @@
   code        = {https://github.com/sparolab/SKiD-SLAM},
   website     = {https://sparolab.github.io/research/skid_slam_w/},
   preview     = {skid_slam_ws.gif},
-  note        = {Spotlight presentation.},
+  collab      = {MIT, USA},
+  spotlight   = {true},
   bibtex_show = {true}
 }
 
@@ -198,6 +206,7 @@
   journal     = {IEEE Sensors Journal},
   year        = {2024},
   html        = {https://ieeexplore.ieee.org/document/10351035},
+  arxiv       = {2611.22212},
   code        = {https://github.com/sparolab/Joint_ID},
   website     = {https://sparolab.github.io/research/joint_id/},
   video       = {https://www.youtube-nocookie.com/embed/1GOoHCSpNXE},
@@ -213,7 +222,7 @@
   author      = {Lee, Juhui and Ma, Seungjun and Yang, Geonmo and Cho, Younggun},
   booktitle   = {IEEE ICRA Workshop (RoboNerF)},
   year        = {2024},
-  note        = {Spotlight presentation.},
+  spotlight   = {true},
   bibtex_show = {true}
 }
 
@@ -228,6 +237,7 @@
   journal     = {Sensors (MDPI)},
   year        = {2023},
   html        = {https://pmc.ncbi.nlm.nih.gov/articles/PMC9920918/},
+  website     = {https://sparolab.github.io/research/sparse_depth_guided/},
   preview     = {mdpi_sensors.jpg},
   annotation  = {* Equal contribution},
   bibtex_show = {true},

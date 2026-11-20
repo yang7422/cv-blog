@@ -1,0 +1,43 @@
+{%- comment -%}
+  Site hook: al_folio_core's bib.liquid includes this file (when it exists) for every
+  publication entry, just before it builds the "Journal, Year" line.
+  It turns these custom bib fields into highlight badges on their own line under it:
+    collab    = {Stevens Institute of Technology, USA}  -> International collaboration · …
+    industry  = {Hyundai E&C}                           -> Industry collaboration · …
+    spotlight = {true}                                  -> Spotlight presentation
+  The fields are hidden from the BibTeX popup (filtered_bibtex_keywords in _config.yml).
+  Styles: .pub-badge* in _sass/_custom.scss. Each badge breaks only between its
+  .nobr phrases, never inside one.
+{%- endcomment -%}
+{%- assign pub_badges = '' -%}
+{%- if entry.collab -%}
+  {%- capture pub_badges -%}
+    {{- pub_badges -}}
+    <span class="pub-badge pub-badge-collab"><i class="fa-solid fa-handshake" aria-hidden="true"></i> <span class="nobr">International collaboration ·</span> <span class="nobr">{{ entry.collab }}</span></span>
+  {%- endcapture -%}
+{%- endif -%}
+{%- if entry.industry -%}
+  {%- capture pub_badges -%}
+    {{- pub_badges -}}
+    <span class="pub-badge pub-badge-collab"><i class="fa-solid fa-building" aria-hidden="true"></i> <span class="nobr">Industry collaboration ·</span> <span class="nobr">{{ entry.industry }}</span></span>
+  {%- endcapture -%}
+{%- endif -%}
+{%- if entry.spotlight -%}
+  {%- capture pub_badges -%}
+    {{- pub_badges -}}
+    <span class="pub-badge pub-badge-spotlight"><i class="fa-solid fa-star" aria-hidden="true"></i> <span class="nobr">Spotlight presentation</span></span>
+  {%- endcapture -%}
+{%- endif -%}
+{%- if pub_badges != '' -%}
+  {%- capture pub_badges -%}<span class="pub-badges">{{ pub_badges }}</span>{%- endcapture -%}
+  {%- comment -%}
+    Append after the year (so the line still reads "Journal, Year"); entries without a
+    year (under review) get it after the venue. .pub-badges is block-level, so it
+    always starts a new line.
+  {%- endcomment -%}
+  {%- if entryyear != '' -%}
+    {%- capture entryyear -%}{{ entryyear }}{{ pub_badges }}{%- endcapture -%}
+  {%- else -%}
+    {%- capture entrytype -%}{{ entrytype }}{{ pub_badges }}{%- endcapture -%}
+  {%- endif -%}
+{%- endif -%}
