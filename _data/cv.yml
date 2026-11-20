@@ -72,7 +72,7 @@ cv:
     Publications:
       # Same order as _bibliography/papers.bib: my first-author work first within a year.
       # The IROS 2026 workshop abstract of PGSPN is intentionally not listed (I will add it myself).
-      - title: "SKiD-SLAM: Resource-Aware Distributed Multi-Robot LiDAR SLAM for Planetary Missions with Field Deployments at Analog Sites"
+      - title: "SKiD-SLAM: Resource-Aware Distributed Multirobot LiDAR SLAM for Planetary Missions With Field Deployments at Analog Sites"
         authors:
           [Hogyun Kim, Juwon Kim, Dongjin Cho, Jiwon Choi, "**Geonmo Yang**", Seokhwan Jeong, Jiyun Lee, Miryeong Park, Hyungtae Lim, Younggun Cho]
         publisher: IEEE Transactions on Field Robotics (T-FR)
@@ -107,14 +107,21 @@ cv:
         releaseDate: 2026
         summary: "S. Yun\\*, **G. Yang**\\*, J. Lee, C. Park, J. Choi, Y. Cho (\\* equal contribution)"
 
-      - title: "Freeze-Frame with StaticNeRF: Uncertainty-Guided NeRF Map Reconstruction in Dynamic Scenes"
+      - title: "Freeze-Frame With StaticNeRF: Uncertainty-Guided NeRF Map Reconstruction in Dynamic Scenes"
         authors: [Juhui Lee, "**Geonmo Yang**", Seungjun Ma, Younggun Cho]
         publisher: IEEE Robotics and Automation Letters (RA-L)
-        releaseDate: 2025
+        releaseDate: 2026
         url: https://ieeexplore.ieee.org/document/11242041
         summary: "J. Lee, **G. Yang**, S. Ma, Y. Cho"
 
-      - title: "RA-LLO: Robust Adaptive Legged-LiDAR Odometry with Gaussian Process Motion Prior over Error States"
+      - title: "TRIDENT: Efficient Triple-Task Learning of Dehazing, Depth, and Uncertainty Estimation for Underwater 3-D Robot Visual Perception"
+        authors: ["**Geonmo Yang**", Younggun Cho]
+        publisher: IEEE Sensors Journal
+        releaseDate: 2025
+        url: https://ieeexplore.ieee.org/document/10745206
+        summary: "**G. Yang**, Y. Cho"
+
+      - title: "RA-LLO: Robust Adaptive Legged-LiDAR Odometry With Gaussian Process Motion Prior Over Error States"
         authors: [Juwon Kim, Jungwoo Lee, "**Geonmo Yang**", Younggun Cho]
         publisher: International Conference on Control, Automation and Systems (ICCAS)
         releaseDate: 2025
@@ -140,25 +147,18 @@ cv:
         releaseDate: 2025
         summary: "J. Choi, H. Kim, **G. Yang**, Y. Cho · Excellent Research Award"
 
-      - title: "TRIDENT: Efficient Triple-Task Learning of Dehazing, Depth, and Uncertainty Estimation for Underwater 3D Robot Visual Perception"
-        authors: ["**Geonmo Yang**", Younggun Cho]
-        publisher: IEEE Sensors Journal
-        releaseDate: 2024
-        url: https://ieeexplore.ieee.org/document/10745206
-        summary: "**G. Yang**, Y. Cho"
-
-      - title: "StaticNeRF: Neural Implicit Static Mapping and Localization in Dynamic Environments"
-        authors: [Juhui Lee, Seungjun Ma, "**Geonmo Yang**", Younggun Cho]
-        publisher: IEEE ICRA Workshop
-        releaseDate: 2024
-        summary: "J. Lee, S. Ma, **G. Yang**, Y. Cho · Spotlight"
-
       - title: "Joint-ID: Transformer-Based Joint Image Enhancement and Depth Estimation for Underwater Environments"
         authors: ["**Geonmo Yang**", Gilhwan Kang, Juhui Lee, Younggun Cho]
         publisher: IEEE Sensors Journal
-        releaseDate: 2023
+        releaseDate: 2024
         url: https://ieeexplore.ieee.org/document/10351035
         summary: "**G. Yang**, G. Kang, J. Lee, Y. Cho"
+
+      - title: "StaticNeRF: Neural Implicit Static Mapping and Localization in Dynamic Environments"
+        authors: [Juhui Lee, Seungjun Ma, "**Geonmo Yang**", Younggun Cho]
+        publisher: IEEE ICRA Workshop (RoboNerF)
+        releaseDate: 2024
+        summary: "J. Lee, S. Ma, **G. Yang**, Y. Cho · Spotlight"
 
       - title: "Sparse Depth-Guided Image Enhancement Using Incremental GP with Informative Point Selection"
         authors: ["**Geonmo Yang***", "Juhui Lee*", Ayoung Kim, Younggun Cho]
