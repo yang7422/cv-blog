@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Patent registered: _Image Dehazing System through Sensor Fusion_ (KR 10-2673404).
+Patent registered: _Image Dehazing System through Sensor Fusion_ (KR&nbsp;10-2673404).

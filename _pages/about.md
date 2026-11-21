@@ -48,8 +48,10 @@ I build **robust perception** and **robust state estimation** for robots that ha
 - 3 first-author journal papers (IEEE Sensors Journal ×2, MDPI Sensors) and co-authored papers in IJRR, IEEE T-FR, RA-L, and ICRA
 - 2 registered Korean patents — underwater image enhancement & depth estimation, and sensor-fusion image dehazing
 - 2nd place out of 131 teams, IMU Odometry Challenge @ IROS 2026
-- Silver Prize, 32nd Samsung HumanTech Paper Award (2026) · Grand Prize, Graduate Research Award, Inha University (2026)
-- Research internship at Riibotics (robust LiDAR SLAM & localization) · international collaborations with Stevens Institute of Technology and MIT · industry project with Hyundai E&C
+- Silver Prize, 32nd Samsung HumanTech Paper Award (2026)&nbsp;· Grand Prize, Graduate Research Award, Inha University (2026)
+- Research internship at Riibotics (robust LiDAR SLAM & localization)&nbsp;· international collaborations with Stevens Institute of Technology and MIT&nbsp;· industry project with Hyundai E&C
 - Undergraduate research at IHLAB, Tech University of Korea: four hands-on projects, from <span class="nobr">register-level</span> firmware to circuit boards I designed and brought up, and {{ own_talks.size }} weekly lab seminars ([projects]({{ '/projects/' | relative_url }}))
 
 🇰🇷 [한국어 소개 페이지]({{ '/ko/' | relative_url }})
+
+{% include glue_words.liquid %}

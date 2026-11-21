@@ -208,6 +208,83 @@ def keep_segments(parts):
     return "&nbsp;· ".join(nobr(p) for p in parts if p)
 
 
+# Applied to every displayed string just before the YAML is written (glue_all). URLs, ISO
+# dates and icon names are left alone, and so is anything already inside a .nobr span, an
+# HTML tag or a markdown link target.
+MON = r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\.?"
+DATE = rf"(?:{MON}\s+)?\d{{4}}"
+DATE_RANGE = re.compile(rf"(?<![A-Za-z0-9.])(?:{DATE}|{MON})\s*[–—]\s*(?:{DATE}|Present)(?![A-Za-z0-9])")
+MONTH_YEAR = re.compile(rf"(?<![A-Za-z])({MON})\s+(\d{{4}})(?![0-9])")
+HYPHENATED = re.compile(r"(?<![A-Za-z0-9./+&#;-])[A-Za-z0-9][A-Za-z0-9./+]*(?:-[A-Za-z0-9./+]*[A-Za-z0-9])+")
+NO_GLUE_KEYS = {"email", "website", "url", "start_date", "end_date", "releaseDate", "date", "icon"}
+
+
+def _outside(s, fn):
+    """Apply fn to the plain-text parts of s: not tags, not markdown link targets, not .nobr."""
+    parts = re.split(r"(<[^>]+>|\]\([^)]*\))", s)
+    out, stack = [], []
+    for part in parts:
+        if part.startswith("<"):
+            if re.match(r"<span\b", part):
+                stack.append('class="nobr"' in part)
+            elif part.startswith("</span") and stack:
+                stack.pop()
+            out.append(part)
+        elif part.startswith("]("):
+            out.append(part)
+        else:
+            out.append(part if any(stack) else fn(part))
+    return "".join(out)
+
+
+def _glue_last_two(s):
+    """Replace the last breakable space with &nbsp;, so no line ends up holding one word."""
+    parts = re.split(r"(<[^>]+>|\]\([^)]*\))", s)
+    depth = []
+    spans = []  # (index, inside_nobr) for plain-text parts
+    for i, part in enumerate(parts):
+        if part.startswith("<"):
+            if re.match(r"<span\b", part):
+                depth.append('class="nobr"' in part)
+            elif part.startswith("</span") and depth:
+                depth.pop()
+        elif not part.startswith("]("):
+            spans.append((i, any(depth)))
+    for i, inside in reversed(spans):
+        if inside:
+            continue
+        # the space may also sit just before a tag ("· <i …></i>&nbsp;Spotlight")
+        j = parts[i].rfind(" ") if i < len(parts) - 1 else parts[i].rstrip().rfind(" ")
+        if j >= 0:
+            parts[i] = parts[i][:j] + "&nbsp;" + parts[i][j + 1 :]
+            break
+    return "".join(parts)
+
+
+def glue(s, last_two=True):
+    """Line-break rules for one displayed string (see the comment above MON)."""
+    if not isinstance(s, str) or s.startswith(("http://", "https://")):
+        return s
+    s = _outside(s, lambda t: DATE_RANGE.sub(lambda m: nobr(m.group(0)), t))
+    s = _outside(s, lambda t: MONTH_YEAR.sub(r"\1&nbsp;\2", t))
+    s = _outside(s, lambda t: HYPHENATED.sub(lambda m: nobr(m.group(0)), t))
+    s = _outside(s, lambda t: t.replace(" · ", "&nbsp;· "))
+    # "· ★ Spotlight": Chrome breaks around an inline-block icon even next to &nbsp;, so wrap it whole
+    s = re.sub(r"&nbsp;·(?:&nbsp;| )(<i [^>]*></i>)(?:&nbsp;| )([A-Za-z]+)", r'&nbsp;<span class="nobr">· \1 \2</span>', s)
+    if last_two and len(re.sub(r"<[^>]+>", "", s).split()) >= 4:
+        s = _glue_last_two(s)
+    return s
+
+
+def glue_all(obj, key=None):
+    if isinstance(obj, dict):
+        return {k: (v if k in NO_GLUE_KEYS else glue_all(v, k)) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [glue_all(v, key) for v in obj]
+    # the location sits in a 75px column: it must keep breaking after each comma
+    return glue(obj, last_two=key != "location")
+
+
 # --------------------------------------------------------------------------- sections
 def experience(body):
     entries = []
@@ -426,7 +503,7 @@ def main(argv):
         return
     if len(argv) != 2:
         sys.exit(__doc__)
-    sys.stdout.write(HEADER + "\n".join(emit(build(Path(argv[1])))) + "\n")
+    sys.stdout.write(HEADER + "\n".join(emit(glue_all(build(Path(argv[1]))))) + "\n")
 
 
 if __name__ == "__main__":

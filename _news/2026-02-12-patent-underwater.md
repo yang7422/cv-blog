@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Patent registered: _Underwater Image Enhancement and Depth Estimation System_ (KR 10-2928592).
+Patent registered: _Underwater Image Enhancement and Depth Estimation System_ (KR&nbsp;10-2928592).

@@ -39,3 +39,5 @@ nav_order: 1
 {% bibliography --file patents --group_by none %}
 
 </div>
+
+{% include glue_words.liquid %}

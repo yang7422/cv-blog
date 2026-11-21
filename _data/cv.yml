@@ -2,189 +2,189 @@
 # Edit ../my-cv/cv/*.tex, then run bin/sync-cv. The phone number is never copied.
 cv:
   name: "Geonmo Yang (양건모)"
-  label: "Robotics AI Researcher · Field Robotics Engineer"
+  label: "Robotics AI Researcher&nbsp;· Field Robotics&nbsp;Engineer"
   email: "ygm7422@gmail.com"
   website: "https://yang7422.github.io/cv-blog/"
   address:
     city: "Incheon"
     region: "South Korea"
-  summary: "Field Robotics Engineer specializing in AI-based solutions for low visibility challenges in ground and underwater environments. With nearly three years of hands-on embedded firmware and circuit design experience (STM32, ATmega128, OrCAD/Allegro), I now focus on robust pose estimation aimed at achieving long-term autonomy for robots. Currently pursuing a Ph.D. at Inha University in the SPARO Lab (expected Aug. 2027), I have published in IJRR, IEEE T-FR, IEEE RA-L, and IEEE Sensors Journal (two first-author papers), co-authored an ICRA 2026 Best Paper Award finalist, and won 2nd place out of 131 teams in the IROS 2026 IMU Odometry Challenge."
+  summary: 'Field Robotics Engineer specializing in <span class="nobr">AI-based</span> solutions for low visibility challenges in ground and underwater environments. With nearly three years of <span class="nobr">hands-on</span> embedded firmware and circuit design experience (STM32, ATmega128, OrCAD/Allegro), I now focus on robust pose estimation aimed at achieving <span class="nobr">long-term</span> autonomy for robots. Currently pursuing a Ph.D. at Inha University in the SPARO Lab (expected Aug.&nbsp;2027), I have published in IJRR, IEEE <span class="nobr">T-FR</span>, IEEE <span class="nobr">RA-L</span>, and IEEE Sensors Journal (two <span class="nobr">first-author</span> papers), <span class="nobr">co-authored</span> an ICRA 2026 Best Paper Award finalist, and won 2nd place out of 131 teams in the IROS 2026 IMU Odometry&nbsp;Challenge.'
   sections:
     Research Interests:
       - label: "Robust State Estimation"
-        details: "LiDAR/Inertial Odometry, SLAM, Long-term Map Maintenance, Multi-Robot Mapping"
+        details: 'LiDAR/Inertial Odometry, SLAM, <span class="nobr">Long-term</span> Map Maintenance, <span class="nobr">Multi-Robot</span>&nbsp;Mapping'
       - label: "Robust Perception"
-        details: "Image Restoration under Degradation (Underwater, Haze, Rain), Depth Estimation & Completion, NeRF / Gaussian Splatting"
+        details: "Image Restoration under Degradation (Underwater, Haze, Rain), Depth Estimation & Completion, NeRF / Gaussian&nbsp;Splatting"
     Education:
       - institution: "Inha University"
         studyType: "Integrated Ph.D."
-        area: "Electrical and Computer Engineering"
+        area: "Electrical and Computer&nbsp;Engineering"
         location: '<span class="nobr">Incheon,</span> <span class="nobr">South Korea</span>'
         start_date: "2022-03"
         end_date: "2027-08"
         highlights:
-          - "Mar. 2022 – Aug. 2027 (Expected)"
-          - "Advised by Prof. Younggun Cho, Spatial AI and Robotics (SPARO) Lab"
-      - institution: "Tech University of Korea"
+          - '<span class="nobr">Mar. 2022 – Aug. 2027</span>&nbsp;(Expected)'
+          - "Advised by Prof. Younggun Cho, Spatial AI and Robotics (SPARO)&nbsp;Lab"
+      - institution: "Tech University of&nbsp;Korea"
         studyType: "B.S."
         area: "Electronics Engineering"
         location: '<span class="nobr">Siheung,</span> <span class="nobr">South Korea</span>'
         start_date: "2016-02"
         end_date: "2022-01"
         highlights:
-          - "Feb. 2016 – Jan. 2022"
-          - "GPA 4.11/4.5 - Spring Semester, 2022"
-          - "Advised by Prof. Eung-Hyuk Lee"
+          - '<span class="nobr">Feb. 2016 – Jan. 2022</span>'
+          - "GPA 4.11/4.5 - Spring Semester,&nbsp;2022"
+          - 'Advised by Prof. <span class="nobr">Eung-Hyuk</span>&nbsp;Lee'
     Publications:
-      - title: "Commerge: Communication-Efficient, Robust, and Fast LiDAR Map Merging Framework for Multi-Robot Coordination in Resource-Constrained Scenarios"
-        publisher: '<span class="nobr">International Journal</span>&nbsp;· <span class="nobr">IJRR</span>&nbsp;· <span class="nobr">Sep. 2026</span>'
+      - title: 'Commerge: <span class="nobr">Communication-Efficient</span>, Robust, and Fast LiDAR Map Merging Framework for <span class="nobr">Multi-Robot</span> Coordination in <span class="nobr">Resource-Constrained</span>&nbsp;Scenarios'
+        publisher: '<span class="nobr">International Journal</span>&nbsp;· <span class="nobr">IJRR</span>&nbsp;·&nbsp;<span class="nobr">Sep. 2026</span>'
         releaseDate: "2026-09"
         url: "https://doi.org/10.1177/02783649261464202"
-        summary: '<span class="nobr">Hogyun Kim</span>, <span class="nobr">Jiwon Choi</span>, <span class="nobr">Juwon Kim</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Seokhwan Jeong</span>, <span class="nobr">Hyungtae Lim<sup>†</sup></span>, <span class="nobr">Younggun Cho<sup>†</sup></span>'
-      - title: "SKiD-SLAM: Resource-Aware Distributed Multirobot LiDAR SLAM for Planetary Missions With Field Deployments at Analog Sites"
-        publisher: '<span class="nobr">International Journal</span>&nbsp;· <span class="nobr">IEEE T-FR</span>&nbsp;· <span class="nobr">Aug. 2026</span>'
+        summary: '<span class="nobr">Hogyun Kim</span>, <span class="nobr">Jiwon Choi</span>, <span class="nobr">Juwon Kim</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Seokhwan Jeong</span>, <span class="nobr">Hyungtae Lim<sup>†</sup></span>,&nbsp;<span class="nobr">Younggun Cho<sup>†</sup></span>'
+      - title: '<span class="nobr">SKiD-SLAM</span>: <span class="nobr">Resource-Aware</span> Distributed Multirobot LiDAR SLAM for Planetary Missions With Field Deployments at Analog&nbsp;Sites'
+        publisher: '<span class="nobr">International Journal</span>&nbsp;· <span class="nobr">IEEE T-FR</span>&nbsp;·&nbsp;<span class="nobr">Aug. 2026</span>'
         releaseDate: "2026-08"
         url: "https://doi.org/10.1109/TFR.2026.3721725"
-        summary: '<span class="nobr">Hogyun Kim</span>, <span class="nobr">Juwon Kim</span>, <span class="nobr">Dongjin Cho</span>, <span class="nobr">Jiwon Choi</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Seokhwan Jeong</span>, <span class="nobr">Jiyun Lee</span>, <span class="nobr">Miryeong Park</span>, <span class="nobr">Hyungtae Lim<sup>†</sup></span>, <span class="nobr">Younggun Cho<sup>†</sup></span>'
-      - title: "Freeze-Frame With StaticNeRF: Uncertainty-Guided NeRF Map Reconstruction in Dynamic Scenes"
-        publisher: '<span class="nobr">International Journal</span>&nbsp;· <span class="nobr">IEEE RA-L</span>&nbsp;· <span class="nobr">Jan. 2026</span>'
+        summary: '<span class="nobr">Hogyun Kim</span>, <span class="nobr">Juwon Kim</span>, <span class="nobr">Dongjin Cho</span>, <span class="nobr">Jiwon Choi</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Seokhwan Jeong</span>, <span class="nobr">Jiyun Lee</span>, <span class="nobr">Miryeong Park</span>, <span class="nobr">Hyungtae Lim<sup>†</sup></span>,&nbsp;<span class="nobr">Younggun Cho<sup>†</sup></span>'
+      - title: '<span class="nobr">Freeze-Frame</span> With StaticNeRF: <span class="nobr">Uncertainty-Guided</span> NeRF Map Reconstruction in Dynamic&nbsp;Scenes'
+        publisher: '<span class="nobr">International Journal</span>&nbsp;· <span class="nobr">IEEE RA-L</span>&nbsp;·&nbsp;<span class="nobr">Jan. 2026</span>'
         releaseDate: "2026-01"
         url: "https://doi.org/10.1109/LRA.2025.3632068"
-        summary: '<span class="nobr">Juhui Lee</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Seungjun Ma</span>, <span class="nobr">Younggun Cho</span>'
-      - title: "TRIDENT: Efficient Triple-Task Learning of Dehazing, Depth, and Uncertainty Estimation for Underwater 3-D Robot Visual Perception"
-        publisher: '<span class="nobr">International Journal</span>&nbsp;· <span class="nobr">IEEE Sensors J.</span>&nbsp;· <span class="nobr">Jan. 2025</span>'
+        summary: '<span class="nobr">Juhui Lee</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Seungjun Ma</span>,&nbsp;<span class="nobr">Younggun Cho</span>'
+      - title: 'TRIDENT: Efficient <span class="nobr">Triple-Task</span> Learning of Dehazing, Depth, and Uncertainty Estimation for Underwater <span class="nobr">3-D</span> Robot Visual&nbsp;Perception'
+        publisher: '<span class="nobr">International Journal</span>&nbsp;· <span class="nobr">IEEE Sensors J.</span>&nbsp;·&nbsp;<span class="nobr">Jan. 2025</span>'
         releaseDate: "2025-01"
         url: "https://doi.org/10.1109/JSEN.2024.3488495"
-        summary: '<span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Younggun Cho</span>'
-      - title: "Joint-ID: Transformer-Based Joint Image Enhancement and Depth Estimation for Underwater Environments"
-        publisher: '<span class="nobr">International Journal</span>&nbsp;· <span class="nobr">IEEE Sensors J.</span>&nbsp;· <span class="nobr">Feb. 2024</span>'
+        summary: '<span class="nobr">**Geonmo Yang**</span>,&nbsp;<span class="nobr">Younggun Cho</span>'
+      - title: '<span class="nobr">Joint-ID</span>: <span class="nobr">Transformer-Based</span> Joint Image Enhancement and Depth Estimation for Underwater&nbsp;Environments'
+        publisher: '<span class="nobr">International Journal</span>&nbsp;· <span class="nobr">IEEE Sensors J.</span>&nbsp;·&nbsp;<span class="nobr">Feb. 2024</span>'
         releaseDate: "2024-02"
         url: "https://doi.org/10.1109/JSEN.2023.3338730"
-        summary: '<span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Gilhwan Kang</span>, <span class="nobr">Juhui Lee</span>, <span class="nobr">Younggun Cho</span>'
-      - title: "Sparse Depth-Guided Image Enhancement Using Incremental GP with Informative Point Selection"
-        publisher: '<span class="nobr">International Journal</span>&nbsp;· <span class="nobr">MDPI Sensors</span>&nbsp;· <span class="nobr">Jan. 2023</span>'
+        summary: '<span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Gilhwan Kang</span>, <span class="nobr">Juhui Lee</span>,&nbsp;<span class="nobr">Younggun Cho</span>'
+      - title: 'Sparse <span class="nobr">Depth-Guided</span> Image Enhancement Using Incremental GP with Informative Point&nbsp;Selection'
+        publisher: '<span class="nobr">International Journal</span>&nbsp;· <span class="nobr">MDPI Sensors</span>&nbsp;·&nbsp;<span class="nobr">Jan. 2023</span>'
         releaseDate: "2023-01"
         url: "https://doi.org/10.3390/s23031212"
-        summary: '<span class="nobr">**Geonmo Yang<sup>*</sup>**</span>, <span class="nobr">Juhui Lee<sup>*</sup></span>, <span class="nobr">Ayoung Kim</span>, <span class="nobr">Younggun Cho</span>'
-      - title: "KISS-IMU: Self-supervised Inertial Odometry with Motion-balanced Learning and Uncertainty-aware Inference"
-        publisher: '<span class="nobr">International Conference</span>&nbsp;· <span class="nobr">IEEE ICRA 2026</span>&nbsp;· <span class="nobr">Jun. 2026</span>'
+        summary: '<span class="nobr">**Geonmo Yang<sup>*</sup>**</span>, <span class="nobr">Juhui Lee<sup>*</sup></span>, <span class="nobr">Ayoung Kim</span>,&nbsp;<span class="nobr">Younggun Cho</span>'
+      - title: '<span class="nobr">KISS-IMU</span>: <span class="nobr">Self-supervised</span> Inertial Odometry with <span class="nobr">Motion-balanced</span> Learning and <span class="nobr">Uncertainty-aware</span>&nbsp;Inference'
+        publisher: '<span class="nobr">International Conference</span>&nbsp;· <span class="nobr">IEEE ICRA 2026</span>&nbsp;·&nbsp;<span class="nobr">Jun. 2026</span>'
         releaseDate: "2026-06"
         url: "https://doi.org/10.1109/ICRA57385.2026.11697039"
-        summary: '<span class="nobr">Jiwon Choi</span>, <span class="nobr">Hogyun Kim</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Juhui Lee</span>, <span class="nobr">Younggun Cho</span> · <i class="fa-solid fa-trophy"></i> Finalist, Best Paper Award on Robot Perception'
-      - title: "GSAT: Geometric Traversability Estimation using Self-supervised Learning with Anomaly Detection for Diverse Terrains"
-        publisher: '<span class="nobr">International Conference</span>&nbsp;· <span class="nobr">IEEE ICRA 2026</span>&nbsp;· <span class="nobr">Jun. 2026</span>'
+        summary: '<span class="nobr">Jiwon Choi</span>, <span class="nobr">Hogyun Kim</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Juhui Lee</span>, <span class="nobr">Younggun Cho</span>&nbsp;<span class="nobr">· <i class="fa-solid fa-trophy"></i> Finalist</span>, Best Paper Award on Robot&nbsp;Perception'
+      - title: 'GSAT: Geometric Traversability Estimation using <span class="nobr">Self-supervised</span> Learning with Anomaly Detection for Diverse&nbsp;Terrains'
+        publisher: '<span class="nobr">International Conference</span>&nbsp;· <span class="nobr">IEEE ICRA 2026</span>&nbsp;·&nbsp;<span class="nobr">Jun. 2026</span>'
         releaseDate: "2026-06"
         url: "https://doi.org/10.1109/ICRA57385.2026.11696156"
-        summary: '<span class="nobr">Dongjin Cho</span>, <span class="nobr">Miryeong Park</span>, <span class="nobr">Juhui Lee</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Younggun Cho</span>'
-      - title: "RA-LLO: Robust Adaptive Legged-LiDAR Odometry With Gaussian Process Motion Prior Over Error States"
-        publisher: '<span class="nobr">International Conference</span>&nbsp;· <span class="nobr">ICCAS 2025</span>&nbsp;· <span class="nobr">Nov. 2025</span>'
+        summary: '<span class="nobr">Dongjin Cho</span>, <span class="nobr">Miryeong Park</span>, <span class="nobr">Juhui Lee</span>, <span class="nobr">**Geonmo Yang**</span>,&nbsp;<span class="nobr">Younggun Cho</span>'
+      - title: '<span class="nobr">RA-LLO</span>: Robust Adaptive <span class="nobr">Legged-LiDAR</span> Odometry With Gaussian Process Motion Prior Over Error&nbsp;States'
+        publisher: '<span class="nobr">International Conference</span>&nbsp;· <span class="nobr">ICCAS 2025</span>&nbsp;·&nbsp;<span class="nobr">Nov. 2025</span>'
         releaseDate: "2025-11"
         url: "https://doi.org/10.23919/ICCAS66577.2025.11301240"
-        summary: '<span class="nobr">Juwon Kim</span>, <span class="nobr">Jungwoo Lee</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Younggun Cho</span>'
-      - title: "PoLaRIS Dataset: A Maritime Object Detection and Tracking Dataset in Pohang Canal"
-        publisher: '<span class="nobr">International Conference</span>&nbsp;· <span class="nobr">IEEE ICRA 2025</span>&nbsp;· <span class="nobr">May 2025</span>'
+        summary: '<span class="nobr">Juwon Kim</span>, <span class="nobr">Jungwoo Lee</span>, <span class="nobr">**Geonmo Yang**</span>,&nbsp;<span class="nobr">Younggun Cho</span>'
+      - title: "PoLaRIS Dataset: A Maritime Object Detection and Tracking Dataset in Pohang&nbsp;Canal"
+        publisher: '<span class="nobr">International Conference</span>&nbsp;· <span class="nobr">IEEE ICRA 2025</span>&nbsp;·&nbsp;<span class="nobr">May 2025</span>'
         releaseDate: "2025-05"
         url: "https://doi.org/10.1109/ICRA55743.2025.11128583"
-        summary: '<span class="nobr">Jiwon Choi<sup>*</sup></span>, <span class="nobr">Dongjin Cho<sup>*</sup></span>, <span class="nobr">Gihyeon Lee</span>, <span class="nobr">Hogyun Kim</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Joowan Kim</span>, <span class="nobr">Younggun Cho</span>'
-      - title: "SKiD-SLAM: Robust, Lightweight, and Distributed Multi-Robot LiDAR SLAM in Resource-Constrained Field Environments"
-        publisher: '<span class="nobr">International Conference</span>&nbsp;· <span class="nobr">IEEE ICRA 2025 Workshop <span class="nobr">(Field Robotics)</span></span>&nbsp;· <span class="nobr">May 2025</span>'
+        summary: '<span class="nobr">Jiwon Choi<sup>*</sup></span>, <span class="nobr">Dongjin Cho<sup>*</sup></span>, <span class="nobr">Gihyeon Lee</span>, <span class="nobr">Hogyun Kim</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Joowan Kim</span>,&nbsp;<span class="nobr">Younggun Cho</span>'
+      - title: '<span class="nobr">SKiD-SLAM</span>: Robust, Lightweight, and Distributed <span class="nobr">Multi-Robot</span> LiDAR SLAM in <span class="nobr">Resource-Constrained</span> Field&nbsp;Environments'
+        publisher: '<span class="nobr">International Conference</span>&nbsp;· <span class="nobr">IEEE ICRA 2025 Workshop <span class="nobr">(Field Robotics)</span></span>&nbsp;·&nbsp;<span class="nobr">May 2025</span>'
         releaseDate: "2025-05"
-        summary: '<span class="nobr">Hogyun Kim</span>, <span class="nobr">Jiwon Choi</span>, <span class="nobr">Juwon Kim</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Dongjin Cho</span>, <span class="nobr">Hyungtae Lim<sup>†</sup></span>, <span class="nobr">Younggun Cho<sup>†</sup></span> · <i class="fa-solid fa-star"></i> Spotlight'
-      - title: "StaticNeRF: Neural Implicit Static Mapping and Localization in Dynamic Environments"
-        publisher: '<span class="nobr">International Conference</span>&nbsp;· <span class="nobr">IEEE ICRA 2024 Workshop <span class="nobr">(RoboNerF)</span></span>&nbsp;· <span class="nobr">May 2024</span>'
+        summary: '<span class="nobr">Hogyun Kim</span>, <span class="nobr">Jiwon Choi</span>, <span class="nobr">Juwon Kim</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Dongjin Cho</span>, <span class="nobr">Hyungtae Lim<sup>†</sup></span>,&nbsp;<span class="nobr">Younggun Cho<sup>†</sup></span>&nbsp;<span class="nobr">· <i class="fa-solid fa-star"></i> Spotlight</span>'
+      - title: "StaticNeRF: Neural Implicit Static Mapping and Localization in Dynamic&nbsp;Environments"
+        publisher: '<span class="nobr">International Conference</span>&nbsp;· <span class="nobr">IEEE ICRA 2024 Workshop <span class="nobr">(RoboNerF)</span></span>&nbsp;·&nbsp;<span class="nobr">May 2024</span>'
         releaseDate: "2024-05"
-        summary: '<span class="nobr">Juhui Lee</span>, <span class="nobr">Seungjun Ma</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Younggun Cho</span> · <i class="fa-solid fa-star"></i> Spotlight'
-      - title: "Robust Image Processing Techniques for Construction Environment Monitoring Using Underwater Robots"
-        publisher: '<span class="nobr">Domestic Journal</span>&nbsp;· <span class="nobr">JICROS</span>&nbsp;· <span class="nobr">Aug. 2026</span>'
+        summary: '<span class="nobr">Juhui Lee</span>, <span class="nobr">Seungjun Ma</span>, <span class="nobr">**Geonmo Yang**</span>,&nbsp;<span class="nobr">Younggun Cho</span>&nbsp;<span class="nobr">· <i class="fa-solid fa-star"></i> Spotlight</span>'
+      - title: "Robust Image Processing Techniques for Construction Environment Monitoring Using Underwater&nbsp;Robots"
+        publisher: '<span class="nobr">Domestic Journal</span>&nbsp;· <span class="nobr">JICROS</span>&nbsp;·&nbsp;<span class="nobr">Aug. 2026</span>'
         releaseDate: "2026-08"
         url: "https://doi.org/10.5302/J.ICROS.2026.26.0016"
-        summary: '<span class="nobr">Seunghee Yun<sup>*</sup></span>, <span class="nobr">**Geonmo Yang<sup>*</sup>**</span>, <span class="nobr">Juhui Lee</span>, <span class="nobr">Changbeom Park</span>, <span class="nobr">Jeahyung Choi</span>, <span class="nobr">Younggun Cho</span>'
-      - title: "IML-SLAM: A LiDAR-Inertial SLAM System Considering Vehicle Driving Motion"
-        publisher: '<span class="nobr">Domestic Conference</span>&nbsp;· <span class="nobr">KITS 2025</span>&nbsp;· <span class="nobr">Apr. 2025</span>'
+        summary: '<span class="nobr">Seunghee Yun<sup>*</sup></span>, <span class="nobr">**Geonmo Yang<sup>*</sup>**</span>, <span class="nobr">Juhui Lee</span>, <span class="nobr">Changbeom Park</span>, <span class="nobr">Jeahyung Choi</span>,&nbsp;<span class="nobr">Younggun Cho</span>'
+      - title: '<span class="nobr">IML-SLAM</span>: A <span class="nobr">LiDAR-Inertial</span> SLAM System Considering Vehicle Driving&nbsp;Motion'
+        publisher: '<span class="nobr">Domestic Conference</span>&nbsp;· <span class="nobr">KITS 2025</span>&nbsp;·&nbsp;<span class="nobr">Apr. 2025</span>'
         releaseDate: "2025-04"
-        summary: '<span class="nobr">Jiwon Choi</span>, <span class="nobr">Hogyun Kim</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Younggun Cho</span>'
+        summary: '<span class="nobr">Jiwon Choi</span>, <span class="nobr">Hogyun Kim</span>, <span class="nobr">**Geonmo Yang**</span>,&nbsp;<span class="nobr">Younggun Cho</span>'
     Manuscripts Under Review:
-      - bullet: '**PGSPN: Physics-Guided Spatial Propagation Network for Sparsity-Robust Underwater Depth Completion** — <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Juhui Lee</span>, <span class="nobr">Jiwon Choi</span>, <span class="nobr">Jungwoo Lee</span>, <span class="nobr">Ivana Collado-Gonzalez</span>, <span class="nobr">Brendan Englot</span>, <span class="nobr">Younggun Cho</span> · _IEEE JOE_ · submitted 2026'
-      - bullet: '**Not How Many, But How Long: Time-Integrated Occupancy for LiDAR-based Long-term Map Maintenance** — <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Hogyun Kim</span>, <span class="nobr">Seokhwan Jeong</span>, <span class="nobr">Seunghui Lee</span>, <span class="nobr">Younggun Cho</span> · _IEEE ICRA 2027_ · submitted 2026'
-      - bullet: '**Obcalizer: Learning-Free and Stereo Vision-based Robust 3-DoF Object Localization and Tracking for Maritime Environments** — <span class="nobr">Hogyun Kim</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Jiwon Choi</span>, <span class="nobr">Younggun Cho</span> · _IEEE T-ITS_ · submitted 2026'
+      - bullet: '**PGSPN: <span class="nobr">Physics-Guided</span> Spatial Propagation Network for <span class="nobr">Sparsity-Robust</span> Underwater Depth Completion** — <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Juhui Lee</span>, <span class="nobr">Jiwon Choi</span>, <span class="nobr">Jungwoo Lee</span>, <span class="nobr">Ivana Collado-Gonzalez</span>, <span class="nobr">Brendan Englot</span>, <span class="nobr">Younggun Cho</span>&nbsp;· _IEEE JOE_&nbsp;· submitted&nbsp;2026'
+      - bullet: '**Not How Many, But How Long: <span class="nobr">Time-Integrated</span> Occupancy for <span class="nobr">LiDAR-based</span> <span class="nobr">Long-term</span> Map Maintenance** — <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Hogyun Kim</span>, <span class="nobr">Seokhwan Jeong</span>, <span class="nobr">Seunghui Lee</span>, <span class="nobr">Younggun Cho</span>&nbsp;· _IEEE ICRA 2027_&nbsp;· submitted&nbsp;2026'
+      - bullet: '**Obcalizer: <span class="nobr">Learning-Free</span> and Stereo <span class="nobr">Vision-based</span> Robust <span class="nobr">3-DoF</span> Object Localization and Tracking for Maritime Environments** — <span class="nobr">Hogyun Kim</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Jiwon Choi</span>, <span class="nobr">Younggun Cho</span>&nbsp;· _IEEE <span class="nobr">T-ITS</span>_&nbsp;· submitted&nbsp;2026'
     Patents:
-      - bullet: '**Underwater Image Enhancement and Depth Estimation System** — <span class="nobr">Younggun Cho</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Gilhwan Kang</span>, <span class="nobr">Juhui Lee</span> · KR 10-2928592 · Feb. 2026'
-      - bullet: '**Image Dehazing System through Sensor Fusion** — <span class="nobr">Younggun Cho</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Juhui Lee</span> · KR 10-2673404 · Jun. 2024'
+      - bullet: '**Underwater Image Enhancement and Depth Estimation System** — <span class="nobr">Younggun Cho</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Gilhwan Kang</span>, <span class="nobr">Juhui Lee</span>&nbsp;· KR <span class="nobr">10-2928592</span>&nbsp;·&nbsp;Feb.&nbsp;2026'
+      - bullet: '**Image Dehazing System through Sensor Fusion** — <span class="nobr">Younggun Cho</span>, <span class="nobr">**Geonmo Yang**</span>, <span class="nobr">Juhui Lee</span>&nbsp;· KR <span class="nobr">10-2673404</span>&nbsp;·&nbsp;Jun.&nbsp;2024'
     Honors and Awards:
-      - title: '2nd Place <span class="nobr">(out of 131 teams)</span>, IMU Odometry Challenge, Beyond Exteroception Workshop'
+      - title: '2nd Place <span class="nobr">(out of 131 teams)</span>, IMU Odometry Challenge, Beyond Exteroception&nbsp;Workshop'
         awarder: "IEEE/RSJ IROS 2026"
         date: "2026-10"
-      - title: 'Finalist, Best Paper Award on Robot Perception <span class="nobr">(KISS-IMU)</span>'
+      - title: 'Finalist, Best Paper Award on Robot Perception&nbsp;<span class="nobr">(KISS-IMU)</span>'
         awarder: "IEEE ICRA 2026"
         date: "2026-06"
-      - title: 'Silver Prize, 32nd Samsung HumanTech Paper Award <span class="nobr">(Mechanical Engineering)</span>'
+      - title: 'Silver Prize, 32nd Samsung HumanTech Paper Award&nbsp;<span class="nobr">(Mechanical Engineering)</span>'
         awarder: "Samsung Electronics"
         date: "2026-02"
-      - title: "Grand Prize, Graduate Research Award"
+      - title: "Grand Prize, Graduate Research&nbsp;Award"
         awarder: "Inha University"
         date: "2026-01"
-      - title: "Honorable Mention, Graduate Research Presentation Award"
+      - title: "Honorable Mention, Graduate Research Presentation&nbsp;Award"
         awarder: "Inha University"
         date: "2026-01"
-      - title: 'Excellent Research Award, Korean Society of Intelligent Transport Systems <span class="nobr">(KITS)</span>, Spring Conf.'
+      - title: 'Excellent Research Award, Korean Society of Intelligent Transport Systems <span class="nobr">(KITS)</span>, Spring&nbsp;Conf.'
         awarder: "South Korea"
         date: "2025-04"
-      - title: "Outstanding Research Award, Excellence of Journal Publication, Graduate School"
+      - title: "Outstanding Research Award, Excellence of Journal Publication, Graduate&nbsp;School"
         awarder: "Inha University"
         date: "2024-02"
-      - title: 'Excellence Award, 20th Embedded Software Competition <span class="nobr">(Industry-Academic Project)</span>, KIPS'
+      - title: 'Excellence Award, 20th Embedded Software Competition <span class="nobr">(Industry-Academic Project)</span>,&nbsp;KIPS'
         awarder: "South Korea"
         date: "2022-12"
     Experience:
-      - company: 'Spatial AI and Robotics <span class="nobr">(SPARO)</span> Lab, Inha University'
-        position: 'Graduate Researcher <span class="nobr">(Integrated Ph.D. Program)</span>'
+      - company: 'Spatial AI and Robotics <span class="nobr">(SPARO)</span> Lab, Inha&nbsp;University'
+        position: 'Graduate Researcher&nbsp;<span class="nobr">(Integrated Ph.D. Program)</span>'
         location: '<span class="nobr">Incheon,</span> <span class="nobr">South Korea</span>'
         start_date: "2022-03"
         end_date: "Present"
-        summary: "Mar. 2022 – Present"
+        summary: '<span class="nobr">Mar. 2022 – Present</span>'
         highlights:
-          - "Led underwater perception research: transformer-based joint image enhancement and depth estimation (Joint-ID) and triple-task dehazing, depth, and uncertainty learning (TRIDENT), both first-author IEEE Sensors J. papers; physics-guided depth completion (PGSPN, under review); 2 registered patents."
-          - "Proposed time-integrated occupancy for LiDAR-based long-term map maintenance (first author, submitted to ICRA 2027)."
-          - "Contributed to resource-aware multi-robot LiDAR SLAM (SKiD-SLAM, IEEE T-FR; field deployments at planetary analog sites) and LiDAR map merging (Commerge, IJRR)."
-          - "Contributed to self-supervised inertial odometry (KISS-IMU, ICRA 2026 Best Paper Award finalist) and won 2nd place out of 131 teams in the IROS 2026 IMU Odometry Challenge."
-          - "**Keywords:** Robust Perception, State Estimation, LiDAR SLAM, Inertial Odometry, Underwater Vision, Deep Learning"
-      - company: 'Riibotics <span class="nobr">(formerly TIM Robotics Co., Ltd.)</span>, Corporate R&D Center'
-        position: 'Robotics Software Engineer <span class="nobr">(Research Intern)</span>'
+          - 'Led underwater perception research: <span class="nobr">transformer-based</span> joint image enhancement and depth estimation (<span class="nobr">Joint-ID</span>) and <span class="nobr">triple-task</span> dehazing, depth, and uncertainty learning (TRIDENT), both <span class="nobr">first-author</span> IEEE Sensors J. papers; <span class="nobr">physics-guided</span> depth completion (PGSPN, under review); 2 registered&nbsp;patents.'
+          - 'Proposed <span class="nobr">time-integrated</span> occupancy for <span class="nobr">LiDAR-based</span> <span class="nobr">long-term</span> map maintenance (first author, submitted to ICRA&nbsp;2027).'
+          - 'Contributed to <span class="nobr">resource-aware</span> <span class="nobr">multi-robot</span> LiDAR SLAM (<span class="nobr">SKiD-SLAM</span>, IEEE <span class="nobr">T-FR</span>; field deployments at planetary analog sites) and LiDAR map merging (Commerge,&nbsp;IJRR).'
+          - 'Contributed to <span class="nobr">self-supervised</span> inertial odometry (<span class="nobr">KISS-IMU</span>, ICRA 2026 Best Paper Award finalist) and won 2nd place out of 131 teams in the IROS 2026 IMU Odometry&nbsp;Challenge.'
+          - "**Keywords:** Robust Perception, State Estimation, LiDAR SLAM, Inertial Odometry, Underwater Vision, Deep&nbsp;Learning"
+      - company: 'Riibotics <span class="nobr">(formerly TIM Robotics Co., Ltd.)</span>, Corporate R&D&nbsp;Center'
+        position: 'Robotics Software Engineer&nbsp;<span class="nobr">(Research Intern)</span>'
         location: '<span class="nobr">Siheung,</span> <span class="nobr">South Korea</span>'
         start_date: "2024-09"
         end_date: "2025-02"
-        summary: "Sep. 2024 – Feb. 2025"
+        summary: '<span class="nobr">Sep. 2024 – Feb. 2025</span>'
         highlights:
-          - "Researched robust LiDAR SLAM and localization, and developed autonomous driving software for mobile robots."
-          - "**Keywords:** LiDAR SLAM, Localization, Robot Autonomous Navigation, ROS"
-      - company: 'IHLAB <span class="nobr">(Intelligent Health-Care Lab)</span>'
-        position: 'Firmware and Circuit Design Engineer <span class="nobr">(Undergraduate Research Intern)</span>'
+          - "Researched robust LiDAR SLAM and localization, and developed autonomous driving software for mobile&nbsp;robots."
+          - "**Keywords:** LiDAR SLAM, Localization, Robot Autonomous Navigation,&nbsp;ROS"
+      - company: 'IHLAB&nbsp;<span class="nobr">(Intelligent Health-Care Lab)</span>'
+        position: 'Firmware and Circuit Design Engineer&nbsp;<span class="nobr">(Undergraduate Research Intern)</span>'
         location: '<span class="nobr">Bucheon,</span> <span class="nobr">Incheon,</span> <span class="nobr">South Korea</span>'
         start_date: "2019-03"
         end_date: "2022-01"
-        summary: "Mar. 2019 – Jan. 2022"
+        summary: '<span class="nobr">Mar. 2019 – Jan. 2022</span>'
         highlights:
-          - "Developed MCU firmware in C for STM32 (ARM Cortex-M) and ATmega128, covering UART, RS-232/485, SPI, I2C, and CAN communication."
-          - "Designed wide-FOV sonar sensor modules and the sensor control main board, from schematics and PCB layout (OrCAD/Allegro) to firmware."
-          - "Designed DC motor driver circuits and implemented PWM/encoder-based PID speed and position control."
-          - "Developed a sonar-based human localization algorithm for person-following robots."
-          - 'Graduation project (Oct. 2020 – Jan. 2022): caterpillar-type load-following robot for construction-site material transport. [<i class="fa-brands fa-youtube"></i> Demo Video](https://www.youtube.com/watch?v=_oMrVY5DOvg)'
-          - "Following mobile robot control (Jan. – Sep. 2020): designed the following-sensor control unit mechanism."
-          - "Manipulator-based spider robot motion control (Sep. – Dec. 2019): controlled the driving of a 3-axis manipulator-based spider robot."
-          - "**Keywords:** Embedded Firmware, Circuit/PCB Design, Motor Control, Sensor Interfacing, Object Localization"
+          - 'Developed MCU firmware in C for STM32 (ARM <span class="nobr">Cortex-M</span>) and ATmega128, covering UART, <span class="nobr">RS-232/485</span>, SPI, I2C, and CAN&nbsp;communication.'
+          - 'Designed <span class="nobr">wide-FOV</span> sonar sensor modules and the sensor control main board, from schematics and PCB layout (OrCAD/Allegro) to&nbsp;firmware.'
+          - 'Designed DC motor driver circuits and implemented <span class="nobr">PWM/encoder-based</span> PID speed and position&nbsp;control.'
+          - 'Developed a <span class="nobr">sonar-based</span> human localization algorithm for <span class="nobr">person-following</span>&nbsp;robots.'
+          - 'Graduation project (<span class="nobr">Oct. 2020 – Jan. 2022</span>): <span class="nobr">caterpillar-type</span> <span class="nobr">load-following</span> robot for <span class="nobr">construction-site</span> material transport. [<i class="fa-brands fa-youtube"></i> Demo&nbsp;Video](https://www.youtube.com/watch?v=_oMrVY5DOvg)'
+          - 'Following mobile robot control (<span class="nobr">Jan. – Sep. 2020</span>): designed the <span class="nobr">following-sensor</span> control unit&nbsp;mechanism.'
+          - '<span class="nobr">Manipulator-based</span> spider robot motion control (<span class="nobr">Dec. 2019 – Mar. 2020</span>): controlled the driving of a <span class="nobr">3-axis</span> <span class="nobr">manipulator-based</span> spider&nbsp;robot.'
+          - "**Keywords:** Embedded Firmware, Circuit/PCB Design, Motor Control, Sensor Interfacing, Object&nbsp;Localization"
     Skills:
       - name: "Programming"
         icon: "fa-solid fa-code"
-        keywords: "C/C++, Python, MATLAB, PyTorch, ROS1/2"
+        keywords: "C/C++, Python, MATLAB, PyTorch,&nbsp;ROS1/2"
       - name: "Firmware"
         icon: "fa-solid fa-microchip"
-        keywords: "Embedded C on STM32 (ARM Cortex-M) and ATmega128, PWM/encoder-based PID motor control"
+        keywords: 'Embedded C on STM32 (ARM <span class="nobr">Cortex-M</span>) and ATmega128, <span class="nobr">PWM/encoder-based</span> PID motor&nbsp;control'
       - name: "Interfaces"
         icon: "fa-solid fa-plug"
-        keywords: "UART, RS-232/485, SPI, I2C, CAN"
+        keywords: 'UART, <span class="nobr">RS-232/485</span>, SPI, I2C,&nbsp;CAN'
       - name: "Hardware"
         icon: "fa-solid fa-screwdriver-wrench"
-        keywords: "Circuit & PCB design with OrCAD/Allegro (sonar sensor modules, DC motor drivers, sensor control boards)"
+        keywords: "Circuit & PCB design with OrCAD/Allegro (sonar sensor modules, DC motor drivers, sensor control&nbsp;boards)"
       - name: "DevOps"
         icon: "fa-solid fa-server"
         keywords: "Linux, Docker, Git"

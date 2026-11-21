@@ -6,10 +6,13 @@
 // Korean wraps between words (어절), never inside one: the browser default breaks
 // Hangul between any two syllables ("입 | 니다"). keep-all only changes CJK text,
 // so English wrapping is unchanged. overflow-wrap still lets a single token that
-// is wider than the line (a long URL) wrap instead of overflowing.
+// is wider than the line (a long URL) wrap instead of overflowing. text-wrap-style: pretty
+// keeps a single word off the last line of a paragraph (browsers without it ignore it).
+// Hyphenated words in the theme's publication and news markup: _includes/glue_words.liquid.
 body {
   word-break: keep-all;
   overflow-wrap: break-word;
+  text-wrap-style: pretty;
 }
 
 // Keeps a phrase on one line: <span class="nobr">SPARO Lab</span>.
@@ -57,6 +60,42 @@ body {
 // cv.yml wraps each place in .nobr, so lines break only after a comma.
 .cv p.location {
   white-space: normal;
+}
+
+// No one-word last lines on /cv/ (bin/cv_tex_to_yaml.py also glues date ranges, hyphenated
+// words and the last two words of each item; _includes/glue_words.liquid keeps the URL whole).
+.cv {
+  text-wrap-style: pretty;
+
+  .card-title {
+    text-wrap-style: balance;
+  }
+
+  td.font-weight-bold {
+    white-space: nowrap; // the field labels ("Professional Title") stay on one line
+  }
+
+  td.font-weight-light a {
+    white-space: nowrap; // the website URL must not split at the hyphen in "cv-blog"
+  }
+}
+
+// Section titles are 2rem; on phones "Professional Summary" split into two lines.
+@media (max-width: 575.98px) {
+  .cv .card-title {
+    font-size: 1.5rem;
+  }
+
+  .cv td.font-weight-light a {
+    font-size: 0.85em;
+  }
+}
+
+// 360px phones: a little smaller still, so the unbroken URL fits without a sideways scroll
+@media (max-width: 379.98px) {
+  .cv td.font-weight-light a {
+    font-size: 0.72em;
+  }
 }
 
 // Publication highlight badges ------------------------------------------------------
