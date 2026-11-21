@@ -1,0 +1,274 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> ATmega128 from the Registers Up | Geonmo Yang </title> <meta name="author" content="Geonmo Yang"> <meta name="description" content="ATmega128 at register level: timer math checked on the scope, a keypad bug traced over four seminars, Aug. –⁠ Dec. 2019"> <meta name="keywords" content="Geonmo Yang, 양건모, robust perception, robust state estimation, SLAM, LiDAR, localization, underwater robotics, depth estimation, image enhancement, robotics, Inha University, SPARO"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/cv-blog/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/cv-blog/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%A7%AD&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/cv-blog/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://yang7422.github.io/cv-blog/projects/atmega128/"> <script src="/cv-blog/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/cv-blog/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/cv-blog/"> <span class="font-weight-bold">Geonmo</span> Yang </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/cv-blog/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv-blog/publications/">publications </a> </li> <li class="nav-item active"> <a class="nav-link" href="/cv-blog/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv-blog/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv-blog/ko/">한국어 </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">ATmega128 from the Registers Up</h1> <p class="post-description">ATmega128 at register level: timer math checked on the scope, a keypad bug traced over four seminars, Aug. –⁠ Dec. 2019</p> </header> <article> <p>From August to December 2019, as an undergraduate researcher at IHLAB (Tech University of Korea), I learned the ATmega128 microcontroller from the registers up, one peripheral at a time, and presented each step at the lab seminar. On the lab’s training kit I programmed GPIO, external interrupts, Timer2 in all four of its modes, a character LCD with custom characters, and USART serial, working the numbers out first and then checking them on the oscilloscope or a PC terminal. The series ended with the choice of a DYNAMIXEL robot arm as the winter project, the start of my <span class="nobr">legged-robot</span> work.</p> <div class="prj-stats"> <div class="prj-stat"> <span class="prj-stat-value">10</span><span class="prj-stat-label">lab seminars, <span class="nobr">Aug. – Dec. 2019</span></span> </div> <div class="prj-stat"> <span class="prj-stat-value">37</span><span class="prj-stat-label">FEEDBACK slides following up the previous talk’s questions</span> </div> <div class="prj-stat"> <span class="prj-stat-value">3</span><span class="prj-stat-label">timer modes derived by hand, then checked on the scope</span> </div> <div class="prj-stat"> <span class="prj-stat-value">4</span><span class="prj-stat-label">seminars on one keypad bug, each with a test video</span> </div> </div> <h2 id="what-this-project-shows">What this project shows</h2> <div class="prj-traits"> <div class="prj-trait"> <strong>Derive first, then measure</strong> <p>For the <span class="nobr">1-second</span> exercise in three Timer2 modes, I worked the constants out on paper from the kit’s 14.7456 MHz crystal: tick length, overflow count, compare value, duty cycle. Then I checked each period with the oscilloscope’s cursors in normal, CTC and fast PWM modes.</p> </div> <div class="prj-trait"> <strong>Stay with a bug until it is understood</strong> <p>The keypad took four seminars: first it read only 0, then one press filled all four digits. I filmed it at each of those seminars, fixed one cause at a time, and said plainly what still did not work.</p> </div> <div class="prj-trait"> <strong>Down to the bit</strong> <p>I drew my name as six custom LCD characters and worked out their 48 bytes by hand. When the screen stayed blank, the cause was in the program: it never wrote a character code to display memory, so nothing told the display to show them.</p> </div> <div class="prj-trait"> <strong>Questions answered in writing</strong> <p>Six talks open with FEEDBACK slides that follow up the previous talk’s questions, 37 slides in all. I also corrected a textbook figure, and my own description of a register bit a week after presenting it.</p> </div> </div> <h2 id="timeline">Timeline</h2> <div class="prj-timeline" id="prj-timeline"> <svg class="prj-tl-wide" viewbox="0 0 850 88" role="img" tabindex="0" aria-labelledby="prj-timeline-title prj-timeline-desc"> <title id="prj-timeline-title">Timeline</title> <desc id="prj-timeline-desc">10 seminars from August 2019 to December 2019: one square per session, one column per week. Arrow keys step through them; the log below lists every topic.</desc> <rect class="prj-empty" x="27.84" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="71.53" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="115.21" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="158.89" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="202.58" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="246.26" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="289.95" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="333.63" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="377.32" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="421.0" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="464.68" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="508.37" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="552.05" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="595.74" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="639.42" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="683.11" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="726.79" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="770.47" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="814.16" y="56" width="8" height="8" rx="2"></rect><rect class="prj-cell" x="27.84" y="56" width="8" height="8" rx="2" data-date="Aug 21, 2019" data-topic="Plan for late summer and fall: the ATmega128 a topic a week, from GPIO and interrupts to timers, LCD, serial, ADC"></rect><rect class="prj-cell" x="202.58" y="56" width="8" height="8" rx="2" data-date="Sep 19, 2019" data-topic="MCU and ATmega128 architecture; the training kit’s schematic read block by block; first GPIO drills"></rect><rect class="prj-cell" x="246.26" y="56" width="8" height="8" rx="2" data-date="Sep 26, 2019" data-topic="Twelve slides answering last week’s questions (pull-ups, reset diode, port registers); buzzer scale; 7-segment display"></rect><rect class="prj-cell" x="333.63" y="56" width="8" height="8" rx="2" data-date="about Oct 10, 2019" data-topic="4×4 keypad scan, still reading only 0; external interrupts; INT0 on a falling edge toggles all eight LEDs"></rect><rect class="prj-cell" x="508.37" y="56" width="8" height="8" rx="2" data-date="Nov 7, 2019" data-topic="Timer2: 1-second periods in normal, CTC and fast-PWM modes, derived by hand and checked on the scope; keypad still fails"></rect><rect class="prj-cell" x="552.05" y="56" width="8" height="8" rx="2" data-date="Nov 14, 2019" data-topic="Keypad fixed (drive level, key index, hold-off); character LCD driver; six custom glyphs, but the LCD stays blank"></rect><rect class="prj-cell" x="595.74" y="56" width="8" height="8" rx="2" data-date="Nov 21, 2019" data-topic="Keypad edge detection; my name on the LCD; RS-232 levels and a corrected textbook figure; USART1 to a PC terminal"></rect><rect class="prj-cell" x="639.42" y="56" width="8" height="8" rx="2" data-date="Nov 28, 2019" data-topic="When a new OCR2 value takes effect in phase-correct PWM, checked on the scope; UCPOL corrected; ADC theory; winter ideas"></rect><rect class="prj-cell" x="770.47" y="56" width="8" height="8" rx="2" data-date="Dec 19, 2019" data-topic="Transmit-complete vs. data-register-empty interrupts on the board; parity generator; recap; winter plan on DYNAMIXEL"></rect><rect class="prj-cell" x="814.16" y="56" width="8" height="8" rx="2" data-date="Dec 24, 2019" data-topic="Revised winter plan; GPIO and interrupt drills, with switch bounce captured on the scope"></rect><line class="prj-rule" x1="512.37" y1="17" x2="512.37" y2="53"></line> <text class="prj-text" x="512.37" y="12" text-anchor="end">timers on the scope</text><line class="prj-rule" x1="599.74" y1="17" x2="599.74" y2="53"></line> <text class="prj-text" x="599.74" y="12" text-anchor="middle">name on the LCD</text><line class="prj-rule" x1="774.47" y1="17" x2="774.47" y2="53"></line> <text class="prj-text" x="774.47" y="12" text-anchor="end">robot arm chosen</text><line class="prj-rule" x1="119.21" y1="67" x2="119.21" y2="71"></line> <text class="prj-text-muted" x="119.21" y="81" text-anchor="middle">Sep 2019</text><line class="prj-rule" x1="337.63" y1="67" x2="337.63" y2="71"></line> <text class="prj-text-muted" x="337.63" y="81" text-anchor="middle">Oct 2019</text><line class="prj-rule" x1="512.37" y1="67" x2="512.37" y2="71"></line> <text class="prj-text-muted" x="512.37" y="81" text-anchor="middle">Nov 2019</text><line class="prj-rule" x1="687.11" y1="67" x2="687.11" y2="71"></line> <text class="prj-text-muted" x="687.11" y="81" text-anchor="middle">Dec 2019</text></svg> <svg class="prj-tl-narrow" viewbox="0 34 850 32" preserveaspectratio="none" role="img" tabindex="0" aria-labelledby="prj-timeline-ntitle"> <title id="prj-timeline-ntitle">Timeline: 10 seminars, one bar per week from August 2019 to December 2019</title> <rect class="prj-empty" x="27.84" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="71.53" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="115.21" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="158.89" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="202.58" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="246.26" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="289.95" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="333.63" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="377.32" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="421.0" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="464.68" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="508.37" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="552.05" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="595.74" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="639.42" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="683.11" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="726.79" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="770.47" y="56" width="8" height="8" rx="2"></rect><rect class="prj-empty" x="814.16" y="56" width="8" height="8" rx="2"></rect><rect class="prj-cell" x="27.84" y="56" width="8" height="8" rx="2" data-date="Aug 21, 2019" data-topic="Plan for late summer and fall: the ATmega128 a topic a week, from GPIO and interrupts to timers, LCD, serial, ADC"></rect><rect class="prj-cell" x="202.58" y="56" width="8" height="8" rx="2" data-date="Sep 19, 2019" data-topic="MCU and ATmega128 architecture; the training kit’s schematic read block by block; first GPIO drills"></rect><rect class="prj-cell" x="246.26" y="56" width="8" height="8" rx="2" data-date="Sep 26, 2019" data-topic="Twelve slides answering last week’s questions (pull-ups, reset diode, port registers); buzzer scale; 7-segment display"></rect><rect class="prj-cell" x="333.63" y="56" width="8" height="8" rx="2" data-date="about Oct 10, 2019" data-topic="4×4 keypad scan, still reading only 0; external interrupts; INT0 on a falling edge toggles all eight LEDs"></rect><rect class="prj-cell" x="508.37" y="56" width="8" height="8" rx="2" data-date="Nov 7, 2019" data-topic="Timer2: 1-second periods in normal, CTC and fast-PWM modes, derived by hand and checked on the scope; keypad still fails"></rect><rect class="prj-cell" x="552.05" y="56" width="8" height="8" rx="2" data-date="Nov 14, 2019" data-topic="Keypad fixed (drive level, key index, hold-off); character LCD driver; six custom glyphs, but the LCD stays blank"></rect><rect class="prj-cell" x="595.74" y="56" width="8" height="8" rx="2" data-date="Nov 21, 2019" data-topic="Keypad edge detection; my name on the LCD; RS-232 levels and a corrected textbook figure; USART1 to a PC terminal"></rect><rect class="prj-cell" x="639.42" y="56" width="8" height="8" rx="2" data-date="Nov 28, 2019" data-topic="When a new OCR2 value takes effect in phase-correct PWM, checked on the scope; UCPOL corrected; ADC theory; winter ideas"></rect><rect class="prj-cell" x="770.47" y="56" width="8" height="8" rx="2" data-date="Dec 19, 2019" data-topic="Transmit-complete vs. data-register-empty interrupts on the board; parity generator; recap; winter plan on DYNAMIXEL"></rect><rect class="prj-cell" x="814.16" y="56" width="8" height="8" rx="2" data-date="Dec 24, 2019" data-topic="Revised winter plan; GPIO and interrupt drills, with switch bounce captured on the scope"></rect> </svg> <ol class="prj-tl-legend"><li> <span class="nobr">Aug 2019 – Dec 2019</span> · <span class="nobr">10 seminars</span> · timers on the scope <span class="nobr">(Nov 2019)</span> · name on the LCD <span class="nobr">(Nov 2019)</span> · robot arm chosen <span class="nobr">(Dec 2019)</span> </li></ol> </div> <script>
+  // Timeline tooltip: the nearest square within 24px on hover or tap; arrow keys when a chart has focus.
+  (function () {
+    var root = document.getElementById('prj-timeline');
+    if (!root) return;
+    var tip = document.createElement('div');
+    var tipDate = document.createElement('div');
+    var tipText = document.createElement('div');
+    tip.className = 'prj-tip';
+    tipDate.className = 'prj-tip-date';
+    tip.hidden = true;
+    tip.appendChild(tipDate);
+    tip.appendChild(tipText);
+    document.body.appendChild(tip);
+    var activeCell = null;
+
+    function hide() {
+      if (activeCell) activeCell.classList.remove('is-active');
+      activeCell = null;
+      tip.hidden = true;
+    }
+
+    function show(cell) {
+      if (activeCell) activeCell.classList.remove('is-active');
+      activeCell = cell;
+      cell.classList.add('is-active');
+      tipDate.textContent = cell.getAttribute('data-date');
+      // No line break inside "2-D" or "6.01 ms": non-breaking hyphens and spaces.
+      tipText.textContent = cell
+        .getAttribute('data-topic')
+        .replace(/(\w)-(?=\w)/g, '$1‑')
+        .replace(/(\d) (?=(ms|µs|cm|mm|m|MHz|kHz|Hz|Vpp|V|kΩ|%|→)(?![A-Za-z]))/g, '$1 ')
+        .replace(/ → /g, ' → ');
+      tip.hidden = false;
+      var r = cell.getBoundingClientRect();
+      var w = tip.offsetWidth;
+      var h = tip.offsetHeight;
+      var x = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), window.innerWidth - w - 8);
+      var y = r.top - h - 8;
+      if (y < 8) y = r.bottom + 8;
+      tip.style.left = x + 'px';
+      tip.style.top = y + 'px';
+    }
+
+    Array.prototype.forEach.call(root.querySelectorAll('svg'), function (svg) {
+      var cells = Array.prototype.slice.call(svg.querySelectorAll('.prj-cell'));
+      function nearest(e) {
+        var best = null;
+        var bestD = 24 * 24;
+        for (var i = 0; i < cells.length; i++) {
+          var r = cells[i].getBoundingClientRect();
+          var dx = e.clientX - (r.left + r.width / 2);
+          var dy = e.clientY - (r.top + r.height / 2);
+          var d = dx * dx + dy * dy;
+          if (d < bestD) {
+            bestD = d;
+            best = cells[i];
+          }
+        }
+        if (!best) hide();
+        else if (best !== activeCell) show(best);
+      }
+      svg.addEventListener('pointermove', nearest);
+      svg.addEventListener('pointerdown', nearest);
+      svg.addEventListener('pointerleave', function (e) {
+        if (e.pointerType === 'mouse') hide();
+      });
+      svg.addEventListener('blur', hide);
+      svg.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          var i = cells.indexOf(activeCell);
+          i = i < 0 ? 0 : i + (e.key === 'ArrowRight' ? 1 : -1);
+          show(cells[Math.max(0, Math.min(cells.length - 1, i))]);
+        } else if (e.key === 'Escape') {
+          hide();
+        }
+      });
+    });
+    window.addEventListener('scroll', hide, { passive: true });
+  })();
+</script> <p class="prj-caption">One mark per seminar, one column per week. Hover, tap or tab to a mark for its topic; the full list is in the log at the end.</p> <h2 id="derive-on-paper-then-check-on-the-scope">Derive on paper, then check on the scope</h2> <ul> <li> <strong>One clock behind every constant.</strong> The kit runs on a 14.7456 MHz crystal. With the /8 prescaler, one timer tick is 0.5425 µs and one <span class="nobr">256-count</span> overflow 138.89 µs, so 7200 overflows make a second. I worked out each mode’s constants this way and used them in its code.</li> <li> <strong>Three modes, one target.</strong> For a <span class="nobr">1-second</span> period, normal mode toggles a pin every 3600 overflows. CTC mode uses /1024 (69.44 µs per tick), OCR2 = 72 and 100 compare matches. In fast PWM mode, the 7200 periods of each second are counted in software and split at 6000, an 83% duty cycle. In all three, the scope cursors read Δ1.00 s.</li> <li> <strong>A correction for the record.</strong> The CTC constant is off by one. In CTC mode the counter runs from 0 to OCR2, so OCR2 = 72 means 73 ticks per match, and the code as written gives a period of 1.014 s, not 1.000 s. The <span class="nobr">hand-placed</span> cursors did not catch the 14 ms difference; OCR2 = 71 gives exactly 1.000 s.</li> <li> <strong>A datasheet question, tested.</strong> To follow up a seminar question about when a new OCR2 value takes effect in <span class="nobr">phase-correct</span> PWM, I wrote two versions, one rewriting OCR2 in the overflow interrupt and one in both the overflow and compare interrupts, and marked up the datasheet’s timing diagram for each. The scope’s frequency readout showed 3.61407 kHz for both, against the 3614.12 Hz expected from <span class="nobr">14.7456 MHz ÷ (8 × 510)</span>.</li> </ul> <div class="prj-media prj-media-2"> <figure> <figure> <picture> <source class="responsive-img-srcset" srcset="/cv-blog/assets/img/projects/atmega128/timer-normal.webp" sizes="95vw"></source> <img src="/cv-blog/assets/img/projects/atmega128/timer-normal.webp" width="100%" height="auto" alt="Handwritten derivation of the Timer2 normal-mode constants beside an oscilloscope photo of a square wave whose cursors are 1.00 s apart" data-zoomable="" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> <figcaption class="prj-caption">Normal mode, 7 Nov 2019: 0.5425 µs per tick, 7200 overflows per second, a toggle every 3600, and Δ1.00 s on the scope. Notes and slides are in Korean; click to zoom.</figcaption> </figure> <figure> <figure> <picture> <source class="responsive-img-srcset" srcset="/cv-blog/assets/img/projects/atmega128/timer-ctc.webp" sizes="95vw"></source> <img src="/cv-blog/assets/img/projects/atmega128/timer-ctc.webp" width="100%" height="auto" alt="Handwritten derivation for Timer2 in CTC mode, OCR2=72 and 100 matches, beside the oscilloscope capture" data-zoomable="" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> <figcaption class="prj-caption">CTC mode: 69.44 µs per tick at /1024, OCR2 = 72 and 100 matches. The cursors read Δ1.00 s; with 73 ticks per match, the code as written gives 1.014 s.</figcaption> </figure> <figure> <figure> <picture> <source class="responsive-img-srcset" srcset="/cv-blog/assets/img/projects/atmega128/timer-fast-pwm.webp" sizes="95vw"></source> <img src="/cv-blog/assets/img/projects/atmega128/timer-fast-pwm.webp" width="100%" height="auto" alt="Handwritten duty-cycle derivation for fast PWM, 6000 of 7200 or about 83 percent, beside the oscilloscope capture" data-zoomable="" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> <figcaption class="prj-caption">Fast PWM: 7200 periods per second, split at 6000 for a duty cycle of <span class="nobr">5/6 ≈ 83%</span>. The cursors read Δ1.00 s.</figcaption> </figure> <figure> <figure> <picture> <source class="responsive-img-srcset" srcset="/cv-blog/assets/img/projects/atmega128/pc-pwm-ocr2.webp" sizes="95vw"></source> <img src="/cv-blog/assets/img/projects/atmega128/pc-pwm-ocr2.webp" width="100%" height="auto" alt="Code that rewrites OCR2 in the Timer2 overflow interrupt, beside a scope photo whose frequency readout shows 3.61407 kHz" data-zoomable="" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> <figcaption class="prj-caption"><span class="nobr">Phase-correct</span> PWM with OCR2 rewritten in the overflow interrupt, 22 Nov 2019. The readout shows 3.61407 kHz; <span class="nobr">14.7456 MHz ÷ (8 × 510)</span> gives 3614.12 Hz.</figcaption> </figure> </div> <h2 id="one-keypad-bug-four-seminars">One keypad bug, four seminars</h2> <ul> <li> <strong>One cause at a time.</strong> In October the 4×4 keypad showed only 0. By 7 Nov keys registered, but one press filled all four digits. For 14 Nov I fixed two errors in the scan, rows driven high where they should have been driven low and a <span class="nobr">key-index</span> formula that gave the wrong numbers, but the flood remained: the loop read a held key again on every pass.</li> <li> <strong>From a delay to edge detection.</strong> A 0.25 s <span class="nobr">hold-off</span> after each digit then gave one digit per press, as long as the key was released within 0.25 s (14 Nov). In the same talk I said that versions driven by interrupts or the timer did not work yet. A week later I replaced the delay with edge detection: a key counts only when the scan result changes.</li> <li> <strong>What a button really does.</strong> In October, INT0 on a falling edge toggled all eight LEDs. In a December drill, where each INT0 press stepped through four LED patterns, I boxed two spikes on the scope just before a clean edge: switch bounce, each spike an extra edge that the interrupt could count as a press.</li> </ul> <div class="prj-media prj-media-2"> <figure> <video src="/cv-blog/assets/video/projects/atmega128/keypad-before.mp4" poster="/cv-blog/assets/img/projects/atmega128/keypad-before-poster.webp" autoplay="" loop="" muted="" playsinline="" controls="" preload="metadata"></video> <figcaption class="prj-caption">7 Nov 2019: one press fills all four digits (2222, 3333, 1111).</figcaption> </figure> <figure> <video src="/cv-blog/assets/video/projects/atmega128/keypad-after.mp4" poster="/cv-blog/assets/img/projects/atmega128/keypad-after-poster.webp" autoplay="" loop="" muted="" playsinline="" controls="" preload="metadata"></video> <figcaption class="prj-caption">14 Nov: one digit per press, shifting left: 2512 → 5123 → 1234 → 2345.</figcaption> </figure> <figure> <video src="/cv-blog/assets/video/projects/atmega128/int0-leds.mp4" poster="/cv-blog/assets/img/projects/atmega128/int0-leds-poster.webp" autoplay="" loop="" muted="" playsinline="" controls="" preload="metadata"></video> <figcaption class="prj-caption">Oct. 2019: INT0 on a falling edge toggles all eight LEDs at each press.</figcaption> </figure> <figure> <figure> <picture> <source class="responsive-img-srcset" srcset="/cv-blog/assets/img/projects/atmega128/switch-bounce.webp" sizes="95vw"></source> <img src="/cv-blog/assets/img/projects/atmega128/switch-bounce.webp" width="100%" height="auto" alt="Oscilloscope photo dated 24 Dec 2019: a switch edge with two short spikes before the signal settles" data-zoomable="" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> <figcaption class="prj-caption">24 Dec 2019, interrupt drill: a switch edge at 20 ms per division, with two spikes before the level settles.</figcaption> </figure> </div> <h2 id="my-name-in-48-bytes">My name in 48 bytes</h2> <ul> <li> <strong>Pixel by pixel.</strong> The LCD controller has a small RAM, CGRAM, for characters the user draws. I drew the three syllables of my name (양건모) on <span class="nobr">5 × 8</span> grids, two characters per syllable, worked out the 48 bytes by hand, and wrote them to CGRAM with the <span class="nobr">set-address</span> commands 0x40 to 0x68.</li> <li> <strong>A blank screen, explained.</strong> On 14 Nov the LCD stayed blank. The code wrote the glyphs into CGRAM but never wrote a character code into DDRAM, the memory that holds what the screen shows, and it set the cursor before initializing the LCD. On 21 Nov, with initialization first and six DDRAM writes (codes <span class="nobr">0x00–0x05</span>), my name appeared.</li> </ul> <div class="prj-media"> <figure> <figure> <picture> <source class="responsive-img-srcset" srcset="/cv-blog/assets/img/projects/atmega128/lcd-glyphs.webp" sizes="95vw"></source> <img src="/cv-blog/assets/img/projects/atmega128/lcd-glyphs.webp" width="100%" height="auto" alt="Three 10-by-8 pixel grids that draw the Hangul syllables of the author's name, with the six 8-byte arrays below them" data-zoomable="" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> <figcaption class="prj-caption">The three syllables of my name on <span class="nobr">5 × 8</span> grids, two characters each, and the 48 bytes I typed from them (14 Nov 2019).</figcaption> </figure> </div> <div class="prj-media prj-media-2"> <figure> <figure> <picture> <source class="responsive-img-srcset" srcset="/cv-blog/assets/img/projects/atmega128/lcd-blank-nov14.webp" sizes="95vw"></source> <img src="/cv-blog/assets/img/projects/atmega128/lcd-blank-nov14.webp" width="100%" height="auto" alt="The training kit with its 16-by-2 character LCD lit but blank" data-zoomable="" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> <figcaption class="prj-caption">14 Nov: glyphs in CGRAM, nothing in DDRAM, and the screen stays blank.</figcaption> </figure> <figure> <figure> <picture> <source class="responsive-img-srcset" srcset="/cv-blog/assets/img/projects/atmega128/lcd-name-nov21.webp" sizes="95vw"></source> <img src="/cv-blog/assets/img/projects/atmega128/lcd-name-nov21.webp" width="100%" height="auto" alt="The character LCD showing the author's name in six custom glyphs" data-zoomable="" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> <figcaption class="prj-caption">21 Nov: after six DDRAM writes, the LCD shows 양건모. It matches the bytes cell for cell, including one slip: two rows of the first glyph were typed as 0x0d where the drawing has 0x0e.</figcaption> </figure> </div> <h2 id="reading-the-board-and-the-books">Reading the board and the books</h2> <ul> <li> <strong>The kit’s schematic, block by block.</strong> On 19 Sep I went through the schematic of the lab’s ATmega128 training kit one block at a time: oscillator, reset, analog supply filter, switches, LEDs, and the <span class="nobr">RS-232</span> and USB interfaces. The schematic is the kit’s own sheet (“ATMEGA128KIT”, dated 2010), not my design. My part was a note on what each component does, such as the diode that drains the leftover voltage at <span class="nobr">power-off</span>.</li> <li> <strong>One crystal, followed into the firmware.</strong> My note on the oscillator says the kit uses a 14.7456 MHz crystal to match the serial clock. On 21 Nov I boxed its column in the <span class="nobr">baud-rate</span> table (0.0% error), set UBRR to <span class="nobr">14745600 ÷ (16 × 115200)</span> <span class="nobr">− 1 = 7</span>, and a PC terminal received “Serial Comm Test”.</li> <li> <strong>Sources checked, my own included.</strong> A textbook figure labelled +10 V on an <span class="nobr">RS-232</span> line as mark “0”. I corrected it to space, with mark “1” at the negative level, as in the level table on the same slide. My 21 Nov script said the UCPOL bit is used only in transmit mode; after a question, the 28 Nov talk corrected it: UCPOL is for synchronous mode, where it sets when output data changes and when input data is sampled.</li> </ul> <div class="prj-media prj-media-2"> <figure> <figure> <picture> <source class="responsive-img-srcset" srcset="/cv-blog/assets/img/projects/atmega128/kit-oscillator-reset.webp" sizes="95vw"></source> <img src="/cv-blog/assets/img/projects/atmega128/kit-oscillator-reset.webp" width="100%" height="auto" alt="Slide crop with notes on the crystal oscillator and reset circuits, the datasheet's crystal connection figure and capacitor table with 12 to 22 pF boxed, a reset truth table and a reference reset circuit" data-zoomable="" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> <figcaption class="prj-caption">From my study of the kit’s schematic, 19 Sep 2019: notes on the oscillator and reset circuits, beside the datasheet’s crystal figure with its <span class="nobr">12–22 pF</span> capacitor range boxed, and a reference reset circuit.</figcaption> </figure> <figure> <figure> <picture> <source class="responsive-img-srcset" srcset="/cv-blog/assets/img/projects/atmega128/rs232-correction.webp" sizes="95vw"></source> <img src="/cv-blog/assets/img/projects/atmega128/rs232-correction.webp" width="100%" height="auto" alt="RS-232 level table above a textbook timing figure in which the label at plus 10 volts is corrected from mark to space" data-zoomable="" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> <figcaption class="prj-caption">21 Nov: my <span class="nobr">RS-232</span> level table above a textbook figure I corrected. At +10 V the line is a space (logic 0), not a mark.</figcaption> </figure> </div> <h2 id="debugging-log">Debugging log</h2> <p>Faults from these five months, and how each one was found.</p> <div class="prj-table-wrap prj-debug"><table> <thead><tr> <th>When</th> <th>Symptom</th> <th>How I found it</th> <th>Fix</th> </tr></thead> <tbody> <tr> <td data-label="When"><span class="nobr">Oct. – Nov. 2019</span></td> <td data-label="Symptom">The keypad read only 0 (Oct.); by 7 Nov keys registered, but one press filled all four digits</td> <td data-label="How I found it">Filmed it at each seminar and went back over the scan code: rows driven high instead of low, a <span class="nobr">key-index</span> formula that gave the wrong numbers, and a loop that read a held key on every pass</td> <td data-label="Fix">Fixed the drive level and the index, then added a 0.25 s <span class="nobr">hold-off</span> after each digit (14 Nov)</td> </tr> <tr> <td data-label="When">Nov. 2019</td> <td data-label="Symptom">With the <span class="nobr">hold-off</span>, a key held longer than 0.25 s still repeated</td> <td data-label="How I found it">I said so in the 14 Nov talk, and the seminar asked me to redo the keypad with a trigger</td> <td data-label="Fix">Edge detection: a key counts only when the scan result changes (21 Nov)</td> </tr> <tr> <td data-label="When">Nov. 2019</td> <td data-label="Symptom">My custom characters did not appear; the LCD stayed blank</td> <td data-label="How I found it">The code on my 14 Nov slide wrote the glyphs into CGRAM but no character code into DDRAM, and set the cursor before initialization</td> <td data-label="Fix">Initialized first, then wrote codes <span class="nobr">0x00–0x05</span> to DDRAM; my name appeared (21 Nov)</td> </tr> <tr> <td data-label="When">Nov. 2019</td> <td data-label="Symptom">A textbook figure labelled +10 V on an <span class="nobr">RS-232</span> line as mark “0”</td> <td data-label="How I found it">Checked it against the level table: mark (logic 1) is <span class="nobr">−3 to −25 V</span>, space (logic 0) is <span class="nobr">+3 to +25 V</span> </td> <td data-label="Fix">Corrected the figure on my slide: space at +10 V, mark “1” at the low level</td> </tr> <tr> <td data-label="When">Nov. 2019</td> <td data-label="Symptom">My 21 Nov script said the UCPOL bit is used only in transmit mode</td> <td data-label="How I found it">A question at the seminar, answered on a Q&amp;A slide the next week</td> <td data-label="Fix">Corrected on 28 Nov: UCPOL is for synchronous mode, where it sets when output data changes and when input data is sampled</td> </tr> </tbody> </table></div> <h2 id="seminar-log">Seminar log</h2> <details class="prj-log"> <summary>All 10 seminars, <span class="nobr">Aug. – Dec. 2019</span></summary> <div class="prj-table-wrap"> <table> <thead> <tr> <th>Date</th> <th>Topic</th> </tr> </thead> <tbody> <tr> <td> 2019-08-21 </td> <td>Plan for late summer and fall: the ATmega128 a topic a week, from GPIO and interrupts to timers, LCD, serial, ADC</td> </tr> <tr> <td> 2019-09-19 </td> <td>MCU and ATmega128 architecture; the training kit’s schematic read block by block; first GPIO drills</td> </tr> <tr> <td> 2019-09-26 </td> <td>Twelve slides answering last week’s questions <span class="nobr">(pull-ups,</span> reset diode, port registers); buzzer scale; <span class="nobr">7-segment</span> display</td> </tr> <tr> <td> ≈ 2019-10-10 </td> <td>4×4 keypad scan, still reading only 0; external interrupts; INT0 on a falling edge toggles all eight LEDs</td> </tr> <tr> <td> 2019-11-07 </td> <td>Timer2: <span class="nobr">1-second</span> periods in normal, CTC and <span class="nobr">fast-PWM</span> modes, derived by hand and checked on the scope; keypad still fails</td> </tr> <tr> <td> 2019-11-14 </td> <td>Keypad fixed (drive level, key index, <span class="nobr">hold-off);</span> character LCD driver; six custom glyphs, but the LCD stays blank</td> </tr> <tr> <td> 2019-11-21 </td> <td>Keypad edge detection; my name on the LCD; <span class="nobr">RS-232</span> levels and a corrected textbook figure; USART1 to a PC terminal</td> </tr> <tr> <td> 2019-11-28 </td> <td>When a new OCR2 value takes effect in <span class="nobr">phase-correct</span> PWM, checked on the scope; UCPOL corrected; ADC theory; winter ideas</td> </tr> <tr> <td> 2019-12-19 </td> <td> <span class="nobr">Transmit-complete</span> vs. <span class="nobr">data-register-empty</span> interrupts on the board; parity generator; recap; winter plan on DYNAMIXEL</td> </tr> <tr> <td> 2019-12-24 </td> <td>Revised winter plan; GPIO and interrupt drills, with switch bounce captured on the scope</td> </tr> </tbody> </table> </div> </details> <div class="prj-ko" lang="ko"> <p><strong>한국어 요약</strong></p> <p>2019년 8월부터 12월까지 한국공학대학교 IHLAB 학부연구생으로 ATmega128을 레지스터 수준에서 주변장치 하나씩 익히고, 단계마다 랩 세미나에서 발표했습니다. 타이머 상수는 14.7456 MHz 클럭에서 손으로 계산한 뒤 오실로스코프로 확인했고(일반·CTC·고속 PWM 모드 모두 커서 간격 1.00초), 위상 정정 PWM 출력은 3.61407 kHz로, 클럭에서 예상되는 3614.12 Hz와 일치했습니다. 다만 CTC 설정은 한 카운트가 어긋나 있어서, 슬라이드의 코드대로라면 주기가 1.014초라는 점도 함께 적었습니다.</p> <p>키패드 버그는 네 번의 세미나에 걸쳐 다뤘습니다. 구동 레벨과 키 인덱스를 바로잡았고, 누르고 있는 키가 반복 입력되는 문제는 처음엔 0.25초 지연으로, 다음 주에는 엣지 검출로 해결했습니다. 제 이름은 5×8 글리프 6개(48바이트)로 직접 그려 LCD에 띄웠습니다. 지난 발표에서 받은 질문에는 FEEDBACK 슬라이드 37장으로 답했고, 교재의 <span class="nobr">RS-232</span> 그림 오류도 바로잡았습니다. 학기 말에는 다이나믹셀 로봇팔을 겨울방학 프로젝트로 정했습니다.</p> </div> <nav class="prj-more" aria-label="More projects"> <p class="prj-more-title">More projects</p> <ul> <li> <a href="/cv-blog/projects/person-following-robot/">Person‑Following Robot and Its Boards</a> </li> <li> <a href="/cv-blog/projects/spider-robot/">Legged Robot from Raw Servo Packets</a> </li> <li> <a href="/cv-blog/projects/linear-rail-sync/">Synchronized Twin Linear Rails</a> </li> <li><a href="/cv-blog/projects/">All projects</a></li> </ul> </nav> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Geonmo Yang. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/cv-blog/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/cv-blog/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/cv-blog/assets/al_math/js/mathjax-setup.js"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script src="/cv-blog/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/cv-blog/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/cv-blog/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/cv-blog/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/cv-blog/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/cv-blog/assets/al_img_tools/js/zoom.js"></script> <script defer src="/cv-blog/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/cv-blog/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/cv-blog/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/cv-blog/";
+    },
+  },{id: "nav-publications",
+          title: "publications",
+          description: "Under review, peer-reviewed publications, and patents. * marks equal contribution.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv-blog/publications/";
+          },
+        },{id: "nav-projects",
+          title: "projects",
+          description: "Hands-on work beyond my papers.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv-blog/projects/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "Robust perception &amp;amp; robust state estimation for robots. * co-first author, † co-corresponding author. 한국어 요약은 상단 메뉴의 &quot;한국어&quot; 페이지에 있습니다.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv-blog/cv/";
+          },
+        },{id: "nav-한국어",
+          title: "한국어",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv-blog/ko/";
+          },
+        },{id: "news-joined-sparo-lab-at-inha-university-as-an-integrated-m-s-ph-d-student",
+          title: 'Joined SPARO Lab at Inha University as an integrated M.S.–Ph.D. student.',
+          description: "",
+          section: "News",},{id: "news-team-nerd-four-received-the-excellence-award-at-the-20th-embedded-software-contest-industry-academia-project-track",
+          title: 'Team NeRd Four received the Excellence Award at the 20th Embedded Software Contest...',
+          description: "",
+          section: "News",},{id: "news-sparse-depth-guided-image-enhancement-co-first-author-was-accepted-to-mdpi-sensors",
+          title: 'Sparse depth-guided image enhancement (co-first author) was accepted to MDPI Sensors.',
+          description: "",
+          section: "News",},{id: "news-joint-id-first-author-was-accepted-to-ieee-sensors-journal",
+          title: 'Joint-ID (first author) was accepted to IEEE Sensors Journal.',
+          description: "",
+          section: "News",},{id: "news-received-the-outstanding-research-award-excellence-of-journal-publication-from-the-graduate-school-inha-university",
+          title: 'Received the Outstanding Research Award (Excellence of Journal Publication) from the Graduate School,...',
+          description: "",
+          section: "News",},{id: "news-patent-registered-image-dehazing-system-through-sensor-fusion-kr-10-2673404",
+          title: 'Patent registered: Image Dehazing System through Sensor Fusion (KR 10-2673404).',
+          description: "",
+          section: "News",},{id: "news-joined-riibotics-as-a-research-intern-sep-2024-feb-2025-working-on-robust-lidar-slam-and-localization",
+          title: 'Joined Riibotics as a research intern (Sep. 2024 – Feb. 2025), working on...',
+          description: "",
+          section: "News",},{id: "news-trident-first-author-was-accepted-to-ieee-sensors-journal",
+          title: 'TRIDENT (first author) was accepted to IEEE Sensors Journal.',
+          description: "",
+          section: "News",},{id: "news-polaris-co-author-was-accepted-to-icra-2025",
+          title: 'PoLaRIS (co-author) was accepted to ICRA 2025.',
+          description: "",
+          section: "News",},{id: "news-iml-slam-co-author-received-the-excellent-research-award-kits-2025-spring-conference",
+          title: 'IML-SLAM (co-author) received the Excellent Research Award @ KITS 2025 Spring Conference.',
+          description: "",
+          section: "News",},{id: "news-staticnerf-co-author-was-accepted-to-ieee-robotics-and-automation-letters-ra-l",
+          title: 'StaticNeRF (co-author) was accepted to IEEE Robotics and Automation Letters (RA-L).',
+          description: "",
+          section: "News",},{id: "news-received-the-grand-prize-graduate-research-award-and-an-honorable-mention-graduate-research-presentation-award-inha-university",
+          title: 'Received the Grand Prize, Graduate Research Award and an Honorable Mention, Graduate Research...',
+          description: "",
+          section: "News",},{id: "news-kiss-imu-and-gsat-co-author-were-accepted-to-icra-2026",
+          title: 'KISS-IMU and GSAT (co-author) were accepted to ICRA 2026.',
+          description: "",
+          section: "News",},{id: "news-received-the-silver-prize-at-the-32nd-samsung-humantech-paper-award-mechanical-engineering",
+          title: 'Received the Silver Prize at the 32nd Samsung HumanTech Paper Award (Mechanical Engineering)....',
+          description: "",
+          section: "News",},{id: "news-patent-registered-underwater-image-enhancement-and-depth-estimation-system-kr-10-2928592",
+          title: 'Patent registered: Underwater Image Enhancement and Depth Estimation System (KR 10-2928592).',
+          description: "",
+          section: "News",},{id: "news-kiss-imu-co-author-was-named-an-award-finalist-icra-2026",
+          title: 'KISS-IMU (co-author) was named an award finalist @ ICRA 2026.',
+          description: "",
+          section: "News",},{id: "news-commerge-co-author-was-accepted-to-the-international-journal-of-robotics-research-ijrr",
+          title: 'Commerge (co-author) was accepted to the International Journal of Robotics Research (IJRR).',
+          description: "",
+          section: "News",},{id: "news-skid-slam-co-author-was-accepted-to-ieee-transactions-on-field-robotics",
+          title: 'SKiD-SLAM (co-author) was accepted to IEEE Transactions on Field Robotics.',
+          description: "",
+          section: "News",},{id: "news-our-team-won-2nd-place-out-of-131-teams-at-the-imu-odometry-challenge-iros-2026",
+          title: 'Our team won 2nd place out of 131 teams at the IMU Odometry...',
+          description: "",
+          section: "News",},{id: "projects-atmega128-from-the-registers-up",
+          title: 'ATmega128 from the Registers Up',
+          description: "ATmega128 at register level: timer math checked on the scope, a keypad bug traced over four seminars, Aug. –⁠ Dec. 2019",
+          section: "Projects",handler: () => {
+              window.location.href = "/cv-blog/projects/atmega128/";
+            },},{id: "projects-synchronized-twin-linear-rails",
+          title: 'Synchronized Twin Linear Rails',
+          description: "Two belt rails, two ATmega128s: PID position control, a GPIO handshake, homing and fault recovery, Aug. 2020 –⁠ Feb. 2021",
+          section: "Projects",handler: () => {
+              window.location.href = "/cv-blog/projects/linear-rail-sync/";
+            },},{id: "projects-person-following-robot-and-its-boards",
+          title: 'Person‑Following Robot and Its Boards',
+          description: "Radio‑synced ultrasonic ranging on boards I designed: two fabricated and brought up, three laid out (Mar. 2020 –⁠ Jul. 2021)",
+          section: "Projects",handler: () => {
+              window.location.href = "/cv-blog/projects/person-following-robot/";
+            },},{id: "projects-legged-robot-from-raw-servo-packets",
+          title: 'Legged Robot from Raw Servo Packets',
+          description: "Winter project, Dec. 2019 –⁠ Mar. 2020: a legged robot on DYNAMIXEL servos, packets and kinematics worked out by hand",
+          section: "Projects",handler: () => {
+              window.location.href = "/cv-blog/projects/spider-robot/";
+            },},{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%79%67%6D%37%34%32%32@%67%6D%61%69%6C.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-scholar',
+        title: 'Google Scholar',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://scholar.google.com/citations?user=kiBTkqMAAAAJ", "_blank");
+        },
+      },{
+        id: 'social-orcid',
+        title: 'ORCID',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://orcid.org/0009-0009-1273-9631", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/yang7422", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/geonmoyang7422", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/cv-blog/assets/al_search/js/shortcut-key.js"></script> </body> </html>
