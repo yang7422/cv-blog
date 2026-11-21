@@ -41,6 +41,8 @@ I build **robust perception** and **robust state estimation** for robots that ha
 - **Robust perception** — underwater image enhancement, depth estimation and completion, and uncertainty estimation under scattering and sparse, spatially biased measurements. _(Joint-ID, TRIDENT, PGSPN)_
 - **Robust state estimation** — LiDAR SLAM, localization, and long-term map maintenance in changing environments, from industry R&D to multi-robot field deployments. _(Time-Integrated Occupancy, SKiD-SLAM, Commerge, KISS-IMU)_
 
+{% assign own_talks = site.data.ihlab_seminars | where_exp: "s", "s.project != 'rails'" %}
+
 **Highlights**
 
 - 3 first-author journal papers (IEEE Sensors Journal ×2, MDPI Sensors) and co-authored papers in IJRR, IEEE T-FR, RA-L, and ICRA
@@ -48,6 +50,6 @@ I build **robust perception** and **robust state estimation** for robots that ha
 - 2nd place out of 131 teams, IMU Odometry Challenge @ IROS 2026
 - Silver Prize, 32nd Samsung HumanTech Paper Award (2026) · Grand Prize, Graduate Research Award, Inha University (2026)
 - Research internship at Riibotics (robust LiDAR SLAM & localization) · international collaborations with Stevens Institute of Technology and MIT · industry project with Hyundai E&C
-- Undergraduate research at IHLAB, Tech University of Korea: {{ site.data.ground_up_seminars.size }} weekly lab seminars, from hand-built servo packets to a person-following robot ([project page]({{ '/projects/ground-up-robotics/' | relative_url }}))
+- Undergraduate research at IHLAB, Tech University of Korea: four hands-on projects, from <span class="nobr">register-level</span> firmware to circuit boards I designed and brought up, and {{ own_talks.size }} weekly lab seminars ([projects]({{ '/projects/' | relative_url }}))
 
 🇰🇷 [한국어 소개 페이지]({{ '/ko/' | relative_url }})

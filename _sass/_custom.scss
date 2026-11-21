@@ -105,56 +105,69 @@ html[data-theme="dark"] {
   }
 }
 
-// Project page: Robotics from the Ground Up -------------------------------------------
-// _projects/ground-up-robotics.md. Classes are prefixed gur- (ground-up robotics).
+// Project pages (_projects/*.md) ----------------------------------------------------------
+// Shared by every project page. Classes are prefixed prj-; the timeline markup comes from
+// _includes/prj_timeline.liquid and the session data from _data/ihlab_seminars.yml.
 // Colors come from the theme variables, so light and dark mode follow the site toggle.
 
 // No one-word last lines. "pretty" fixes the end of paragraphs, captions and table cells;
 // "balance" evens out short headings and labels. text-wrap-style leaves text-wrap-mode alone,
 // so .nobr and other nowrap rules still hold. Browsers without it keep the default wrapping.
 // The page layout has no page class, so :has() picks the post that holds the stat tiles.
-.post:has(.gur-stats) {
+.post:has(.prj-stats) {
   text-wrap-style: pretty;
 
   h1,
   h2,
   h3,
-  .gur-stat-label {
+  .prj-stat-label {
     text-wrap-style: balance;
   }
 }
 
-// Project cards on /projects/, same rules ("Robotics from the Ground Up" left "Up" alone at 820px).
+// Project cards on /projects/: the same wrapping rules. The stock card title is 2rem, which split
+// titles into three or four lines in the three-column grid, so it is smaller here.
 .projects .card-body {
   text-wrap-style: pretty;
 }
 
 .projects .card-title {
+  font-size: 1.35rem;
+  line-height: 1.3;
   text-wrap-style: balance;
 }
 
 // Stat tiles: the number leads, the label explains it.
-.gur-stats {
+.prj-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
   gap: 0.75rem;
   margin: 1.25rem 0 1.5rem;
 }
 
-.gur-stat {
+.prj-stat {
   border: 1px solid var(--global-divider-color);
   border-radius: 0.5rem;
   padding: 0.7rem 0.9rem 0.75rem;
 }
 
-.gur-stat-value {
+.prj-stat-value {
   display: block;
   font-size: 1.9rem;
   font-weight: 600;
   line-height: 1.15;
+  white-space: nowrap; // "99.794 mm" broke inside "mm" in a narrow tile
 }
 
-.gur-stat-label {
+// The unit after a stat number, smaller so the value fits a phone-width tile
+.prj-unit {
+  margin-left: 0.08em;
+  font-size: 0.6em;
+  font-weight: 500;
+  color: inherit;
+}
+
+.prj-stat-label {
   display: block;
   font-size: 0.85rem;
   line-height: 1.35;
@@ -162,7 +175,7 @@ html[data-theme="dark"] {
 }
 
 // "How I work" cards: one column on phones, 2 × 2 from 768px
-.gur-traits {
+.prj-traits {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.9rem 1.25rem;
@@ -170,12 +183,12 @@ html[data-theme="dark"] {
 }
 
 @media (min-width: 768px) {
-  .gur-traits {
+  .prj-traits {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-.gur-trait {
+.prj-trait {
   border-left: 3px solid var(--global-theme-color);
   padding: 0.15rem 0 0.15rem 0.85rem;
 
@@ -193,7 +206,7 @@ html[data-theme="dark"] {
 // Seminar timeline: one square per seminar, one column per week. Wide screens show the
 // annotated SVG; below 768px it would need scrolling, so a full-width bar strip and a short
 // list (phases, milestones) take its place.
-.gur-timeline {
+.prj-timeline {
   margin: 0.5rem 0 0.25rem;
 
   svg {
@@ -208,25 +221,25 @@ html[data-theme="dark"] {
   }
 }
 
-.gur-tl-wide {
+.prj-tl-wide {
   height: auto;
 }
 
-// Two classes, to beat ".gur-timeline svg { display: block }" above.
-.gur-timeline .gur-tl-narrow,
-.gur-timeline .gur-tl-legend {
+// Two classes, to beat ".prj-timeline svg { display: block }" above.
+.prj-timeline .prj-tl-narrow,
+.prj-timeline .prj-tl-legend {
   display: none;
 }
 
-.gur-tl-narrow {
+.prj-tl-narrow {
   height: 2.75rem;
 
-  .gur-cell.is-active {
+  .prj-cell.is-active {
     vector-effect: non-scaling-stroke;
   }
 }
 
-.gur-tl-legend {
+.prj-tl-legend {
   margin: 0.6rem 0 0;
   padding-left: 1.2rem;
   font-size: 0.85rem;
@@ -247,46 +260,46 @@ html[data-theme="dark"] {
 }
 
 @media (max-width: 767.98px) {
-  .gur-timeline .gur-tl-wide {
+  .prj-timeline .prj-tl-wide {
     display: none;
   }
 
-  .gur-timeline .gur-tl-narrow,
-  .gur-timeline .gur-tl-legend {
+  .prj-timeline .prj-tl-narrow,
+  .prj-timeline .prj-tl-legend {
     display: block;
   }
 }
 
-.gur-cell {
+.prj-cell {
   fill: var(--global-theme-color);
 }
 
-.gur-cell.is-active {
+.prj-cell.is-active {
   stroke: var(--global-text-color);
   stroke-width: 1.5;
 }
 
-.gur-empty {
+.prj-empty {
   fill: var(--global-divider-color);
 }
 
-.gur-rule {
+.prj-rule {
   stroke: var(--global-text-color-light);
   stroke-width: 1;
   fill: none;
 }
 
-.gur-text {
+.prj-text {
   fill: var(--global-text-color);
   font-size: 12px;
 }
 
-.gur-text-muted {
+.prj-text-muted {
   fill: var(--global-text-color-light);
   font-size: 11px;
 }
 
-.gur-tip {
+.prj-tip {
   position: fixed;
   z-index: 1080;
   max-width: 18rem;
@@ -301,26 +314,26 @@ html[data-theme="dark"] {
   pointer-events: none;
 }
 
-.gur-tip-date {
+.prj-tip-date {
   color: var(--global-text-color-light);
   font-size: 0.75rem;
 }
 
-.gur-caption {
+.prj-caption {
   font-size: 0.85rem;
   color: var(--global-text-color-light);
 }
 
 // al-folio gives every span the body text color; inside the gray captions and stat
 // labels, the .nobr spans should stay gray like the words around them.
-.gur-caption span,
-.gur-stat-label span,
-.gur-table-wrap span {
+.prj-caption span,
+.prj-stat-label span,
+.prj-table-wrap span {
   color: inherit;
 }
 
 // Media: a looping clip and zoomable slide images, two per row from 768px.
-.gur-media {
+.prj-media {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.75rem;
@@ -339,13 +352,13 @@ html[data-theme="dark"] {
 }
 
 @media (min-width: 768px) {
-  .gur-media.gur-media-2 {
+  .prj-media.prj-media-2 {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 // Debugging log table and the full seminar log
-.gur-table-wrap {
+.prj-table-wrap {
   overflow-x: auto;
   margin: 0.75rem 0 1.5rem;
 
@@ -364,7 +377,7 @@ html[data-theme="dark"] {
 
 // Debugging log: one card per row below 768px, each value under its column name.
 @media (max-width: 767.98px) {
-  .gur-debug {
+  .prj-debug {
     thead {
       display: none;
     }
@@ -400,7 +413,7 @@ html[data-theme="dark"] {
   }
 }
 
-.gur-log {
+.prj-log {
   summary {
     cursor: pointer;
     font-weight: 500;
@@ -411,9 +424,31 @@ html[data-theme="dark"] {
   }
 }
 
-.gur-ko {
+.prj-ko {
   margin-top: 2rem;
   padding: 0.9rem 1.1rem;
   border-radius: 0.5rem;
   background: var(--global-code-bg-color);
+}
+
+// "More projects" links at the end of each project page (_includes/prj_more.liquid)
+.prj-more {
+  margin-top: 2rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--global-divider-color);
+  font-size: 0.92rem;
+
+  .prj-more-title {
+    margin-bottom: 0.35rem;
+    color: var(--global-text-color-light);
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 }

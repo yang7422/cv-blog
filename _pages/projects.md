@@ -8,6 +8,9 @@ nav_order: 2
 horizontal: false
 ---
 
+{% assign own_talks = site.data.ihlab_seminars | where_exp: "s", "s.project != 'rails'" %}
+<p class="prj-intro">Undergraduate research at IHLAB, Tech University of Korea, <span class="nobr">Aug.&nbsp;2019 – Jul.&nbsp;2021</span>: {{ own_talks.size }} weekly lab seminars, from <span class="nobr">register-level</span> firmware to circuit boards I designed and brought&nbsp;up.</p>
+
 <!-- pages/projects.md -->
 <div class="projects">
 {% if site.enable_project_categories and page.display_categories %}
@@ -54,7 +57,7 @@ horizontal: false
     </div>
   </div>
   {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
+  <div class="row row-cols-1 row-cols-md-2">
     {% for project in sorted_projects %}
       {% include projects.liquid %}
     {% endfor %}

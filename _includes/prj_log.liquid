@@ -1,0 +1,46 @@
+{%- comment -%}
+  The full session log of a project page, as a collapsed table.
+  Parameters
+    sessions  array from _data/ihlab_seminars.yml (date, topic, approx), in date order
+    summary   text of the <summary> line, e.g. "All 16 seminars, Dec. 2019 – Mar. 2020"
+  Words with a hyphen or a dash stay whole, and a number stays on the line of its unit or arrow.
+{%- endcomment -%}
+<details class="prj-log">
+  <summary>{{ include.summary }}</summary>
+  <div class="prj-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Topic</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%- assign units = 'ms|µs|cm|mm|m|MHz|kHz|Hz|V|Vpp|kΩ|%|Mbit/s|→|A|mil|°' | split: '|' -%}
+        {%- for s in include.sessions -%}
+          <tr>
+            <td>
+              {% if s.approx %}≈&#8239;{% endif -%}
+              {{- s.date | date: '%Y-%m-%d' }}
+            </td>
+            <td>
+              {%- assign words = s.topic | split: ' ' -%}
+              {%- for w in words -%}
+                {%- if w contains '-' or w contains '–' -%}
+                  <span class="nobr">{{ w | escape }}</span>
+                {%- else -%}
+                  {{ w | escape }}
+                {%- endif -%}
+                {%- unless forloop.last -%}
+                  {%- assign nw = words[forloop.index] | remove: ',' | remove: ';' | remove: ')' | remove: ':' | remove: '.' -%}
+                  {%- comment -%} also glue the last two words, so no cell ends with a one-word line {%- endcomment -%}
+                  {%- if units contains nw or w == '→' or forloop.rindex == 2 -%}&nbsp;{%- else -%}{{ ' ' }}{%- endif -%}
+                {%- endunless -%}
+              {%- endfor -%}
+            </td>
+          </tr>
+        {%- endfor -%}
+      </tbody>
+    </table>
+  </div>
+</details>
