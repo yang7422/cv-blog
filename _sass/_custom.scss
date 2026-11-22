@@ -396,6 +396,36 @@ html[data-theme="dark"] {
   }
 }
 
+// Images side by side at one height, each kept as its own file at its original size, so zooming
+// one shows it in full. Each item's flex-grow is set inline to its image's width / height.
+.prj-row {
+  display: flex;
+  gap: 0.4rem;
+  align-items: flex-start;
+
+  > div {
+    min-width: 0;
+  }
+
+  + .prj-row {
+    margin-top: 0.4rem;
+  }
+}
+
+// YouTube video (youtube-nocookie embed), full column width at 16:9
+.prj-embed {
+  margin: 0.75rem 0 1.25rem;
+
+  iframe {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 0.4rem;
+  }
+}
+
 // Debugging log table and the full seminar log
 .prj-table-wrap {
   overflow-x: auto;
