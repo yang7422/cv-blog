@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Person‑Following Robot and Its Boards
-description: "Radio‑synced ultrasonic ranging on boards I designed: two assembled by hand and brought up, three laid out (Mar. 2020 –⁠ Jul. 2021)"
+description: "Radio‑synced ultrasonic ranging and five boards I designed and built: two in 2020, three for the graduation project (Mar. 2020 –⁠ Oct. 2021)"
 img: assets/img/projects/person-following-robot/thumb.webp
 importance: 1
 ---
@@ -10,11 +10,11 @@ importance: 1
 
 {%- assign sessions = site.data.ihlab_seminars | where: 'project', 'follow' -%}
 
-As an undergraduate researcher at IHLAB (Tech University of Korea), I developed the sensing side of a robot that follows a person, from Mar.&nbsp;2020 to Jul.&nbsp;2021. The person carries a small transmitter, and a radio message tells the robot when its 40&nbsp;kHz ultrasonic burst leaves, so every receiver on the robot times a <span class="nobr">one-way</span> flight. In 2020 this following unit was my own project, including two boards I designed, assembled by hand once the bare PCBs arrived, and brought up. In 2021 it became my part of a <span class="nobr">three-person</span> graduation project, a <span class="nobr">material-transport</span> robot for construction sites, and I laid out three more boards for&nbsp;it.
+As an undergraduate researcher at IHLAB (Tech University of Korea), I developed the sensing side of a robot that follows a person, from Mar.&nbsp;2020 to Oct.&nbsp;2021. The person carries a small transmitter, and a radio message tells the robot when its 40&nbsp;kHz ultrasonic burst leaves, so every receiver on the robot times a <span class="nobr">one-way</span> flight. Because every range rests on that timing, I accounted for the radio's latency and kept the transmitter and receivers in sync, which let the robot locate the person precisely and follow them accurately. In 2020 this following unit was my own project, including two boards I designed, assembled by hand once the bare PCBs arrived, and brought up. In 2021 it became my part of a <span class="nobr">three-person</span> graduation project, a <span class="nobr">material-transport</span> robot for construction sites, and I designed and built three more boards for&nbsp;it.
 
 <div class="prj-stats">
   <div class="prj-stat"><span class="prj-stat-value">{{ sessions.size }}</span><span class="prj-stat-label">lab seminars, <span class="nobr">Mar.&nbsp;2020 – Jul.&nbsp;2021</span></span></div>
-  <div class="prj-stat"><span class="prj-stat-value">5</span><span class="prj-stat-label">boards I designed: 2 <span class="nobr">hand-assembled</span> and brought up, 3 laid&nbsp;out</span></div>
+  <div class="prj-stat"><span class="prj-stat-value">5</span><span class="prj-stat-label">boards I designed and built: 2&nbsp;<span class="nobr">hand-assembled</span> and brought&nbsp;up, 3&nbsp;for the graduation&nbsp;project</span></div>
   <div class="prj-stat"><span class="prj-stat-value">84<span class="prj-unit">µs</span></span><span class="prj-stat-label">trigger skew between transmitter and receiver after tuning, down from 428&nbsp;µs</span></div>
   <div class="prj-stat"><span class="prj-stat-value">519</span><span class="prj-stat-label">radio exchanges logged to check the <span class="nobr">lost-packet</span>&nbsp;handling</span></div>
 </div>
@@ -36,7 +36,7 @@ As an undergraduate researcher at IHLAB (Tech University of Korea), I developed 
   </div>
   <div class="prj-trait">
     <strong>Dead ends on record</strong>
-    <p>Even with echo amplitudes matched, a 90° <span class="nobr">wide-angle</span> receiver returned data only at <span class="nobr">25–45&nbsp;cm</span> with our transmitter. I measured why (≈57 vs. ≈3.8&nbsp;Vpp drive, different attenuation) and kept the old receivers. Vertical localization failed beyond about 10°, and the three 2021 boards stayed&nbsp;layouts.</p>
+    <p>Even with echo amplitudes matched, a 90° <span class="nobr">wide-angle</span> receiver returned data only at <span class="nobr">25–45&nbsp;cm</span> with our transmitter. I measured why (≈57 vs. ≈3.8&nbsp;Vpp drive, different attenuation) and kept the old receivers. Vertical localization failed beyond about&nbsp;10°.</p>
   </div>
 </div>
 
@@ -51,7 +51,7 @@ As an undergraduate researcher at IHLAB (Tech University of Korea), I developed 
 - **Two boards, designed, <span class="nobr">hand-assembled</span> and brought up.** In Jul.&nbsp;2020 I analyzed the lab's earlier RF board and a revision of its power and radio sections, then drew the <span class="nobr">robot-side</span> receiver board in OrCAD Capture and OrCAD Layout, through at least four layout versions; a handheld transmitter board followed. Both are <span class="nobr">2-layer</span> boards around an STM32F405RG with an nRF24L01+ radio header; once the bare PCBs were fabricated, I soldered the parts on by hand. The <span class="nobr">robot-side</span> board takes 24&nbsp;V through a polyfuse and a series Schottky diode into an <span class="nobr">LM2576S-5</span> buck and an <span class="nobr">LM1117-3.3</span>, and adds <span class="nobr">RS-485</span>, a buzzer driver and four ultrasonic ports. I also compiled a <span class="nobr">26-slide</span> OrCAD guide: its layout rules are shown on my own boards, and 7 of its slides come from an external&nbsp;tutorial.
 - **Sized for current, checked before fabrication.** I sized the traces with an <span class="nobr">IPC-2221</span> calculator: 30.8&nbsp;mil for 1&nbsp;A at a 10&nbsp;°C rise, its <span class="nobr">internal-layer</span> result, which errs wide on a <span class="nobr">2-layer</span> board. I enlarged the vias from 0.762/0.381 to 1.000/0.700&nbsp;mm pad/drill, which leaves exactly the fab house's 0.15&nbsp;mm minimum annular ring. After the lab's review I renumbered a <span class="nobr">10-pin</span> header footprint that had been numbered like a DIP&nbsp;part.
 - **<span class="nobr">Bring-up</span>, measured.** The handheld board's <span class="nobr">ST-LINK</span> would not attach because I had left target VCC off the ISP header; a bodge wire to MCU_VDD fixed it. Its 3.3&nbsp;V rail read 2.8&nbsp;V because the LM1117 needs at least 4.75&nbsp;V and the battery gives 3.8&nbsp;V, so I switched to an AME8801AEEV <span class="nobr">low-dropout</span> regulator. On the <span class="nobr">robot-side</span> board I fitted the buck converter's input capacitors in four combinations and scoped the rail each time: only both together gave a clean&nbsp;rail.
-- **<span class="nobr">Add-ons</span>, then three more layouts.** In Nov.&nbsp;2020 I designed two perfboard <span class="nobr">add-ons</span> for a <span class="nobr">wide-beam</span> transducer: a <span class="nobr">single-transistor</span> level shifter for its <span class="nobr">4–5&nbsp;V</span> trigger input, and an <span class="nobr">LM2940CS-12</span> regulator soldered onto the <span class="nobr">robot-side</span> board, because at 5&nbsp;V the transducer fell far short of 3&nbsp;m. For the graduation project I laid out three more boards by Jul.&nbsp;2021; none of them was&nbsp;fabricated.
+- **<span class="nobr">Add-ons</span>, then three more boards.** In Nov.&nbsp;2020 I designed two perfboard <span class="nobr">add-ons</span> for a <span class="nobr">wide-beam</span> transducer: a <span class="nobr">single-transistor</span> level shifter for its <span class="nobr">4–5&nbsp;V</span> trigger input, and an <span class="nobr">LM2940CS-12</span> regulator soldered onto the <span class="nobr">robot-side</span> board, because at 5&nbsp;V the transducer fell far short of 3&nbsp;m. For the graduation project I designed three more boards, laid them out by Jul.&nbsp;2021 and then built&nbsp;them.
 
 <div class="prj-media">
   <figure>
@@ -98,7 +98,7 @@ As an undergraduate researcher at IHLAB (Tech University of Korea), I developed 
   </figure>
   <figure>
     {% include figure.liquid path="assets/img/projects/person-following-robot/layouts-2021.webp" alt="Three PCB layouts: a dense controller board with dimension lines, a handheld target board, and a wide remote-control board with dimension lines" zoomable=true %}
-    <figcaption class="prj-caption">The three boards I laid out for the graduation project (Jul.&nbsp;2021), not to scale: the STM32F429 following controller (<span class="nobr">80.797 × 74.435&nbsp;mm</span>), the handheld target and the manual remote (<span class="nobr">134.880 × 77.630&nbsp;mm</span>). None of them was&nbsp;fabricated.</figcaption>
+    <figcaption class="prj-caption">The three boards I designed for the graduation project, as laid out in Jul.&nbsp;2021 (not to scale): the STM32F429 following controller (<span class="nobr">80.797 × 74.435&nbsp;mm</span>), the handheld target and the manual remote (<span class="nobr">134.880 × 77.630&nbsp;mm</span>). I built all three&nbsp;afterwards.</figcaption>
   </figure>
 </div>
 
@@ -289,7 +289,7 @@ Some of the faults I tracked down, and how I found them.
 
 <div class="prj-ko" lang="ko">
 <p><strong>한국어 요약</strong></p>
-<p>2020년&nbsp;3월부터 2021년&nbsp;7월까지 사람을 따라가는 로봇의 추종부를 맡았습니다. 사람이 든 송신기가 초음파를 쏘는 순간을 RF로 알려 주면, 로봇의 수신기가 단방향 비행시간으로 거리와 방향을 구하는 방식입니다. 2020년에는 이 추종부가 제 개인 과제였고, STM32F405 보드 두&nbsp;장을 OrCAD로 설계하고, 제작된 기판에 부품을 직접 납땜해 조립한 뒤 브링업까지 했습니다. 2021년에는 3명이 함께한 졸업작품에서 건설 현장용 자재 운반 로봇의 추종 시스템을 맡아 보드 세&nbsp;장을 더 설계해 레이아웃까지 마쳤지만, 제작하지는&nbsp;않았습니다.</p>
+<p>2020년&nbsp;3월부터 2021년&nbsp;10월까지 사람을 따라가는 로봇의 추종부를 맡았습니다. 사람이 든 송신기가 초음파를 쏘는 순간을 RF로 알려 주면, 로봇의 수신기가 단방향 비행시간으로 거리와 방향을 구하는 방식입니다. RF 통신의 지연 시간과 송수신 센서 간 동기화까지 고려해 사람의 위치를 정밀하게 추정했고, 이를 바탕으로 정확한 추종 시스템을 구현했습니다. 2020년에는 이 추종부가 제 개인 과제였고, STM32F405 보드 두&nbsp;장을 OrCAD로 설계하고, 제작된 기판에 부품을 직접 납땜해 조립한 뒤 브링업까지 했습니다. 2021년에는 3명이 함께한 졸업작품에서 건설 현장용 자재 운반 로봇의 추종 시스템을 맡아 보드 세&nbsp;장을 더 설계하고 직접&nbsp;제작했습니다.</p>
 <p>결과는 실측과 비교해 확인했습니다. 바닥에 깐 종이와 10&nbsp;cm 격자판 위에서 목표 위치를 정하고 오실로스코프로 타이밍을 쟀으며, 수신기를 비스듬히 다시 단 뒤에는 100·150&nbsp;cm에서 <span class="nobr">0–40°</span> 전 구간이 거리 3.6&nbsp;cm, 각도 2°&nbsp;이내로 들어왔습니다. 무선 패킷 손실 처리는 519회 교환으로 확인했고(첫 시도 성공 492회), 문제는 필터로 덮기보다 반사파, 폴링 루프 안의 디버그 출력, 올라가지 않은 CE 핀처럼 원인을 찾아 고쳤습니다. 90° 광각 수신기 실패와 10°&nbsp;이상에서 무너진 상하 위치 추정처럼 막힌 길도 그대로&nbsp;기록했습니다.</p>
 </div>
 

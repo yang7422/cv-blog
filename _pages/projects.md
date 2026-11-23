@@ -9,7 +9,7 @@ horizontal: false
 ---
 
 {% assign own_talks = site.data.ihlab_seminars | where_exp: "s", "s.project != 'rails'" %}
-<p class="prj-intro">Undergraduate research at IHLAB, Tech University of Korea, <span class="nobr">Aug.&nbsp;2019 – Jul.&nbsp;2021</span>: {{ own_talks.size }} weekly lab seminars, from <span class="nobr">register-level</span> firmware to circuit boards I designed and brought&nbsp;up.</p>
+<p class="prj-intro">Undergraduate research at IHLAB, <span class="nobr">Tech University of Korea</span>: {{ own_talks.size }} weekly lab seminars, <span class="nobr">Aug.&nbsp;2019 – Jul.&nbsp;2021</span>, from <span class="nobr">register-level</span> firmware to circuit boards I&nbsp;designed and brought&nbsp;up.</p>
 
 <!-- pages/projects.md -->
 <div class="projects">
